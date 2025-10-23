@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { FaCalendarDays } from "react-icons/fa6";
-import { FaLocationDot } from "react-icons/fa6";
-import { MdGroups2 } from "react-icons/md";
+
 // import green from "./../public/green rectangle.png"
 
 const Sponsors = () => {

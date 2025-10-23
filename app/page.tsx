@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
+
 import Hero from "@/components/Hero";
-import Background from "@/components/Background";
-import Sponsors from "@/components/Sponsors";
+// import Background from "@/components/Background";
+// import Sponsors from "@/components/Sponsors";
 // import balls from "@/public/balls.png";
 import { Space_Grotesk } from "next/font/google";
 import Link from "next/link";
@@ -13,8 +13,6 @@ import { MdGroups2 } from "react-icons/md";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FaBullseye } from "react-icons/fa6";
-import { GoTelescope } from "react-icons/go";
 import { BsTrophy } from "react-icons/bs";
 import { GiTennisBall } from "react-icons/gi";
 import { PiCertificate } from "react-icons/pi";
@@ -173,8 +171,36 @@ export default function Page() {
   return (
     <div className="min-h-screen">
       <Hero />
+      <div className="
+        absolute top-[520px] md:top-[520px] lg:top-[60px] w-full 
+        bg-green-100
+        left-1/2 -translate-x-1/2
+        
+        shadow-[0_18px_40px_rgba(0,0,0,0.22)]
+        mx-auto
+        min-h-[1200px]
+      ">
+          <div className="
+        absolute top-20 md:top-30 lg:top-40 w-full 
+        bg-[#40A700]
+        rounded-[40px]
+        shadow-[0_18px_40px_rgba(0,0,0,0.22)]
+        mx-auto
+        min-h-[1200px]
+      ">
+          <div className="
+        absolute top-5  w-full 
+        bg-white
+        rounded-[40px]
+        shadow-[0_18px_40px_rgba(0,0,0,0.22)]
+        mx-auto
+        min-h-[1200px]
+      "></div>
+      </div>
+      </div>
 
-      <Background></Background>
+
+      {/* <Background></Background> */}
 
       <section className=" relative py-12 bottom-10 md:bottom-8 lg:bottom-15  w-full ">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -273,11 +299,11 @@ export default function Page() {
     {/* Stats Row */}
     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
       <div className="text-center">
-        <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">500+</div>
+        <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">100+</div>
         <div className="text-gray-600">Coaches</div>
       </div>
       <div className="text-center">
-        <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">50+</div>
+        <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">30+</div>
         <div className="text-gray-600">Sessions</div>
       </div>
       <div className="text-center">
