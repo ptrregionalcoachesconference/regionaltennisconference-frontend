@@ -172,7 +172,7 @@ export default function Page() {
     <div className="min-h-screen">
       <Hero />
       <div className="
-        absolute top-[520px] md:top-[520px] lg:top-[60px] w-full 
+        absolute top-[520px] md:top-[520px] lg:top-[600px] w-full 
         bg-green-100
         left-1/2 -translate-x-1/2
         
@@ -181,7 +181,7 @@ export default function Page() {
         min-h-[1200px]
       ">
           <div className="
-        absolute top-20 md:top-30 lg:top-40 w-full 
+        absolute top-20 md:top-30 w-full 
         bg-[#40A700]
         rounded-[40px]
         shadow-[0_18px_40px_rgba(0,0,0,0.22)]
