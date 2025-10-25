@@ -13,6 +13,68 @@
 .speed-font {
   font-family: 'Speed', sans-serif;
 }
+
+/* Phone Input Styling */
+.phone-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: white;
+  gap: 0.5rem;
+}
+
+.phone-input-wrapper:focus-within {
+  border-color: #40A700;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(64, 167, 0, 0.1);
+}
+
+/* Country selector */
+.phone-input-wrapper .PhoneInputCountry {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  padding-right: 0.75rem;
+  border-right: 2px solid #e5e7eb;
+}
+
+/* Flag sizing - THIS IS KEY */
+.phone-input-wrapper .PhoneInputCountryIcon {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  font-size: 1.5rem !important;
+  line-height: 1;
+}
+
+.phone-input-wrapper .PhoneInputCountryIcon img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+}
+
+/* Dropdown arrow */
+.phone-input-wrapper .PhoneInputCountrySelectArrow {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: 0.25rem;
+  opacity: 0.5;
+}
+
+/* Input field */
+.phone-input-wrapper .PhoneInputInput {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  flex: 1;
+  background: transparent;
+  width: 100%;
+}
+
+.phone-input-wrapper .PhoneInputInput::placeholder {
+  color: #9ca3af;
+}
 /* 
 ---break--- */
 @custom-variant dark (&:is(.dark *));

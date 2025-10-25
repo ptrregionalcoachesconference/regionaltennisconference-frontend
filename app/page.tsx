@@ -407,7 +407,7 @@ export default function Page() {
                 key={index}
                 className={`rounded-2xl transition-all ${
                   plan.recommended
-                    ? "bg-[#71E529] text-white shadow-2xl scale-105 md:scale-110"
+                    ? "bg-[#71E529] text-black shadow-2xl scale-105 md:scale-110"
                     : "bg-gray-50 border border-border hover:shadow-lg"
                 }`}
               >
@@ -419,7 +419,7 @@ export default function Page() {
                 <div className="p-8">
                   <h3
                     className={`text-2xl font-bold mb-2 ${
-                      plan.recommended ? "text-white" : "text-foreground"
+                      plan.recommended ? "text-black" : "text-foreground"
                     }`}
                   >
                     {plan.name}
@@ -427,7 +427,7 @@ export default function Page() {
                   <div className="mb-8">
                     <span
                       className={`text-5xl font-black ${
-                        plan.recommended ? "text-white" : "text-[#71E529]"
+                        plan.recommended ? "text-black" : "text-[#71E529]"
                       }`}
                     >
                       ${plan.price}
@@ -435,7 +435,7 @@ export default function Page() {
                     <span
                       className={
                         plan.recommended
-                          ? "text-green-100"
+                          ? "text-black"
                           : "text-muted-foreground"
                       }
                     >
@@ -464,7 +464,7 @@ export default function Page() {
                         <span
                           className={
                             plan.recommended
-                              ? "text-green-50"
+                              ? "text-black"
                               : "text-foreground"
                           }
                         >

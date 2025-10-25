@@ -13,8 +13,8 @@ const Footer = () => {
       path: "/about",
     },
     {
-      name: "Schedule",
-      path: "/schedule",
+      name: "Program",
+      path: "/program",
     },
   ];
 
@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-8">
           <div>
             <div className=" justify-center ">
-              <Image src="/Green+.png" alt="logo" width={100} height={100} />
+              <Image src="/Green+.png" alt="logo" width={100} height={100} className="object-cover w-auto" />
             </div>
           </div>
           <div>
