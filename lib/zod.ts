@@ -14,7 +14,7 @@ export const registerSchema = z.object({
     //     error: () => ({ message: "Please Select a Gender" })
     // }),
     gender: z.string().min(1, "Please Select a Gender",),
-    ticketType: z.string().min(1, "Please Select a Ticket Type"),
+    // ticketType: z.string().min(1, "Please Select a Ticket Type"),
     // ticketType: z.enum(["standard", "vip", "vvip"] as const, {
     //     error: () => ({ message: "Please Select a Ticket Type" })
     // })

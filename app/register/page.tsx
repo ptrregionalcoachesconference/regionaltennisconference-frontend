@@ -35,7 +35,7 @@ interface RegisterFormData {
   phoneNumber: string;
   country: string;
   contactAddress: string;
-  ticketType: string;
+  // ticketType: string;
 }
 
 const Page = () => {
@@ -51,10 +51,10 @@ const Page = () => {
       phoneNumber: "",
       country: "",
       contactAddress: "",
-      ticketType: "",
+      // ticketType: "",
     },
   });
-  // console.log(errors);
+  
 
   const onSubmit: SubmitHandler<RegisterFormData> = (data) => console.log("Form Data:",data);
 
@@ -127,17 +127,17 @@ const onError = (errors: FieldErrors<RegisterFormData>) => {
       placeholder: "Enter your contact address",
       // required: true,
     },
-    {
-      id: "ticketType",
-      label: "Select Ticket Type",
-      type: "select",
-      placeholder: "Select Ticket Type",
-      selectItems: ["Standard - $50", "Vip - $100", "VVIP - $200"],
-    },
+    // {
+    //   id: "ticketType",
+    //   label: "Select Ticket Type",
+    //   type: "select",
+    //   placeholder: "Select Ticket Type",
+    //   selectItems: ["Standard - $50", "Vip - $100", "VVIP - $200"],
+    // },
   ];
   return (
-    <div className="min-h-screen">
-      <div className="py-20">
+    <div className="min-h-screen overflow-x-hidden">
+      <div className="py-20 ">
         <div className=" mx-auto text-center space-y-4 mb-12 px-4 sm:px-6 lg:px-8">
           <h3 className="text-3xl md:text-5xl font-bold">
             REGISTER FOR THE CONFERENCE TODAY!!!
@@ -146,24 +146,24 @@ const onError = (errors: FieldErrors<RegisterFormData>) => {
         </div>
 
         {/* two column */}
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
             {/* image side */}
             {/* relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[900px] overflow-hidden rounded-2xl */}
-            <div className="relative w-full overflow-x-hidden h-[250px] md:h-[350px] xl:h-[600px] lg:h-[900px] rounded-2xl">
+            <div className="relative w-full h-[250px] md:h-[350px] lg:h-[900px] rounded-2xl overflow-hidden">
               <Image
                 src="/register.jpg"
                 alt="register"
                 fill
-                // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
                 className=" object-cover"
               />
             </div>
             {/* input */}
-            <div>
+            <div className="w-full ">
               <Card className="border-0">
-                <CardHeader>
+                <CardHeader >
                   <CardTitle className="text-lg">
                     Secure your spot today
                   </CardTitle>
@@ -185,7 +185,7 @@ const onError = (errors: FieldErrors<RegisterFormData>) => {
                               rules={{ required: `${info.label} is required` }}
                               defaultCountry="NG"
                               international
-                              className="phone-input-wrapper"
+                              className="phone-input-wrapper w-full"
                             />
                           </div>
                         ) : // select dropdown
