@@ -1,10 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Logo from "@/components/Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
-// import Navitems from "@/components/Navitems";
 import { IoMenu } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
@@ -25,11 +24,11 @@ const Navbar = () => {
       dropdown: [
         {
           name: "Speakers",
-          path: "/program/speakers",
+          path: "/program#speakers",
         },
         {
           name: "Schedule",
-          path: "/program/schedule",
+          path: "/program#schedule",
         },
       ],
     },
@@ -42,6 +41,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
+  const [showMobileDropdown, setShowMobileDropdown] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -50,10 +52,34 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // dropdown close when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const isHome = pathname === "/";
+
+  const handleDropdownClick = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleMobileDropdownClick = () => {
+    setShowMobileDropdown(!showMobileDropdown);
+  };
+
   return (
     <nav
-      className={`w-full fixed  top-0 left-0 right-0 z-50 px-6 py-4  transition-all duration-300 ease-in-out ${
+      className={`w-full fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300 ease-in-out ${
         isScrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
@@ -63,48 +89,48 @@ const Navbar = () => {
           <Logo />
         </div>
         {/* desktop navigation */}
-        <ul className="hidden md:flex  space-x-8 items-center ">
+        <ul className="hidden md:flex space-x-8 items-center">
           {links.map((link, index) => {
             const isActive: boolean = pathname === link.path;
             const textColor =
               isScrolled || !isHome ? "text-black" : "text-white";
+
             if (link.dropdown) {
               return (
-                <li
-                  key={index}
-                  className="relative group cursor-pointer"
-                  onMouseEnter={() => setShowDropdown(true)}
-                  onMouseLeave={() => setShowDropdown(false)}
-                >
+                <li key={index} className="relative" ref={dropdownRef}>
                   <div
-                    className={`flex items-center space-x-1 ${
-                      isScrolled ? "text-black" : "text-white"
-                    } hover:text-[#40A700]`}
+                    className={`flex items-center space-x-1 cursor-pointer ${textColor} hover:text-[#40A700] transition-colors`}
+                    onClick={handleDropdownClick}
                   >
-                    <Link
-                      href={link.path}
-                      className={`${textColor} hover:text-[#40A700] transition-colors ${
+                    <span
+                      className={`${
                         isActive
                           ? "underline underline-offset-8 decoration-[#40A700]"
                           : ""
                       }`}
                     >
                       {link.name}
-                    </Link>
-
+                    </span>
                     <RiArrowDropDownLine
-                      className="text-xl"
-                      onClick={() => setShowDropdown(!showDropdown)}
+                      className={`text-xl transition-transform duration-300 ${
+                        showDropdown ? "rotate-180" : ""
+                      }`}
                     />
                   </div>
 
-                  {/* dropdown items */}
-                  <ul className="absolute left-0 mt-2 hidden w-40 bg-white text-black rounded-lg shadow-lg group-hover:block">
+                  {/* dropdown with animation */}
+                  <ul
+                    className={`absolute left-0 mt-2 w-40 bg-white text-black rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out origin-top ${
+                      showDropdown
+                        ? "opacity-100 scale-y-100 visible"
+                        : "opacity-0 scale-y-0 invisible"
+                    }`}
+                  >
                     {link.dropdown.map((item, i) => (
                       <li key={i}>
                         <Link
                           href={item.path ?? "#"}
-                          className="block px-4 py-2 hover:bg-gray-200"
+                          className="block px-4 py-2 hover:bg-gray-200 transition-colors"
                           onClick={() => setShowDropdown(false)}
                         >
                           {item.name}
@@ -118,10 +144,9 @@ const Navbar = () => {
             return (
               <li
                 key={index}
-                className={`group ${textColor}  ${
-                  isActive && `underline underline-offset-8  decoration-white`
-                } ${
-                  link.name === "Register" ? " text-[#40A700]  rounded-lg" : ""
+                className={`${textColor} hover:text-[#40A700] transition-colors ${
+                  isActive &&
+                  `underline underline-offset-8 decoration-[#40A700]`
                 }`}
               >
                 <Link href={link.path}>{link.name}</Link>
@@ -132,7 +157,13 @@ const Navbar = () => {
 
         <div className="hidden md:block">
           <Link href="/register">
-            <Button className="bg-white text-[#40A700] hover:bg-accent">
+            <Button
+              className={` ${
+                isScrolled
+                  ? "bg-[#40A700] text-white"
+                  : "bg-white text-[#40A700]"
+              }`}
+            >
               Register
             </Button>
           </Link>
@@ -153,22 +184,64 @@ const Navbar = () => {
           </Button>
         </div>
       </div>
+
       {/* mobile navigation */}
       {isOpen && (
-        <div className="md:hidden bg-white block mt-3 absolute w-full">
-          <div className="">
-            {links.map((item, index) => (
-              <Link
-                key={index}
-                href={item.path}
-                className="block px-6 py-3 text-black"
-                onClick={() => setIsOpen(false)}
+        <div className="md:hidden bg-white block mt-3 absolute w-full left-0 shadow-lg">
+          <div className="pb-4">
+            {links.map((item, index) => {
+              if (item.dropdown) {
+                return (
+                  <div key={index}>
+                    <div
+                      className="flex items-center justify-between px-6 py-3 text-black cursor-pointer hover:bg-gray-100"
+                      onClick={handleMobileDropdownClick}
+                    >
+                      <span>{item.name}</span>
+                      <RiArrowDropDownLine
+                        className={`text-2xl transition-transform duration-300 ${
+                          showMobileDropdown ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
+                    {/* Mobile dropdown items */}
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        showMobileDropdown ? "max-h-40" : "max-h-0"
+                      }`}
+                    >
+                      {item.dropdown.map((subItem, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          href={subItem.path ?? "#"}
+                          className="block pl-12 pr-6 py-2 text-black hover:bg-gray-100"
+                          onClick={() => {
+                            setIsOpen(false);
+                            setShowMobileDropdown(false);
+                          }}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={index}
+                  href={item.path}
+                  className="block px-6 py-3 text-black hover:bg-gray-100"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+            <Link href="/register" className="block px-6 mt-3">
+              <Button
+                className={`w-full bg-[#40A700] text-white hover:bg-[#359600] `}
               >
-                {item.name}
-              </Link>
-            ))}
-            <Link href="/register">
-              <Button className="w-[90%] mx-auto mt-3 bg-white text-[#40A700] ">
                 Register
               </Button>
             </Link>

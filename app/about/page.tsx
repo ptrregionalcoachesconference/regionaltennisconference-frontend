@@ -1,11 +1,16 @@
-import React from 'react'
+"use client";
+import React from "react";
+// import Image from "next/image";
+import Example from "@/components/Example"
+
 
 const page = () => {
   return (
-    <div>
-      Coming Soon
-    </div>
-  )
-}
+    <section className="min-h-screen">
+      <Example />
 
-export default page
+    </section>
+  );
+};
+
+export default page;

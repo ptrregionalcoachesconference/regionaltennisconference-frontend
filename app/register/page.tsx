@@ -1,11 +1,19 @@
 "use client";
-// import React, {useState} from "react";
-import { useForm, Controller, SubmitHandler, FieldErrors } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import {
+  useForm,
+  Controller,
+  SubmitHandler,
+  FieldErrors,
+} from "react-hook-form";
 import { registerSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import { baseURL } from "@/config";
+import { toast, ToastContainer } from "react-toastify";
 
 import PhoneInput from "react-phone-number-input/react-hook-form";
-
+import { IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 import {
   Card,
@@ -24,44 +32,115 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import { AiOutlineLoading } from "react-icons/ai";
+
+import Hero from "@/components/register/Hero";
 
 interface RegisterFormData {
-  // id: string;
-  firstName: string;
-  lastName: string;
-  middleName?: string;
+  first_name: string;
+  last_name: string;
+  middle_name?: string;
   gender: string;
   email: string;
-  phoneNumber: string;
+  phone_number: string;
   country: string;
-  contactAddress: string;
-  // ticketType: string;
+  contact_address: string;
 }
 
 const Page = () => {
-  const { register, handleSubmit, control, reset } = useForm<RegisterFormData>({
+  const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
+    mode: "onTouched",
     defaultValues: {
-      // id: "",
-      firstName: "",
-      lastName: "",
-      middleName: "",
+      first_name: "",
+      last_name: "",
+      middle_name: "",
       gender: "",
       email: "",
-      phoneNumber: "",
+      phone_number: "",
       country: "",
-      contactAddress: "",
-      // ticketType: "",
+      contact_address: "",
     },
   });
-  
 
-  const onSubmit: SubmitHandler<RegisterFormData> = (data) => console.log("Form Data:",data);
+  const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
+    console.log("Submitting registration data:", data);
 
+    const toastId = toast.loading("Processing Registration");
+    setLoading(true);
 
-const onError = (errors: FieldErrors<RegisterFormData>) => {
-  console.log("Validation Errors:", errors);
-};
+    try {
+      const res = await axios.post(`${baseURL}/api/auth/register`, data);
+      console.log(res.data);
+
+      localStorage.setItem("authToken", res.data.token);
+      localStorage.setItem("registerId", res.data.user?._id || res.data.userId);
+
+      if (res.data.token) {
+        console.log("Received Token:", res.data.token);
+        localStorage.setItem("token", res.data.token);
+        toast.update(toastId, {
+          render: "Registration Successful",
+          type: "success",
+          isLoading: false,
+          autoClose: 2000,
+        });
+        setTimeout(() => {
+          router.push("/selectpackage");
+        }, 2000);
+      } else {
+        console.log("No token received in response.");
+        toast.update(toastId, {
+          render: "Registration failed",
+          type: "error",
+          isLoading: false,
+          autoClose: 5000,
+        });
+        setLoading(false);
+      }
+
+      if (res.status === 200 && typeof res.data === "string") {
+        console.log("Server Message:", res.data);
+        toast.success("Registration successful!");
+        router.push("/selectpackage");
+        reset();
+        return;
+      }
+
+      if (res.status === 201 && res.data.user?.id) {
+        localStorage.setItem("registerId", res.data.user.id);
+        console.log("Registration successful:", res.data);
+        toast.success("Registration successful!");
+        router.push("/selectpackage");
+        reset();
+      } else {
+        toast.error("Registration failed. Please try again.");
+      }
+    } catch (error: unknown) {
+      console.error(
+        "Registration failed:",
+        error instanceof Error ? error.message : error
+      );
+      if (axios.isAxiosError(error) && error.response?.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("Registration failed. Please try again.");
+      }
+    }
+  };
+
+  const onError = (errors: FieldErrors<RegisterFormData>) => {
+    console.log("Validation Errors:", errors);
+  };
 
   const registerInfo: Array<{
     id: keyof RegisterFormData;
@@ -71,31 +150,28 @@ const onError = (errors: FieldErrors<RegisterFormData>) => {
     selectItems?: string[];
   }> = [
     {
-      id: "lastName",
+      id: "last_name",
       label: "Last Name",
       type: "text",
       placeholder: "Enter your last name",
-      // required: true,
     },
     {
-      id: "firstName",
+      id: "first_name",
       label: "First Name",
       type: "text",
       placeholder: "Enter your First name",
-      // required: true,
     },
     {
-      id: "middleName",
+      id: "middle_name",
       label: "Middle Name",
       type: "text",
       placeholder: "Enter your Middle name",
-      // required: true,
     },
     {
       id: "gender",
       label: "Gender",
       type: "select",
-      placeholder: "gender",
+      placeholder: "Gender",
       selectItems: ["Male", "Female"],
     },
     {
@@ -103,137 +179,155 @@ const onError = (errors: FieldErrors<RegisterFormData>) => {
       label: "Email Address",
       type: "email",
       placeholder: "johndoe@gmail.com",
-      // required: true,
     },
     {
-      id: "phoneNumber",
+      id: "phone_number",
       label: "Phone Number",
       type: "phone",
       placeholder: "+234 801 234 5678",
-      // required: true,
     },
     {
       id: "country",
       label: "Country",
       type: "text",
       placeholder: "Enter your country",
-      // required: true,
     },
 
     {
-      id: "contactAddress",
+      id: "contact_address",
       label: "Contact Address",
       type: "text",
       placeholder: "Enter your contact address",
-      // required: true,
     },
-    // {
-    //   id: "ticketType",
-    //   label: "Select Ticket Type",
-    //   type: "select",
-    //   placeholder: "Select Ticket Type",
-    //   selectItems: ["Standard - $50", "Vip - $100", "VVIP - $200"],
-    // },
   ];
   return (
-    <div className="min-h-screen overflow-x-hidden">
-      <div className="py-20 ">
-        <div className=" mx-auto text-center space-y-4 mb-12 px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl md:text-5xl font-bold">
-            REGISTER FOR THE CONFERENCE TODAY!!!
-          </h3>
-          <p className="text-lg text-gray-600">Secure your seat today!!</p>
-        </div>
+    <div className="min-h-screen w-full overflow-x-hidden relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#71E529]/10 to-[#40A700]/5 -z-10 " />
+      <Hero />
 
-        {/* two column */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
-            {/* image side */}
-            {/* relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[900px] overflow-hidden rounded-2xl */}
-            <div className="relative w-full h-[250px] md:h-[350px] lg:h-[900px] rounded-2xl overflow-hidden">
-              <Image
-                src="/register.jpg"
-                alt="register"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-                className=" object-cover"
-              />
-            </div>
-            {/* input */}
-            <div className="w-full ">
-              <Card className="border-0">
-                <CardHeader >
-                  <CardTitle className="text-lg">
-                    Secure your spot today
-                  </CardTitle>
-                  <CardDescription>Fill in your Details</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-4">
-                    {registerInfo.map((info) => (
-                      <div key={info.id}>
-                        <Label htmlFor={String(info.id)} className="text-base">
-                          {info.label}
-                        </Label>
-                        {/* phone number */}
-                        {info.type === "phone" ? (
-                          <div className="mt-2">
-                            <PhoneInput
-                              name={info.id}
-                              control={control}
-                              rules={{ required: `${info.label} is required` }}
-                              defaultCountry="NG"
-                              international
-                              className="phone-input-wrapper w-full"
-                            />
-                          </div>
-                        ) : // select dropdown
-                        info.type === "select" ? (
+      <ToastContainer position="top-right" autoClose={5000} />
+      {/* two column */}
+      <div className="w-full ">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start px-4 md:px-8 lg:px-12 py-6 sm:py-8 lg:py-12 ">
+          {/* image side */}
+
+          <div className="relative w-full h-[250px] md:h-[350px] lg:h-[800px] rounded-2xl overflow-hidden">
+            <Image
+              src="/register.jpg"
+              alt="register"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+              className=" object-cover"
+            />
+          </div>
+          {/* input */}
+          <div className=" order-2 ">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">
+                  Secure Your Spot Today
+                </CardTitle>
+                <CardDescription className="text-base sm:text-sm md:text-md">
+                  Fill in your Details!!!
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form
+                  onSubmit={handleSubmit(onSubmit, onError)}
+                  className="space-y-4"
+                >
+                  {registerInfo.map((info) => (
+                    <div key={info.id}>
+                      <Label htmlFor={String(info.id)} className="text-base ">
+                        {info.label}
+                      </Label>
+
+                      {info.type === "phone" ? (
+                        <div className="mt-2">
+                          <PhoneInput
+                            name={info.id}
+                            control={control}
+                            rules={{ required: `${info.label} is required` }}
+                            defaultCountry="NG"
+                            international
+                          />
+                          {errors[info.id] && (
+                            <p className="text-red-500 text-sm mt-1">
+                              {errors[info.id]?.message}
+                            </p>
+                          )}
+                        </div>
+                      ) : info.type === "select" ? (
+                        <>
                           <Controller
                             name={info.id}
                             control={control}
-                            rules={{ required: true }}
+                            rules={{ required: `${info.label} is required` }}
                             render={({ field }) => (
                               <Select
                                 onValueChange={field.onChange}
                                 value={field.value || ""}
+                                required
                               >
                                 <SelectTrigger className="w-full">
                                   <SelectValue placeholder={info.placeholder} />
+                                  <SelectContent>
+                                    {info.selectItems?.map((item) => (
+                                      <SelectItem key={item} value={item}>
+                                        {item}
+                                      </SelectItem>
+                                    ))}
+                                  </SelectContent>
                                 </SelectTrigger>
-                                <SelectContent>
-                                  {info.selectItems?.map((item) => (
-                                    <SelectItem key={item} value={item}>
-                                      {item}
-                                    </SelectItem>
-                                  ))}
-                                </SelectContent>
                               </Select>
                             )}
                           />
-                        ) : (
-                          <Input
-                            id={String(info.id)}
-                            {...register(info.id, { required: true })}
-                            type={info.type}
-                            placeholder={info.placeholder}
-                            className="mt-2"
-                          />
-                        )}
-                      </div>
-                    ))}
-                    <Button type="submit" className="w-full">
-                      CONTINUE
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+                          {errors[info.id] && (
+                            <p className="text-red-500 text-sm mt-1">
+                              {errors[info.id]?.message}
+                            </p>
+                          )}
+                        </>
+                      ) : (
+                        <Input
+                          id={String(info.id)}
+                          {...register(info.id, { required: true })}
+                          type={info.type}
+                          placeholder={info.placeholder}
+                          className="mt-2"
+                          required
+                        />
+                      )}
+                    </div>
+                  ))}
+                  <Button
+                    type="submit"
+                    className="w-full cursor-pointer hover:bg-gray-300 hover:text-black"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <p>Proceeding to pacakges</p>
+                        <AiOutlineLoading className="animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        <p>Continue</p>
+                        <span>
+                          <IoIosArrowForward />
+                        </span>
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 

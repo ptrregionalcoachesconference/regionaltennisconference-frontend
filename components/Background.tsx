@@ -20,7 +20,7 @@ const Background: React.FC<BackgroundProps> = ({children}) => {
           <div className="
         absolute top-20 md:top-30 lg:top-40 w-full 
         bg-[#40A700]
-        rounded-[40px]
+        rounded-t-2xl
         shadow-[0_18px_40px_rgba(0,0,0,0.22)]
         mx-auto
         min-h-[1200px]
@@ -28,10 +28,10 @@ const Background: React.FC<BackgroundProps> = ({children}) => {
           <div className="
         absolute top-5  w-full 
         bg-white
-        rounded-[40px]
+        rounded-t-2xl
         shadow-[0_18px_40px_rgba(0,0,0,0.22)]
         mx-auto
-        min-h-[1200px]
+       
       "></div>
       </div>
       </div>

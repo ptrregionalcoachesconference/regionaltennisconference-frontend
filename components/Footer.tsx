@@ -102,7 +102,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-white/10 pt-8 text-center text-sm opacity-70">
-          <p className="">
+          <p className="text-white">
             &copy; {new Date().getFullYear()} African Regional Tennis Coaches
             Conference. All rights reserved.
           </p>

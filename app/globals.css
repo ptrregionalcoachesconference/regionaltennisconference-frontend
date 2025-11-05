@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import 'react-toastify/dist/ReactToastify.css';
 
 @font-face {
   font-family: 'Speed';
@@ -15,65 +16,102 @@
 }
 
 /* Phone Input Styling */
-.phone-input-wrapper {
+/* Import the default stylesheet first */
+/* import 'react-phone-number-input/style.css' */
+
+/* Override using CSS variables - the official way */
+:root {
+  /* Flag icon sizing */
+  --PhoneInputCountryFlag-height: 1rem;
+  --PhoneInputCountryFlag-aspectRatio: 1.5; /* Default 3x2 ratio */
+  --PhoneInputCountryFlag-borderWidth: 1px;
+  --PhoneInputCountryFlag-borderColor: rgba(0, 0, 0, 0.5);
+  --PhoneInputCountryFlag-borderColor--focus: #40A700;
+  
+  /* Country select arrow */
+  --PhoneInputCountrySelectArrow-width: 0.3rem;
+  --PhoneInputCountrySelectArrow-marginLeft: 0.35rem;
+  --PhoneInputCountrySelectArrow-opacity: 0.45;
+  --PhoneInputCountrySelectArrow-color: currentColor;
+  --PhoneInputCountrySelectArrow-color--focus: #40A700;
+  
+  /* International icons (phone/globe) */
+  --PhoneInputInternationalIconPhone-opacity: 0.8;
+  --PhoneInputInternationalIconGlobe-opacity: 0.65;
+  
+  /* Focus color */
+  --PhoneInput-color--focus: #40A700;
+  
+  /* Country select margin */
+  --PhoneInputCountrySelect-marginRight: 0.35rem;
+}
+
+/* Custom wrapper styling (optional) */
+.PhoneInput {
   display: flex;
   align-items: center;
   border: 2px solid #e5e7eb;
   border-radius: 0.5rem;
-  padding: 0.75rem;
+  padding: 0.5rem 0.75rem;
   background: white;
-  gap: 0.5rem;
 }
 
-.phone-input-wrapper:focus-within {
-  border-color: #40A700;
-  outline: none;
+.PhoneInput--focus {
+  border-color: var(--PhoneInput-color--focus);
   box-shadow: 0 0 0 3px rgba(64, 167, 0, 0.1);
 }
 
-/* Country selector */
-.phone-input-wrapper .PhoneInputCountry {
-  display: flex;
-  align-items: center;
-  margin-right: 0.5rem;
-  padding-right: 0.75rem;
-  border-right: 2px solid #e5e7eb;
-}
-
-/* Flag sizing - THIS IS KEY */
-.phone-input-wrapper .PhoneInputCountryIcon {
-  width: 1.5rem !important;
-  height: 1.5rem !important;
-  font-size: 1.5rem !important;
-  line-height: 1;
-}
-
-.phone-input-wrapper .PhoneInputCountryIcon img {
-  width: 1.5rem;
-  height: 1.5rem;
-  object-fit: contain;
-}
-
-/* Dropdown arrow */
-.phone-input-wrapper .PhoneInputCountrySelectArrow {
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-left: 0.25rem;
-  opacity: 0.5;
-}
-
 /* Input field */
-.phone-input-wrapper .PhoneInputInput {
+.PhoneInputInput {
+  font-size: 0.875rem;
   border: none;
   outline: none;
-  font-size: 1rem;
   flex: 1;
-  background: transparent;
-  width: 100%;
 }
 
-.phone-input-wrapper .PhoneInputInput::placeholder {
+.PhoneInputInput::placeholder {
   color: #9ca3af;
+}
+
+/* Country selector section */
+.PhoneInputCountry {
+  margin-right: 0.5rem;
+  padding-right: 0.5rem;
+  border-right: 1px solid #e5e7eb;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  :root {
+    --PhoneInputCountryFlag-height: 0.875rem;
+    --PhoneInputCountrySelectArrow-width: 0.25rem;
+    --PhoneInputCountrySelect-marginRight: 0.25rem;
+  }
+  
+  .PhoneInput {
+    padding: 0.5rem;
+  }
+  
+  .PhoneInputInput {
+    font-size: 0.8125rem;
+  }
+  
+  .PhoneInputCountry {
+    margin-right: 0.375rem;
+    padding-right: 0.375rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+  :root {
+    --PhoneInputCountryFlag-height: 0.75rem;
+    --PhoneInputCountrySelectArrow-width: 0.2rem;
+  }
+  
+  .PhoneInput {
+    padding: 0.375rem 0.5rem;
+  }
 }
 /* 
 ---break--- */

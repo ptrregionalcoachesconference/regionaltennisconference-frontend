@@ -4,9 +4,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 // import Sponsors from "@/components/Sponsors"
 
-
-
-
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   //  weight:400,
@@ -25,9 +22,8 @@ const Hero = () => {
     },
   ];
 
- 
   return (
-    <section className=" relative pb-32 md:pb-40 min-h-[500px] md:min-h-[600px]  bg-cover bg-center tranition-all duration-500 ease-in-out overflow-hidden">
+    <section className=" relative  min-h-[500px] md:min-h-[600px]  bg-cover bg-center tranition-all duration-500 ease-in-out overflow-hidden">
       <video
         autoPlay
         muted
@@ -39,9 +35,9 @@ const Hero = () => {
       </video>
       <div className="absolute inset-0 bg-[#40A700]/60"></div>
       {/* hero content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center mt-5">
         <div className="mx-auto md:max-w-6xl max-w-4xl text-white">
-          <h1 className="lg:text-7xl md:text-5xl sm:text-4xl text-3xl mb-5 font-bold">
+          <h1 className="lg:text-7xl md:text-5xl sm:text-4xl text-[1.75rem] leading-[1.2] sm:leading-tight md:leading-tight mb-4 sm:mb-5 md:mb-6 font-bold">
             AFRICAN REGIONAL TENNIS COACHES CONFERENCE{" "}
             <span className="text-[#53D900] ">2026</span>
           </h1>
@@ -67,14 +63,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* sponsors section */}
-            {/* <div className="absolute bottom-8 md:bottom-2 lg:bottom-0 z-20  w-full px-10  ">
-              <Sponsors />
-            </div> */}
-
-            {/* section */}
-            
-     
     </section>
   );
 };
