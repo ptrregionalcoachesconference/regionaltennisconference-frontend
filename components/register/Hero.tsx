@@ -3,7 +3,6 @@ import React from "react";
 const Hero = () => {
   return (
     <div className="relative overflow-hidden">
-      
       <div className="pb-8 md:pb-12">
         <div className="relative">
           <div className="relative bg-gradient-to-br from-[#71E529] to-[#40A700] overflow-hidden">
@@ -14,15 +13,16 @@ const Hero = () => {
             <div className="mx-auto max-w-7xl px-4 ">
               <div className="flex flex-col justify-center items-center text-center sm:px-6 lg:px-8 py-20">
                 <p className="text-white tracking-wider mb-4 uppercase">
-                 Register Now
+                  Register Now
                 </p>
                 <h1 className="text-white uppercase text-3xl md:text-5xl mb-5 ">
-                Register for the Regional Coaches Conference Today
+                  Register for the Regional Coaches Conference Today
                 </h1>
                 <p className="text-base sm:text-base md:text-lg max-w-2xl">
-                  Have questions about the Regional Coaches Conference?
-                  We&apos;re here to help. Reach out to us and we&apos;ll get
-                  back to you as soon as possible.
+                  Ready to join the Regional Coaches Conference? Fill out the
+                  form below to secure your spot. Once registered, we&apos;ll
+                  send you important updates and event details to help you
+                  prepare. We can&apos;t wait to have you with us!
                 </p>
               </div>
             </div>
