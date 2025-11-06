@@ -20,7 +20,7 @@ const Footer = () => {
 
   const contactInfo = [
     {
-      name: "Email:coachesconference@gmail.com",
+      name: "Email:ptrregionalcoachesconference@gmail.com",
       path: "mailto:ptrregionaltenniscoachesconference@gmail.com",
     },
     {
@@ -48,7 +48,7 @@ const Footer = () => {
   return (
     <footer className="py-12 border-t border-border bg-foreground ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-28 mb-8">
           <div>
             <div className=" justify-center ">
               <Image src="/Green+.png" alt="logo" width={100} height={100} className="object-cover w-auto" />
@@ -103,7 +103,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-white/10 pt-8 text-center text-sm opacity-70">
           <p className="text-white">
-            &copy; {new Date().getFullYear()} African Regional Tennis Coaches
+            &copy; {new Date().getFullYear()} PTR African Regional Tennis Coaches
             Conference. All rights reserved.
           </p>
         </div>

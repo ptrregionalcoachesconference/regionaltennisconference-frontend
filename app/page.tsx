@@ -33,7 +33,7 @@ export default function Page() {
     },
     {
       icon: <MdGroups2 />,
-      detail: "20+",
+      detail: "6+",
       detail2: "SPEAKERS",
     },
   ];

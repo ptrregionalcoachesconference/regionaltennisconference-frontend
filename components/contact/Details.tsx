@@ -22,16 +22,16 @@ const Details = () => {
       icon: <FiPhone size={30} />,
       title: "Call Us",
       text: "Speak with our team directly",
-      content: "+234 806 343 0037",
-      link: "tel:+2348063430037",
+      content: ["+234 806 343 0037", "+1(312)7937113"],
+      link: ["tel:+2348063430037", "tel:+1(312)7937113"],
       color: "from-green-500/10 to-green-500/5",
     },
     {
       icon: <IoLogoWhatsapp size={30} />,
-      title: "Text Us",
+      title: "Whatsapp",
       text: "Chat with us",
-      content: "+1 (312) 793 7113",
-      link: "https://wa.me/+13127937113",
+      content: ["+1(312)7937113", "+2348063430037"],
+      link: ["https://wa.me/13127937113", "https://wa.me/2348063430037"],
       color: "from-purple-500/10 to-purple-500/5",
     },
     {
@@ -44,7 +44,7 @@ const Details = () => {
     {
       icon: <FaRegClock size={30} />,
       title: "Conference Runtime",
-      text: "When we're availiable",
+      text: "When we're available",
       content: "April 15th - April 19th",
       color: "from-red-500/10 to-red-500/5",
     },
@@ -70,12 +70,13 @@ const Details = () => {
         </div>
 
         {/* details */}
-        <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {methods.map((method, index) => {
+           
             return (
               <div
                 key={index}
-                className="border border-gray-400 group relative bg-gray-200 p-8 rounded-lg overflow-hidden  transiion-all duration-300 hover:border-gray-500 hover:shadow-lg hover:shadow-gray-400/20"
+                className="border border-gray-400 group relative bg-gray-200 p-8 rounded-lg overflow-hidden  transition-all duration-300 hover:border-gray-500 hover:shadow-lg hover:shadow-gray-400/20"
               >
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${method.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 `}
@@ -91,17 +92,33 @@ const Details = () => {
                     {method.text}
                   </p>
                   {method.link ? (
-                    <Link
-                      href={method.link}
-                      className="text-base font-medium text-[#40A700]"
-                    >
-                      {method.content}
-                    </Link>
+                    Array.isArray(method.link) &&
+                    Array.isArray(method.content) ? (
+                      <div className="flex flex-col gap-2">
+                        {method.link.map((link, i) => (
+                          <Link
+                            key={i}
+                            href={link}
+                            className="text-base font-medium text-[#40A700] hover:underline"
+                          >
+                            {method.content[i]}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <Link
+                        href={method.link as string}
+                        className="text-base font-medium text-[#40A700] hover:underline"
+                      >
+                        {method.content as string}
+                      </Link>
+                    )
                   ) : (
                     <p className="text-base font-medium text-[#40A700]">
-                      {method.content}
+                      {method.content as string}
                     </p>
                   )}
+
                   <div className="absolute bottom-0 left-0 h-1 bg-[#71E529] w-0 group-hover:w-full transition-all duration-500" />
                 </div>
               </div>

@@ -134,17 +134,17 @@ const Example = () => {
                   {/* Stats or CTA */}
                   <div className="flex flex-wrap gap-4 pt-2">
                     <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
-                      <div className="text-2xl font-bold">500+</div>
+                      <div className="text-2xl font-bold">60+</div>
                       <div className="text-xs text-white/80">
                         Expected Participants
                       </div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
+                    {/* <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
                       <div className="text-2xl font-bold">20+</div>
                       <div className="text-xs text-white/80">
                         African Countries
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -157,7 +157,7 @@ const Example = () => {
 
       {/* about PTR */}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center container gap-6 mx-auto max-w-6xl py-20 px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center container gap-6 mx-auto max-w-6xl py-20 px-6" id="about">
         <div className="h-96 relative rounded-xl overflow-hidden">
           <Image
             src="/ptr.jpg"

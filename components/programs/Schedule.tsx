@@ -14,7 +14,7 @@ const Schedule = () => {
   const schedule = [
     {
       day: "Day 1",
-      date: "June 15, 2025",
+      date: "April 16, 2026",
       sessions: [
         {
           time: "8:00 AM - 9:00 AM",
@@ -68,7 +68,7 @@ const Schedule = () => {
     },
     {
       day: "Day 2",
-      date: "June 16, 2025",
+      date: "April 17, 2026",
       sessions: [
         {
           time: "8:00 AM - 9:00 AM",
@@ -122,7 +122,7 @@ const Schedule = () => {
     },
     {
       day: "Day 3",
-      date: "June 15, 2025",
+      date: "April 18, 2026",
       sessions: [
         {
           time: "8:00 AM - 9:00 AM",
@@ -174,60 +174,60 @@ const Schedule = () => {
         },
       ],
     },
-    {
-      day: "Day 4",
-      date: "June 15, 2025",
-      sessions: [
-        {
-          time: "8:00 AM - 9:00 AM",
-          title: "Registration & Breakfast",
-          speaker: "",
-          type: "break",
-        },
-        {
-          time: "9:00 AM - 10:30 AM",
-          title: "Opening Keynote: The Future of Tennis Coaching",
-          speaker: "Dr. James Mitchell",
-          type: "keynote",
-        },
-        {
-          time: "10:30 AM - 11:00 AM",
-          title: "Coffee Break",
-          speaker: "",
-          type: "break",
-        },
-        {
-          time: "11:00 AM - 12:30 PM",
-          title: "Advanced Coaching Techniques Workshop",
-          speaker: "Dr. James Mitchell",
-          type: "workshop",
-        },
-        {
-          time: "12:30 PM - 1:30 PM",
-          title: "Lunch",
-          speaker: "",
-          type: "break",
-        },
-        {
-          time: "1:30 PM - 3:00 PM",
-          title: "Youth Development Panel Discussion",
-          speaker: "Maria Rodriguez, Coach Alex Thompson",
-          type: "panel",
-        },
-        {
-          time: "3:00 PM - 3:30 PM",
-          title: "Afternoon Break",
-          speaker: "",
-          type: "break",
-        },
-        {
-          time: "3:30 PM - 5:00 PM",
-          title: "Networking Session",
-          speaker: "",
-          type: "networking",
-        },
-      ],
-    },
+    // {
+    //   day: "Day 4",
+    //   date: "June 15, 2025",
+    //   sessions: [
+    //     {
+    //       time: "8:00 AM - 9:00 AM",
+    //       title: "Registration & Breakfast",
+    //       speaker: "",
+    //       type: "break",
+    //     },
+    //     {
+    //       time: "9:00 AM - 10:30 AM",
+    //       title: "Opening Keynote: The Future of Tennis Coaching",
+    //       speaker: "Dr. James Mitchell",
+    //       type: "keynote",
+    //     },
+    //     {
+    //       time: "10:30 AM - 11:00 AM",
+    //       title: "Coffee Break",
+    //       speaker: "",
+    //       type: "break",
+    //     },
+    //     {
+    //       time: "11:00 AM - 12:30 PM",
+    //       title: "Advanced Coaching Techniques Workshop",
+    //       speaker: "Dr. James Mitchell",
+    //       type: "workshop",
+    //     },
+    //     {
+    //       time: "12:30 PM - 1:30 PM",
+    //       title: "Lunch",
+    //       speaker: "",
+    //       type: "break",
+    //     },
+    //     {
+    //       time: "1:30 PM - 3:00 PM",
+    //       title: "Youth Development Panel Discussion",
+    //       speaker: "Maria Rodriguez, Coach Alex Thompson",
+    //       type: "panel",
+    //     },
+    //     {
+    //       time: "3:00 PM - 3:30 PM",
+    //       title: "Afternoon Break",
+    //       speaker: "",
+    //       type: "break",
+    //     },
+    //     {
+    //       time: "3:30 PM - 5:00 PM",
+    //       title: "Networking Session",
+    //       speaker: "",
+    //       type: "networking",
+    //     },
+    //   ],
+    // },
   ];
   const getSessionColor = (type: string) => {
     switch (type) {

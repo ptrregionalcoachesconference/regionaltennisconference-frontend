@@ -49,7 +49,7 @@ const About = () => {
                 Founded in 1975 by Van der Meer, PTR has grown to become the
                 most widely recognized and respected tennis teaching
                 organization in the world.
-                <Link href="/about" className="text-[#407900] font-bold ">
+                <Link href="/about#about" className="text-[#407900] font-bold ">
                   Read more...
                 </Link>
               </p>

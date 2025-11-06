@@ -24,7 +24,10 @@ const Venue = () => {
               <div className="border border-gray-500 bg-gray-300 p-6 rounded-xl">
                 <h3 className="mb-3">Nicon Luxury Hotel, Abuja, Nigeria</h3>
                 <p className="font-bold mb-2">
-                  Phone: <span className="font-light text-sm">+1 (312) 493 7113</span>
+                  Phone:{" "}
+                  <span className="font-light text-sm">
+                    +1 (312) 493 7113/ +234 806 343 0037
+                  </span>
                 </p>
                 <p className="font-bold">
                   Email:{" "}
@@ -41,10 +44,8 @@ const Venue = () => {
                     "🎤 Multiple Conference Halls",
                     "🅿️ Ample Parking Space",
                     "📶 High Speed Wifi",
-                    "☕Premium Catering",
                     "🚺 Accessible Facilities",
-                    "🏨 Hotel Patnerships"
-                  ].map((facility, i)=> (
+                  ].map((facility, i) => (
                     <div key={i} className="flex items-center  gap-2">
                       <div className="w-2 h-2 bg-[#40A700] rounded-full" />
                       <span>{facility}</span>
