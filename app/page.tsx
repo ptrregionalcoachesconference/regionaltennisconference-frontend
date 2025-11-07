@@ -41,31 +41,31 @@ export default function Page() {
   const speakers = [
     {
       id: 1,
-      name: "Dr. James Okonkwo",
-      title: "Elite Tennis Coach",
+      name: "Mr Shina Atilola",
+      title: "Director, Premium Trust Bank",
       specialty: "Advanced Technique",
-      image: "/black male.jpg",
+      image: "/Shina.jpg",
     },
     {
       id: 2,
-      name: "Dr. James Okonkwo",
-      title: "Elite Tennis Coach",
+      name: "Coach Carl Mae",
+      title: "PTR Coaching Director",
       specialty: "Advanced Technique",
-      image: "/female black.jpg",
+      image: "/carl.jpg",
     },
     {
       id: 3,
-      name: "Dr. James Okonkwo",
-      title: "Elite Tennis Coach",
+      name: "Rotimi Akinloye",
+      title: "Past Nigeria Tennis Director",
       specialty: "Advanced Technique",
-      image: "/female white.jpg",
+      image: "/Rotimi.jpg",
     },
     {
       id: 4,
-      name: "Dr. James Okonkwo",
-      title: "Elite Tennis Coach",
+      name: "Benson Ishicheli",
+      title: "Nigerian Tennis Coach",
       specialty: "Advanced Technique",
-      image: "/black male.jpg",
+      image: "/Benson.jpg",
     },
   ];
   return (

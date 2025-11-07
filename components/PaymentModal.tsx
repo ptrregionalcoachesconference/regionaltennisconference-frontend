@@ -48,9 +48,9 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
     if (gateway === "paystack") setPaystackLoading(true);
     try {
       const res = await axios.post(
-        `${baseURL}/api/payments/${gateway}/initiate`,
+        `${baseURL}/api/payments/packages-${gateway}`,
         {
-          registerId,
+          // registerId,
           packageId: pkg.id,
         },
         {
