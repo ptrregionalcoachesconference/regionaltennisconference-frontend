@@ -30,6 +30,10 @@ const Navbar = () => {
           name: "Schedule",
           path: "/program#schedule",
         },
+        {
+          name: "Certification",
+          path: "/program/certification"
+        }
       ],
     },
     {
