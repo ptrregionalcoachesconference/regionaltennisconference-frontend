@@ -11,7 +11,7 @@ const Speakers = () => {
     {
       id: 1,
       name: "Carl Maes",
-      title: "Coaching Director & Consultant",
+      title: "PTR International Coaching Director",
       image: "/Carl.jpg",
       bio: "Carl Maes is a globally respected Belgian tennis coach and performance director, known for coaching multiple top-100 players including former World No.1 Kim Clijsters.",
       details:
@@ -72,7 +72,7 @@ const Speakers = () => {
       id: 5,
       name: "Pfungwa Mahefu",
       title: "Founder & President, CATE",
-      image: "/pfungwa3.jpg",
+      image: "/pfungwa.jpg",
       bio: "Former Zimbabwe Davis Cup player and coach, founder of The Children's Academy of Tennis Excellence (CATE).",
       details:
         "Pfungwa Mahefu is a former Zimbabwe Davis Cup player and has coached ATP player Tankayi. He is the founder and president of The Children's Academy of Tennis Excellence (CATE), where he focuses on developing young tennis talent and promoting excellence in youth tennis education.",

@@ -7,7 +7,7 @@ const Venue = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 items-center container gap-6 mx-auto max-w-6xl py-20 px-6">
         <div className="h-96 relative rounded-xl overflow-hidden">
           <Image
-            src="/ptr.jpg"
+            src="/group.jpg"
             alt="ptr"
             fill
             className="object-cover w-full h-full mx-auto"

@@ -8,7 +8,7 @@ const hosts = () => {
       name: "Coach Abel Ubiebi: Convener",
       title: "Professional Tennis Coach & Head Coach",
       bio: "Founder of Aces Tennis Academy with over 26 years in the Teaching World of Tennis. Recognized all over the world for his innovative teching method. Has produced multiple champions dispersed across globes",
-      img: "/Abel.jpg",
+      img: "/Aces.jpg",
       specialties: [
         "Player Development",
         "Tactical Analysis",

@@ -25,7 +25,7 @@ const page = () => {
                   Your Complete Conference Experience
                 </h1>
                 <p className="text-base sm:text-base md:text-lg max-w-2xl">
-                  Explore our expert speakers, detailed 4-day schedule, and
+                  Explore our expert speakers, detailed 3-day schedule, and
                   venue information for the Premier Tennis Conference
                 </p>
               </div>

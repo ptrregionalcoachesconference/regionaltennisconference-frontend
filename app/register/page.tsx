@@ -223,7 +223,7 @@ const Page = () => {
 
           <div className="relative w-full h-[250px] md:h-[350px] lg:h-[800px] rounded-2xl overflow-hidden">
             <Image
-              src="/register.jpg"
+              src="/reg1.jpg"
               alt="register"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
