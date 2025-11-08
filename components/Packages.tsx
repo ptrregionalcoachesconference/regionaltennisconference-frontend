@@ -8,9 +8,9 @@ const Packages = () => {
           name: "Standard Package",
           price: "500",
           items: [
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
+            "All VIP Package Benefits",
+            "Luxury 5-star accomodation",
+            "Exclusive Dinner",
             "Lorem ipsum",
             "Lorem ipsum",
             "Lorem ipsum",

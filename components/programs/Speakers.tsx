@@ -12,7 +12,7 @@ const Speakers = () => {
       id: 1,
       name: "Carl Mae",
       title: "Coaching Director & Consultant",
-      image: "/carl.jpg",
+      image: "/Carl.jpg",
       bio: "Carl Maes is a globally respected Belgian tennis coach and performance director, known for coaching multiple top-100 players including former World No.1 Kim Clijsters.",
       details:
         "Carl Maes is a globally recognized coach and performance director. He coached former World No.1 Kim Clijsters for over ten years and has worked with top players including Johanna Konta, Bianca Andreescu, Elise Mertens, Laura Robson, and Casper Ruud. With a master's in Sports Science, he is known as 'Mr. Stats' for his analytical, data-driven coaching approach.",
@@ -29,14 +29,10 @@ const Speakers = () => {
       name: "Shina Atilola",
       title: "Director, Premium Trust Bank",
       image: "/Shina.jpg",
-       bio: "Senior banking executive with 24+ years' experience in business development and strategy across leading financial institutions.",
+      bio: "Senior banking executive with 24+ years' experience in business development and strategy across leading financial institutions.",
       details:
         "Shina Atilola is a seasoned business development and strategy expert with over 24 years of experience in top financial institutions. His background spans marketing, branding, and auditing, and he has been invited to speak at multiple industry events, sharing insights on growth, leadership, and corporate strategy.",
-      expertise: [
-        "Business Strategy",
-        "Marketing",
-        "Leadership",
-      ],
+      expertise: ["Business Strategy", "Marketing", "Leadership"],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
     },
     {
@@ -44,9 +40,9 @@ const Speakers = () => {
       name: "Benson Ishicheli",
       title: "Non-Playing Captain, Nigeria Davis Cup Team",
       image: "/Benson.jpg",
-     bio: "Nigerian tennis coach and national team leader focused on developing grassroots and elite junior talent.",
+      bio: "Nigerian tennis coach and national team leader focused on developing grassroots and elite junior talent.",
       details:
-       "Benson Ishicheli is a respected Nigerian tennis coach and the non-playing captain of the Nigeria Davis Cup team. He plays a key role in identifying, nurturing, and preparing young athletes for national and international competition, with a strong focus on grassroots development and future talent pathways.",
+        "Benson Ishicheli is a respected Nigerian tennis coach and the non-playing captain of the Nigeria Davis Cup team. He plays a key role in identifying, nurturing, and preparing young athletes for national and international competition, with a strong focus on grassroots development and future talent pathways.",
       expertise: [
         "Talent Identification",
         "Player Development",
@@ -56,33 +52,31 @@ const Speakers = () => {
     },
     {
       id: 4,
-      name: "Dr James Mitchell",
-      title: "Co Director & Player Development Expert",
-      image: "/Abel.jpg",
-      bio: "With over 25 years of experience in professional tennis coaching, Dr. Mitchell has trained multiple Grand Slam champions.",
+      name: "Coach Rotimi Akinloye",
+      title: "Former Nigerian Tennis Director",
+      image: "/Rotimi.jpg",
+      bio: "Ex-national and Davis Cup player with over 40 years of coaching experience and leadership in Nigerian tennis development.",
       details:
-        "Dr Mitchell specializes in tactical analysis and player development. He has worked with national teams across Europe and Asia, implementing innovative training protocols that have resulted in a 40% improvement in player performance metrics. His research on biomechanics has been published in leading sports science journals.",
+        "Rotimi Akinloye is a highly respected Nigerian tennis coach who has served as Technical Director for the Nigeria Tennis Federation and Aurum Tennis Academy. A former national team and Davis Cup player, he has dedicated over 40 years to coaching, player development, and tennis education, actively contributing to national team preparations and grassroots talent development.",
       expertise: [
-        "Tactical Analysis",
+        "Coaching Education",
         "Player Development",
-        "Biomechanics",
-        "Sports Psychology",
+        "National Team Leadership",
       ],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
     },
     {
       id: 5,
-      name: "Dr James Mitchell",
-      title: "Co Director & Player Development Expert",
-      image: "/Abel.jpg",
-      bio: "With over 25 years of experience in professional tennis coaching, Dr. Mitchell has trained multiple Grand Slam champions.",
+      name: "Pfungwa Mahefu",
+      title: "Founder & President, CATE",
+      image: "/pfungwa.jpg",
+      bio: "Former Zimbabwe Davis Cup player and coach, founder of The Children's Academy of Tennis Excellence (CATE).",
       details:
-        "Dr Mitchell specializes in tactical analysis and player development. He has worked with national teams across Europe and Asia, implementing innovative training protocols that have resulted in a 40% improvement in player performance metrics. His research on biomechanics has been published in leading sports science journals.",
+        "Pfungwa Mahefu is a former Zimbabwe Davis Cup player and has coached ATP player Tankayi. He is the founder and president of The Children's Academy of Tennis Excellence (CATE), where he focuses on developing young tennis talent and promoting excellence in youth tennis education.",
       expertise: [
-        "Tactical Analysis",
-        "Player Development",
-        "Biomechanics",
-        "Sports Psychology",
+       "Youth Development",
+        "Player Mentorship",
+        "Tennis Coaching"
       ],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
     },

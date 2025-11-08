@@ -36,7 +36,7 @@ import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 
 import Hero from "@/components/register/Hero";
-
+import RegFee from "@/components/register/RegFee";
 interface RegisterFormData {
   first_name: string;
   last_name: string;
@@ -51,6 +51,8 @@ interface RegisterFormData {
 const Page = () => {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
+  const [showRegFeeModal, setShowRegFeeModal] = useState(false);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -78,66 +80,66 @@ const Page = () => {
     const toastId = toast.loading("Processing Registration");
     setLoading(true);
 
+    setUserEmail(data.email);
+
     try {
       const res = await axios.post(`${baseURL}/api/auth/register`, data);
       console.log(res.data);
+      const token = res.data.token;
+      const userId = res.data.user?._id || res.data.userId;
+      if (token) localStorage.setItem("authToken", res.data.token);
+      if (userId)
+        localStorage.setItem(
+          "registerId",
+          res.data.user?._id || res.data.userId
+        );
 
-      localStorage.setItem("authToken", res.data.token);
-      localStorage.setItem("registerId", res.data.user?._id || res.data.userId);
+      toast.update(toastId, {
+        render: "Registration successful!",
+        type: "success",
+        isLoading: false,
+        autoClose: 2000,
+      });
+      reset();
 
-      if (res.data.token) {
-        console.log("Received Token:", res.data.token);
-        localStorage.setItem("token", res.data.token);
+      const hasPaid = localStorage.getItem("hasPaidRegFee");
+      if (!hasPaid) {
+        setShowRegFeeModal(true);
+      } else {
+        router.push("/selectpackage");
+      }
+    } catch (error: unknown) {
+      if (
+        axios.isAxiosError(error) &&
+        error.response?.data?.message?.includes("User already exists")
+      ) {
+        const token = error.response?.data.token;
+        const userId = error.response?.data.userId;
+
+        if (token) localStorage.setItem("authToken", token);
+        if (userId) localStorage.setItem("registerId", userId);
+
         toast.update(toastId, {
-          render: "Registration Successful",
-          type: "success",
+          render: "Welcome back! Redirecting to packages...",
+          type: "info",
           isLoading: false,
           autoClose: 2000,
         });
-        setTimeout(() => {
-          router.push("/selectpackage");
-        }, 2000);
+
+        router.push("/selectpackage");
       } else {
-        console.log("No token received in response.");
+        console.error(error);
         toast.update(toastId, {
-          render: "Registration failed",
+          render: "Registration failed. Please try again.",
           type: "error",
           isLoading: false,
           autoClose: 5000,
         });
-        setLoading(false);
       }
-
-      if (res.status === 200 && typeof res.data === "string") {
-        console.log("Server Message:", res.data);
-        toast.success("Registration successful!");
-        router.push("/selectpackage");
-        reset();
-        return;
-      }
-
-      if (res.status === 201 && res.data.user?.id) {
-        localStorage.setItem("registerId", res.data.user.id);
-        console.log("Registration successful:", res.data);
-        toast.success("Registration successful!");
-        router.push("/selectpackage");
-        reset();
-      } else {
-        toast.error("Registration failed. Please try again.");
-      }
-    } catch (error: unknown) {
-      console.error(
-        "Registration failed:",
-        error instanceof Error ? error.message : error
-      );
-      if (axios.isAxiosError(error) && error.response?.data.message) {
-        toast.error(error.response.data.message);
-      } else {
-        toast.error("Registration failed. Please try again.");
-      }
+    } finally {
+      setLoading(false);
     }
   };
-
   const onError = (errors: FieldErrors<RegisterFormData>) => {
     console.log("Validation Errors:", errors);
   };
@@ -208,6 +210,14 @@ const Page = () => {
       <ToastContainer position="top-right" autoClose={5000} />
       {/* two column */}
       <div className="w-full ">
+        {showRegFeeModal && userEmail && (
+          <RegFee
+            isOpen={showRegFeeModal}
+            userEmail={userEmail}
+            onClose={() => setShowRegFeeModal(false)}
+            registrationFee={30}
+          />
+        )}
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start px-4 md:px-8 lg:px-12 py-6 sm:py-8 lg:py-12 ">
           {/* image side */}
 
@@ -222,7 +232,7 @@ const Page = () => {
             />
           </div>
           {/* input */}
-          <div className=" order-2 ">
+          <div className="order-2 ">
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">
@@ -330,5 +340,44 @@ const Page = () => {
     // </div>
   );
 };
-
 export default Page;
+
+//  if (res.data.token) {
+//         console.log("Received Token:", res.data.token);
+//         localStorage.setItem("token", res.data.token);
+//         toast.update(toastId, {
+//           render: "Registration Successful",
+//           type: "success",
+//           isLoading: false,
+//           autoClose: 2000,
+//         });
+//         setTimeout(() => {
+//           router.push("/selectpackage");
+//         }, 2000);
+//       } else {
+//         console.log("No token received in response.");
+//         toast.update(toastId, {
+//           render: "Registration failed",
+//           type: "error",
+//           isLoading: false,
+//           autoClose: 5000,
+//         });
+//         setLoading(false);
+//       }
+
+//       if (res.status === 200 && typeof res.data === "string") {
+//         console.log("Server Message:", res.data);
+//         toast.success("Registration successful!");
+//         router.push("/selectpackage");
+//         reset();
+//         return;
+//       }
+
+//       if (res.status === 201 && res.data.user?.id) {
+//         localStorage.setItem("registerId", res.data.user.id);
+//         console.log("Registration successful:", res.data);
+//         toast.success("Registration successful!");
+//         router.push("/selectpackage");
+//         reset();
+//       } else {
+//         toast.error("Registration failed. Please try again.");
