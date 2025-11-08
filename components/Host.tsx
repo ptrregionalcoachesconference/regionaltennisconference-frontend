@@ -5,7 +5,7 @@ import Image from "next/image";
 const hosts = () => {
   const hosts = [
     {
-      name: "Coach Abel Ubiebi",
+      name: "Coach Abel Ubiebi: Convener",
       title: "Professional Tennis Coach & Head Coach",
       bio: "Founder of Aces Tennis Academy with over 26 years in the Teaching World of Tennis. Recognized all over the world for his innovative teching method. Has produced multiple champions dispersed across globes",
       img: "/Abel.jpg",
@@ -13,17 +13,20 @@ const hosts = () => {
         "Player Development",
         "Tactical Analysis",
         "Sports Psychology",
+        "Fitness & Conditioning",
+        "Cardio Tennis"
       ],
     },
     {
-      name: "Coach C Spencer",
+      name: "Coach C Spencer: Host",
       title: "Certified PTR & ITF Tennis Coach & Founder, C.Spencer Tennis Pro Concepts",
       bio: "Certified PTR & ITF tennis coach with over 5 years of coaching experience. Passionate about inspiring the next generation to build confidence, purpose, and excellence through tennis.",
       img: "/Spencer.jpg",
       specialties: [
         "Youth Player Development",
         "Confidence-Building Coaching",
-        "Tennis Fundamentals & Growth Mindset",
+        "Tennis Fundamentals",
+        "Competitive player development"
       ],
     },
   ];

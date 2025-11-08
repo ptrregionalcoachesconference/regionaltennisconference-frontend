@@ -48,8 +48,8 @@ export default function Page() {
     },
     {
       id: 2,
-      name: "Coach Carl Mae",
-      title: "PTR Coaching Director",
+      name: "Coach Carl Maes",
+      title: "PTR International Coaching Director",
       specialty: "Advanced Technique",
       image: "/Carl.jpg",
     },

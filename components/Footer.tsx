@@ -24,7 +24,7 @@ const Footer = () => {
       path: "mailto:ptrregionaltenniscoachesconference@gmail.com",
     },
     {
-      name: "Phone:+1(312) 493-7113",
+      name: "Phone:+1(312) 493-7113, +234 806 343 0037",
       path: "https://wa.me/13124937113",
     },
     {
@@ -34,11 +34,11 @@ const Footer = () => {
   const socialMedia = [
     {
       name: "Facebook",
-      path: "https://www.facebook.com/profile.php?id=100089732201137",
+      path: "https://www.facebook.com/share/1CrbRy5v2e/?mibextid=wwXIfr ",
     },
     {
-      name: "Twitter",
-      path: "https://twitter.com/PtrTennis",
+      name: "Tiktok",
+      path: "https://www.tiktok.com/@ptr_artcc?_r=1&_t=ZS-91EeDhrloIi ",
     },
     {
       name: "Instagram",

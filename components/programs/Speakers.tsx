@@ -10,7 +10,7 @@ const Speakers = () => {
   const speakers = [
     {
       id: 1,
-      name: "Carl Mae",
+      name: "Carl Maes",
       title: "Coaching Director & Consultant",
       image: "/Carl.jpg",
       bio: "Carl Maes is a globally respected Belgian tennis coach and performance director, known for coaching multiple top-100 players including former World No.1 Kim Clijsters.",
@@ -34,6 +34,7 @@ const Speakers = () => {
         "Shina Atilola is a seasoned business development and strategy expert with over 24 years of experience in top financial institutions. His background spans marketing, branding, and auditing, and he has been invited to speak at multiple industry events, sharing insights on growth, leadership, and corporate strategy.",
       expertise: ["Business Strategy", "Marketing", "Leadership"],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+      undisclosed: true,
     },
     {
       id: 3,
@@ -49,6 +50,7 @@ const Speakers = () => {
         "High Performance Coaching",
       ],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+      undisclosed: true,
     },
     {
       id: 4,
@@ -64,21 +66,19 @@ const Speakers = () => {
         "National Team Leadership",
       ],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+      undisclosed: true,
     },
     {
       id: 5,
       name: "Pfungwa Mahefu",
       title: "Founder & President, CATE",
-      image: "/pfungwa.jpg",
+      image: "/pfungwa3.jpg",
       bio: "Former Zimbabwe Davis Cup player and coach, founder of The Children's Academy of Tennis Excellence (CATE).",
       details:
         "Pfungwa Mahefu is a former Zimbabwe Davis Cup player and has coached ATP player Tankayi. He is the founder and president of The Children's Academy of Tennis Excellence (CATE), where he focuses on developing young tennis talent and promoting excellence in youth tennis education.",
-      expertise: [
-       "Youth Development",
-        "Player Mentorship",
-        "Tennis Coaching"
-      ],
+      expertise: ["Youth Development", "Player Mentorship", "Tennis Coaching"],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+     
     },
     {
       id: 6,
@@ -95,6 +95,7 @@ const Speakers = () => {
         "Sports Psychology",
       ],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+      undisclosed: true,
     },
   ];
   return (
@@ -127,7 +128,7 @@ const Speakers = () => {
               >
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src={speaker.image}
+                    src={`${speaker.undisclosed ? "/Sil.jpg" : speaker.image}`}
                     alt={speaker.name}
                     width={400}
                     height={400}
@@ -150,15 +151,25 @@ const Speakers = () => {
                 <div className="flex-1 p-6 flex flex-col">
                   <h3
                     className={`text-xl font-bold mb-1 transition-colors duration-300 ${
+                      speaker.undisclosed ? "text-red-500" : ""
+                    } ${
                       isCardHovered(speaker.id, hoveredSpeaker)
                         ? "text-[#40A700]"
                         : "text-black"
                     }`}
                   >
-                    {speaker.name}
+                    {`${speaker.undisclosed ? "Undisclosed" : speaker.name}`}
                   </h3>
-                  <p className="font-semibold mb-3 text-[#40A700]">
-                    {speaker.title}
+                  <p
+                    className={`font-semibold mb-3 ${
+                      speaker.undisclosed ? "text-gray-700" : "text-[#40A700]"
+                    } `}
+                  >
+                    {`${
+                      speaker.undisclosed
+                        ? "To be revealed Soon"
+                        : speaker.title
+                    }`}
                   </p>
                   <p
                     className={`text-sm leading-relaxed flex-1 mb-4 transition-colors duration-300 ${
@@ -167,7 +178,7 @@ const Speakers = () => {
                         : "text-gray-700"
                     }`}
                   >
-                    {speaker.bio}
+                    {`${speaker.undisclosed ? "Check back soon" : speaker.bio}`}
                   </p>
                   <div
                     className={`rounded-full h-1 bg-[#40A700] transition-all duration-500 ${
@@ -218,7 +229,9 @@ const Speakers = () => {
                     <div>
                       <p className="text-lg font-semibold">More Details</p>
                       <p className="text-sm leading-relaxed text-gray-700">
-                        {speaker.details}
+                        {`${
+                          speaker.undisclosed ? "Coming Soon" : speaker.details
+                        }`}
                       </p>
                     </div>
                     <div>
@@ -229,7 +242,7 @@ const Speakers = () => {
                             key={i}
                             className="px-2 py-1 bg-[#71E529]/20 rounded-full text-sm font-semibold"
                           >
-                            {exp}
+                            {`${speaker.undisclosed ? "Coming Soon" : exp}`}
                           </span>
                         ))}
                       </div>
@@ -242,8 +255,16 @@ const Speakers = () => {
                             key={i}
                             className="flex items-center text-sm gap-2"
                           >
-                            <p className="rounded-full bg-[#40A700] w-2 h-2" />
-                            <p className="text-sm">{session}</p>
+                            <p
+                              className={`${
+                                speaker.undisclosed
+                                  ? ""
+                                  : "rounded-full bg-[#40A700] w-2 h-2"
+                              }`}
+                            />
+                            <p className="text-sm">{`${
+                              speaker.undisclosed ? "Check back" : session
+                            }`}</p>
                           </li>
                         ))}
                       </ul>

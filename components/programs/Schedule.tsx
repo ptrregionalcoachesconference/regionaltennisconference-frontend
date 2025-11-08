@@ -301,10 +301,10 @@ const Schedule = () => {
                 )}`}
               >
                 <TableCell className="text-bold">{session.time}</TableCell>
-                <TableCell className="px-6 py-4 text-sm text-foreground font-medium">
+                {/* <TableCell className="px-6 py-4 text-sm text-foreground font-medium">
                   {session.title}
                 </TableCell>
-                <TableCell className="">{session.speaker || "-"}</TableCell>
+                <TableCell className="">{session.speaker || "-"}</TableCell> */}
               </TableRow>
             ))}
           </TableBody>
