@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
 import { baseURL } from "@/config";
 
-export default function PaymentSuccessPage() {
+function Page() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -67,10 +67,27 @@ export default function PaymentSuccessPage() {
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="text-center">
         {loading && (
-          <div className="mb-4 animate-spin h-10 w-10 border-4 border-gray-400 border-t-green-600 rounded-full mx-auto"></div>
+          <div
+            role="status"
+            aria-label="Verifying payment"
+            className="mb-4 animate-spin h-10 w-10 border-4 border-gray-400 border-t-green-600 rounded-full mx-auto"
+          ></div>
         )}
         <p className="text-lg font-medium text-gray-700">{message}</p>
       </div>
     </div>
+  );
+}
+export default function PaymentSuccessPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="h-screen flex items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
+      <Page />
+    </Suspense>
   );
 }
