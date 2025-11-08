@@ -333,11 +333,15 @@ const Pricing = () => {
                 <p>Amount: {selectedPackage?.price.toLocaleString()}</p>
               </div>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-3 relative z-50">
               <Button
-                onClick={() => handlePayment("stripe")}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handlePayment("stripe");
+                }}
                 disabled={stripeLoading || paystackLoading}
-                className="w-full bg-[#635BFF] hover:bg-[#635BFF]/90 text-white"
+                className="w-full bg-[#635BFF] hover:bg-[#635BFF]/90 text-white touch-manipulation active:scale-95 transition-transform"
               >
                 {stripeLoading ? (
                   <>
@@ -350,9 +354,14 @@ const Pricing = () => {
               </Button>
 
               <Button
-                onClick={() => handlePayment("paystack")}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handlePayment("paystack");
+                }}
                 disabled={stripeLoading || paystackLoading}
                 className="w-full bg-[#40A700] hover:bg-[#40A700]/90 text-white"
+                type="button"
               >
                 {paystackLoading ? (
                   <>
