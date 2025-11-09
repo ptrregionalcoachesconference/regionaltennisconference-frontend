@@ -252,7 +252,7 @@ const Schedule = () => {
     <section className="py-20 px-6 bg-gray-300" id="schedule">
       <div className="mx-auto max-w-7xl">
         <div className="text-center space-y-4 mb-16">
-          <h1 className="text-3xl md:text-5xl text-black">
+          <h1 className="text-3xl md:text-5xl text-black italic">
             3-Day Conference Schedule
           </h1>
           <p className="text-base sm:text-sm md:text-lg">

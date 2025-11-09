@@ -68,7 +68,7 @@ const Packages = () => {
                 )}
                 <div className="p-8">
                   <h3
-                    className={`text-2xl font-bold mb-2 ${
+                    className={`text-2xl font-bold mb-2 italic ${
                       plan.recommended ? "text-black" : "text-foreground"
                     }`}
                   >

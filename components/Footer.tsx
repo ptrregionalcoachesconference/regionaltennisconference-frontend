@@ -61,13 +61,13 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h4 className="text-white">Quick Links</h4>
+            <h4 className="text-white italic">Quick Links</h4>
             <ul className="space-y-2 flex flex-col text-sm opacity-70">
               {links.map((item, index) => (
                 <Link
                   key={index}
                   href={item.path}
-                  className="cursor-pointer text-white hover:opacity-100"
+                  className="cursor-pointer  text-white hover:opacity-100"
                 >
                   {item.name}
                 </Link>
@@ -77,7 +77,7 @@ const Footer = () => {
 
           {/* contact info */}
           <div>
-            <h4 className="text-white">Contact</h4>
+            <h4 className="text-white italic">Contact</h4>
             <ul className="space-y-2 flex flex-col text-sm opacity-70">
               {contactInfo.map((item, index) => (
                 <Link
@@ -93,7 +93,7 @@ const Footer = () => {
 
           {/* social media */}
           <div>
-            <h4 className="text-white">Social Links</h4>
+            <h4 className="text-white italic">Social Links</h4>
             <ul className="space-y-2 flex flex-col text-sm opacity-70">
               {socialMedia.map((item, index) => (
                 <Link

@@ -34,7 +34,7 @@ const hosts = () => {
     <section className="py-20 px-6">
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-6">
-          <h1 className="text-3xl md:text-4xl">Meet the Organizers</h1>
+          <h1 className="text-3xl md:text-4xl italic">Meet the Organizers</h1>
           <p className="text-lg">
             Leading experts shaping the future of tennis coaching
           </p>
@@ -52,7 +52,7 @@ const hosts = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
               </div>
               <div className="space-y-3">
-                <h3>{host.name}</h3>
+                <h3 className="italic">{host.name}</h3>
                 <p>{host.title}</p>
                 <p>{host.bio}</p>
                 <div>

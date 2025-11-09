@@ -19,7 +19,7 @@ const page = () => {
                 <p className="text-white tracking-wider mb-4 uppercase">
                   Get in touch
                 </p>
-                <h1 className="text-white uppercase text-3xl md:text-5xl mb-5 ">
+                <h1 className="text-white uppercase text-3xl md:text-5xl mb-5 italic">
                   Contact the Conference
                 </h1>
                 <p className="text-base sm:text-base md:text-lg max-w-2xl">

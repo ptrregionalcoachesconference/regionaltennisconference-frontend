@@ -62,7 +62,7 @@ const Details = () => {
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center space-y-6 mb-16">
-          <h4 className="text-4xl md:text-5xl font-bold">Get in Touch</h4>
+          <h4 className="text-4xl md:text-5xl font-bold italic">Get in Touch</h4>
           <p className="text-gray-700 font-semibold text-lg">
             Reach out to us through any of these channels. We&apos;re here to
             help.

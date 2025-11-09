@@ -54,7 +54,7 @@ const PaymentPlan = () => {
     <section>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center space-y-6 mb-16">
-          <h4 className="text-4xl md:text-5xl font-bold">Payment Plans</h4>
+          <h4 className="text-4xl md:text-5xl font-bold italic">Payment Plans</h4>
           <p className="font-semibold text-lg text-gray-500">
             Flexible payment options to make certification more accessible
           </p>

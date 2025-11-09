@@ -96,7 +96,7 @@ const Example = () => {
                       Our Story
                     </span>
                     </div>
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight italic">
                       Building Africa&apos;s Tennis Future Together
                     </h1>
                   </div>

@@ -32,7 +32,7 @@ const Reason = () => {
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center space-y-6 mb-16">
-          <h4 className="text-4xl md:text-5xl font-bold">
+          <h4 className="text-4xl md:text-5xl font-bold italic">
             Why Choose PTR Workshops?
           </h4>
           <p className="font-semibold text-lg text-gray-500">

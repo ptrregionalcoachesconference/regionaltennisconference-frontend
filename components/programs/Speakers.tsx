@@ -102,7 +102,7 @@ const Speakers = () => {
     <div className="py-20" id="speakers">
       <div className="px-6 mx-auto max-w-7xl">
         <div className="text-center space-y-6">
-          <h1 className="text-3xl md:text-5xl text-black">Featured Speakers</h1>
+          <h1 className="text-3xl md:text-5xl text-black italic">Featured Speakers</h1>
           <p className="text-base sm:text-sm md:text-lg">
             Discover our world-class speakers and their expertise
           </p>

@@ -21,10 +21,10 @@ const page = () => {
                 <p className="text-white tracking-wider mb-4 uppercase">
                   Conference Programs
                 </p>
-                <h1 className="text-white uppercase text-3xl md:text-5xl mb-5 ">
+                <h1 className="text-white uppercase text-3xl md:text-5xl mb-5 italic ">
                   Your Complete Conference Experience
                 </h1>
-                <p className="text-base sm:text-base md:text-lg max-w-2xl">
+                <p className="text-base sm:text-base md:text-lg max-w-2xl italic">
                   Explore our expert speakers, detailed 3-day schedule, and
                   venue information for the Premier Tennis Conference
                 </p>

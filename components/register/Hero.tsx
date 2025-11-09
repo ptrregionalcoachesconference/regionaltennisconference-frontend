@@ -15,7 +15,7 @@ const Hero = () => {
                 <p className="text-white tracking-wider mb-4 uppercase">
                   Register Now
                 </p>
-                <h1 className="text-white uppercase text-3xl md:text-5xl mb-5 ">
+                <h1 className="text-white uppercase text-3xl md:text-5xl mb-5 italic">
                   Register for the Regional Coaches Conference Today
                 </h1>
                 <p className="text-base sm:text-base md:text-lg max-w-2xl">

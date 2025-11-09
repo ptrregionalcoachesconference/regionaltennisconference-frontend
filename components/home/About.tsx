@@ -38,7 +38,7 @@ const About = () => {
             </div>
             {/* text-side */}
             <div className="space-y-6">
-              <h1 className="text-center md:text-left text-3xl md:text-4xl w-full  font-bold  md:mx-0   mb-5">
+              <h1 className="text-center md:text-left text-3xl md:text-4xl w-full  font-bold  md:mx-0   mb-5 italic">
                 ABOUT THE CONFERENCE
               </h1>
               <p

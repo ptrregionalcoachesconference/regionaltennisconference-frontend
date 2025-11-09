@@ -22,7 +22,7 @@ const page = () => {
                 <p className="uppercase text-white tracking-wider mb-4">
                   Professional Development
                 </p>
-                <h1 className="text-white uppercase text-3xl md:text-5xl mb-5">
+                <h1 className="text-white uppercase text-3xl md:text-5xl mb-5 italic">
                   PTR Workshops & Certifications
                 </h1>
                 <p className="text-base sm:text-base md:text-lg max-w-2xl">

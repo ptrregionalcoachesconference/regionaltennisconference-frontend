@@ -77,7 +77,7 @@ const RegFee = ({ isOpen, onClose, userEmail, registrationFee }: RegFeeModalProp
           onClick={onClose}
         />
         <div className="px-3 py-5">
-          <h2 className="text-lg font-bold">Complete Your Registration</h2>
+          <h2 className="text-lg font-bold italic">Complete Your Registration</h2>
           <p className="mt-3 mb-5">
             To secure your spot, please pay the registration fee of{" "}
             <span className="font-bold text-[#71E529]">

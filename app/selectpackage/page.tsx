@@ -63,7 +63,7 @@ const Page = () => {
           />
           <div className="mx-auto max-w-7xl px-4">
             <div className="flex flex-col text-center justify-center items-center py-20">
-              <h1 className="text-3xl md:text-5xl font-semibold mt-5 mb-5 ">
+              <h1 className="text-3xl md:text-5xl font-semibold mt-5 mb-5 italic ">
                 Select a conference Package
               </h1>
               <p className="text-base sm:text-base md:text-lg max-w-2xl">
