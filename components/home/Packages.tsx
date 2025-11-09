@@ -1,47 +1,45 @@
-"use client"
-import  Link from "next/link";
+"use client";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const Packages = () => {
-      const pricing = [
-        {
-          name: "Standard Package",
-          price: "500",
-          items: [
-            "All VIP Package Benefits",
-            "Luxury 5-star accomodation",
-            "Exclusive Dinner",
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
-          ],
-        },
-        {
-          name: "Standard Package",
-          price: "500",
-          items: [
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
-          ],
-          recommended: true,
-        },
-        {
-          name: "Standard Package",
-          price: "500",
-          items: [
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
-            "Lorem ipsum",
-          ],
-        },
-      ];
+  const pricing = [
+    {
+      name: "Conference Only",
+      price: "350",
+      items: [
+        "Full Conference Access",
+        "Lunch $ refreshments",
+        // "Lorem ipsum",
+        // "Lorem ipsum",
+        // "Lorem ipsum",
+      ],
+    },
+    {
+      name: "Nicon Luxury Hotel (5-Star) — Shared Room",
+      price: "495",
+      items: [
+        "Shared accommodation",
+        "Conference venue hotel",
+        "Breakfast included",
+      ],
+      recommended: true,
+    },
+    {
+      name: "Nicon Luxury Hotel (5-Star) — Single Room",
+      price: "560",
+      items: [
+        "Private accommodation",
+        "Conference venue hotel",
+        "Breakfast included",
+      ],
+    },
+    {
+      name: "Cijel Residence (3-Star) — Single Room",
+      price: "445",
+      items: ["Private accommodation", "Breakfast included", "Nearby hotel"],
+    },
+  ];
   return (
     <div>
       <div className="py-16 md:py-20 px-4 md:px-8 ">
@@ -53,7 +51,7 @@ const Packages = () => {
             Choose the perfect package for your conference experience.
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  gap-8">
             {pricing.map((plan, index) => (
               <div
                 key={index}
@@ -131,7 +129,7 @@ const Packages = () => {
                           : "bg-[#71E529] text-white hover:bg-green-700"
                       }`}
                     >
-                      Register
+                      Register & Pay
                     </Button>
                   </Link>
                 </div>
@@ -141,7 +139,7 @@ const Packages = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Packages
+export default Packages;

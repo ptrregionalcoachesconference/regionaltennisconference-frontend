@@ -3,7 +3,7 @@ import Link from "next/link"
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
 import Expectation from "@/components/home/Expectation";
-import Packages from "@/components/Packages";
+import Packages from "@/components/home/Packages";
 import { Space_Grotesk } from "next/font/google";
 
 import Image from "next/image";
@@ -39,26 +39,30 @@ export default function Page() {
   ];
 
   const speakers = [
-    {
+     {
       id: 1,
-      name: "Mr Shina Atilola",
-      title: "Director, Premium Trust Bank",
-      specialty: "Advanced Technique",
-      image: "/Shina.jpg",
-    },
-    {
-      id: 2,
       name: "Coach Carl Maes",
       title: "PTR International Coaching Director",
       specialty: "Advanced Technique",
       image: "/Carl.jpg",
     },
     {
+      
+      id: 2,
+      name: "Mr Shina Atilola",
+      title: "Director, Premium Trust Bank",
+      specialty: "Advanced Technique",
+      image: "/Shina.jpg",
+      undisclosed: true
+    },
+   
+    {
       id: 3,
       name: "Rotimi Akinloye",
       title: "Past Nigeria Tennis Director",
       specialty: "Advanced Technique",
       image: "/Rotimi.jpg",
+      undisclosed: true
     },
     {
       id: 4,
@@ -66,6 +70,7 @@ export default function Page() {
       title: "Nigerian Tennis Coach",
       specialty: "Advanced Technique",
       image: "/Benson.jpg",
+      undisclosed: true
     },
   ];
   return (
@@ -163,15 +168,15 @@ export default function Page() {
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl">
                   <div className="relative overflow-hidden h-64 md:h-80">
                     <Image
-                      src={item.image}
+                      src={`${item.undisclosed ? "/Sil.jpg" : item.image}`}
                       alt={item.name}
                       fill
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="p-6">
-                    <h3>{item.name}</h3>
-                    <p>{item.title}</p>
+                    <h3  className={`${item.undisclosed ? "text-red-500" : ""}`}>{`${item.undisclosed ? "Undisclosed" : item.name}`}</h3>
+                    <p className={`${item.undisclosed ? "text-red-500" : ""}`}>{`${item.undisclosed ? "Undisclosed" : item.title}`}</p>
                   </div>
                 </div>
               </div>
