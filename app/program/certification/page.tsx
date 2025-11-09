@@ -4,6 +4,7 @@ import Reason from "@/components/certification/Reason"
 import Program from "@/components/certification/Program";
 import Pricing from '@/components/certification/Pricing'
 import FAQ from "@/components/certification/FAQ"
+import PaymentPlan from "@/components/certification/PaymentPlan";
 
 const page = () => {
   return (
@@ -38,6 +39,7 @@ const page = () => {
       <Reason />
       <Program />
       <Pricing />
+      <PaymentPlan />
       <FAQ />
     </div>
   );

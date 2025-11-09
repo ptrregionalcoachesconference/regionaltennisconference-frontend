@@ -375,6 +375,7 @@ const Pricing = () => {
             </div>
           </DialogContent>
         </Dialog>
+        
 
         {/* notice */}
         <div className="border-gray-200 border bg-gray-200 mt-12 p-8 rounded-xl text-center">
