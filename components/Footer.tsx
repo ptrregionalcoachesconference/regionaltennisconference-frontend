@@ -24,8 +24,8 @@ const Footer = () => {
       path: "mailto:ptrregionaltenniscoachesconference@gmail.com",
     },
     {
-      name: "Phone:+1(312) 493-7113, +234 806 343 0037",
-      path: "https://wa.me/13124937113",
+      name: "Phone:+234 806 343 0037, +1(312) 493-7113 ",
+      path: "https://wa.me/8063430037",
     },
     {
       name: "Location: Abuja, Nigeria",
@@ -51,7 +51,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-28 mb-8">
           <div>
             <div className=" justify-center ">
-              <Image src="/Green+.png" alt="logo" width={100} height={100} className="object-cover w-auto" />
+              <Image
+                src="/Green+.png"
+                alt="logo"
+                width={100}
+                height={100}
+                className="object-cover w-auto"
+              />
             </div>
           </div>
           <div>
@@ -103,8 +109,8 @@ const Footer = () => {
         </div>
         <div className="border-t border-white/10 pt-8 text-center text-sm opacity-70">
           <p className="text-white">
-            &copy; {new Date().getFullYear()} PTR African Regional Tennis Coaches
-            Conference. All rights reserved.
+            &copy; {new Date().getFullYear()} PTR African Regional Tennis
+            Coaches Conference. All rights reserved.
           </p>
         </div>
       </div>

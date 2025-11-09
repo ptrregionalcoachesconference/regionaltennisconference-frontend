@@ -10,11 +10,7 @@ import "./globals.css";
 
 const speed = localFont({
   src: [
-    // {
-    //   path: "./../public/fonts/speed.ttf",
-    //   weight: "700",
-    //   style: "italic",
-    // },
+
     {
       path: "../public/fonts/SpeedRegular.woff",
       weight: "700",
@@ -25,6 +21,11 @@ const speed = localFont({
       weight: "700",
       style: "italic",
     },
+    {
+      path: "../public/fonts/SpeedRegular.ttf",
+      weight: "700",
+      style: "italic"
+    }
   ],
   variable: "--font-speed",
   display: "swap",
