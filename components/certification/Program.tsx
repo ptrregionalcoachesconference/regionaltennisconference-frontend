@@ -17,7 +17,7 @@ const Program = () => {
     },
     {
       id: 2,
-      name: "11-17 years junior Development",
+      name: "11-17 Years-Junior Development",
       desc: "Comprehensive certification for coaching competitive junior players",
       items: [
         "Advanced Technical training",

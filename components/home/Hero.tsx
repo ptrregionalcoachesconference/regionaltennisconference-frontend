@@ -42,10 +42,9 @@ const Hero = () => {
             <span className="text-[#53D900] ">2026</span>
           </h1>
           <p className={`md:text-lg text-md mb-5 ${spaceGrotesk.className}`}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque
-            velit provident voluptatem, debitis delectus, architecto quae veniam
-            eum nesciunt beatae saepe modi expedita nemo reiciendis temporibus
-            sequi? Repudiandae, voluptates cupiditate.
+            Empowering tennis coaches to develop champions on and off the court
+            by building strong foundations and creating pathways for the next
+            generation of players to thrive and excel in the sport.
           </p>
           <div className="space-x-3 mt-4">
             {btnTexts.map((item, index) => (

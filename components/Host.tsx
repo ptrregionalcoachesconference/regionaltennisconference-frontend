@@ -20,7 +20,7 @@ const hosts = () => {
     {
       name: "Coach C Spencer: Host",
       title: "Certified PTR & ITF Tennis Coach & Founder, C.Spencer Tennis Pro Concepts",
-      bio: "Certified PTR & ITF tennis coach with over 5 years of coaching experience. Passionate about inspiring the next generation to build confidence, purpose, and excellence through tennis.",
+      bio: "Certified PTR & ITF tennis coach with over 5 years of teaching experience. Passionate about inspiring the next generation to build confidence, purpose, and excellence through tennis.",
       img: "/spenc.jpg",
       specialties: [
         "Youth Player Development",
