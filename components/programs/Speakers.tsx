@@ -26,16 +26,16 @@ const Speakers = () => {
     },
     {
       id: 2,
-      name: "Shina Atilola",
-      title: "Director, Premium Trust Bank",
-      image: "/Shina.jpg",
-      bio: "Senior banking executive with 24+ years' experience in business development and strategy across leading financial institutions.",
+      name: "Pfungwa Mahefu",
+      title: "Founder & President, CATE",
+      image: "/pfungwa.jpg",
+      bio: "Former Zimbabwe Davis Cup player and coach, founder of The Children's Academy of Tennis Excellence (CATE).",
       details:
-        "Shina Atilola is a seasoned business development and strategy expert with over 24 years of experience in top financial institutions. His background spans marketing, branding, and auditing, and he has been invited to speak at multiple industry events, sharing insights on growth, leadership, and corporate strategy.",
-      expertise: ["Business Strategy", "Marketing", "Leadership"],
+        "Pfungwa Mahefu is a former Zimbabwe Davis Cup player and has coached ATP player Tankayi. He is the founder and president of The Children's Academy of Tennis Excellence (CATE), where he focuses on developing young tennis talent and promoting excellence in youth tennis education.",
+      expertise: ["Youth Development", "Player Mentorship", "Tennis Coaching"],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-      undisclosed: true,
     },
+
     {
       id: 3,
       name: "Benson Ishicheli",
@@ -70,15 +70,15 @@ const Speakers = () => {
     },
     {
       id: 5,
-      name: "Pfungwa Mahefu",
-      title: "Founder & President, CATE",
-      image: "/pfungwa.jpg",
-      bio: "Former Zimbabwe Davis Cup player and coach, founder of The Children's Academy of Tennis Excellence (CATE).",
+      name: "Shina Atilola",
+      title: "Director, Premium Trust Bank",
+      image: "/Shina.jpg",
+      bio: "Senior banking executive with 24+ years' experience in business development and strategy across leading financial institutions.",
       details:
-        "Pfungwa Mahefu is a former Zimbabwe Davis Cup player and has coached ATP player Tankayi. He is the founder and president of The Children's Academy of Tennis Excellence (CATE), where he focuses on developing young tennis talent and promoting excellence in youth tennis education.",
-      expertise: ["Youth Development", "Player Mentorship", "Tennis Coaching"],
+        "Shina Atilola is a seasoned business development and strategy expert with over 24 years of experience in top financial institutions. His background spans marketing, branding, and auditing, and he has been invited to speak at multiple industry events, sharing insights on growth, leadership, and corporate strategy.",
+      expertise: ["Business Strategy", "Marketing", "Leadership"],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-     
+      undisclosed: true,
     },
     {
       id: 6,
@@ -102,7 +102,9 @@ const Speakers = () => {
     <div className="py-20" id="speakers">
       <div className="px-6 mx-auto max-w-7xl">
         <div className="text-center space-y-6">
-          <h1 className="text-3xl md:text-5xl text-black italic">Featured Speakers</h1>
+          <h1 className="text-3xl md:text-5xl text-black italic">
+            Featured Speakers
+          </h1>
           <p className="text-base sm:text-sm md:text-lg">
             Discover our world-class speakers and their expertise
           </p>

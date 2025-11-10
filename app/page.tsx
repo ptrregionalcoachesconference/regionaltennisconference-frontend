@@ -47,8 +47,14 @@ export default function Page() {
       image: "/Carl.jpg",
     },
     {
-      
       id: 2,
+      name: "Coach Pfungwa Mahefu",
+      title: "Founder & President, CATE",
+      image: "/pfungwa.jpg",
+    },
+    {
+      
+      id: 3,
       name: "Mr Shina Atilola",
       title: "Director, Premium Trust Bank",
       specialty: "Advanced Technique",
@@ -57,21 +63,14 @@ export default function Page() {
     },
    
     {
-      id: 3,
+      id: 4,
       name: "Rotimi Akinloye",
       title: "Past Nigeria Tennis Director",
       specialty: "Advanced Technique",
       image: "/Rotimi.jpg",
       undisclosed: true
     },
-    {
-      id: 4,
-      name: "Benson Ishicheli",
-      title: "Nigerian Tennis Coach",
-      specialty: "Advanced Technique",
-      image: "/Benson.jpg",
-      undisclosed: true
-    },
+  
   ];
   return (
     <div className="min-h-screen ">
