@@ -2,6 +2,7 @@
 import React from "react";
 import { IoMdClose } from "react-icons/io";
 import { Button } from "@/components/ui/button";
+import {Label} from '@/components/ui/label'
 import { toast } from "react-toastify";
 import axios from "axios";
 import { baseURL } from "@/config";
@@ -99,6 +100,7 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
             </p>
             {/* payment options */}
             <div className="flex flex-col gap-4">
+              <Label className="text-sm text-red-500 font-semibold">*Users outside Nigeria:</Label>
               <Button
                 disabled={stripeLoading || stripeLoading}
                 onClick={() => handlePayment("stripe")}
@@ -111,11 +113,13 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
                   </>
                 ) : (
                   <>
-                    <p>Pay with Stripe</p>
+                    <p>Pay with Stripe</p>{" "}
+                    
                     <FaStripe />
                   </>
                 )}
               </Button>
+              <Label className="text-sm text-red-500 font-semibold">*Users in Nigeria:</Label>
               <Button
                 disabled={stripeLoading || paystackLoading}
                 onClick={() => handlePayment("paystack")}

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import { workshopRegisterSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -246,7 +247,7 @@ const Pricing = () => {
                 <div className="space-y-2 mb-4">
                   <div className="flex gap-2 items-center">
                     <span className="text-5xl font-bold text-[#40A700]">
-                      {pkg.price}
+                      ${pkg.price}
                     </span>
                     <span className="text-sm">/person</span>
                   </div>
@@ -334,6 +335,7 @@ const Pricing = () => {
               </div>
             </div>
             <div className="space-y-3 relative z-50">
+              <Label className="text-red-500 text-sm">*Users outside Nigeria:</Label>
               <Button
                 onClick={(e) => {
                   e.preventDefault();
@@ -349,10 +351,13 @@ const Pricing = () => {
                     Processing...
                   </>
                 ) : (
-                  "Pay with Stripe"
+                  <>
+                    <p>Pay with Stripe</p>
+                    
+                  </>
                 )}
               </Button>
-
+                <Label className="text-red-500 text-sm">*Users in Nigeria:</Label>
               <Button
                 onClick={(e) => {
                   e.preventDefault();
@@ -375,7 +380,6 @@ const Pricing = () => {
             </div>
           </DialogContent>
         </Dialog>
-        
 
         {/* notice */}
         <div className="border-gray-200 border bg-gray-200 mt-12 p-8 rounded-xl text-center">

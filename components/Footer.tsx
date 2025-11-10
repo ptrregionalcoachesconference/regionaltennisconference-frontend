@@ -42,7 +42,7 @@ const Footer = () => {
     },
     {
       name: "Instagram",
-      path: "https://www.instagram.com/ptrtennis/",
+      path: "https://www.instagram.com/ptr_artcc?igsh=cnRwdzd6bHBvZGNr ",
     },
   ];
   return (

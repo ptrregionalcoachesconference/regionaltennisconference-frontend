@@ -26,7 +26,7 @@ const Venue = () => {
                 <p className="font-bold mb-2">
                   Phone:{" "}
                   <span className="font-light text-sm">
-                    +1 (312) 493 7113/ +234 806 343 0037
+                    +234 806 343 0037 / +1 (312) 493 7113
                   </span>
                 </p>
                 <p className="font-bold">
