@@ -1,6 +1,7 @@
 "use client";
-import Link from "next/link";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import Modal from "@/components/home/Modal";
 
 const Packages = () => {
   const pricing = [
@@ -10,9 +11,9 @@ const Packages = () => {
       items: [
         "Full Conference Access",
         "Lunch $ refreshments",
-        // "Lorem ipsum",
-        // "Lorem ipsum",
-        // "Lorem ipsum",
+        "Conference materials",
+        "Networking Opportunities",
+        "certificate of Attendance",
       ],
     },
     {
@@ -20,10 +21,14 @@ const Packages = () => {
       price: "495",
       items: [
         "Shared accommodation",
+        "Lunch $ refreshments",
         "Conference venue hotel",
-        "Breakfast included",
+        "Swimming Pool",
+        "Free Parking Space",
+        "Free Wifi",
+        "Free Breakfast",
+        "Gym access",
       ],
-      recommended: true,
     },
     {
       name: "Nicon Luxury Hotel (5-Star) — Single Room",
@@ -32,14 +37,27 @@ const Packages = () => {
         "Private accommodation",
         "Conference venue hotel",
         "Breakfast included",
+        "Swimming Pool",
+        "Free Parking Space",
+        "Free Wifi",
+        "Gym access",
       ],
     },
     {
       name: "Cijel Residence (3-Star) — Single Room",
       price: "445",
-      items: ["Private accommodation", "Breakfast included", "Nearby hotel"],
+      items: [
+        "Private accommodation",
+        "Air Conditioned Rooms",
+        "Breakfast included",
+        "Free Wifi",
+        "Free Parking Space",
+        "Lunch $ Refreshments",
+      ],
     },
   ];
+
+  const [showModal, setShowModal] = useState<boolean>(false);
   return (
     <div>
       <div className="py-16 md:py-20 px-4 md:px-8 ">
@@ -51,87 +69,61 @@ const Packages = () => {
             Choose the perfect package for your conference experience.
           </p>
 
+          {showModal && (
+            <Modal isOpen={showModal} onClose={() => setShowModal(false)} />
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  gap-8">
             {pricing.map((plan, index) => (
               <div
                 key={index}
-                className={`rounded-2xl transition-all ${
-                  plan.recommended
-                    ? "bg-[#71E529] text-black shadow-2xl scale-105 lg:scale-110"
-                    : "bg-gray-50 border border-border hover:shadow-lg"
+                className={`rounded-2xl transition-all 
+                    "bg-gray-50 border border-border hover:shadow-lg"
                 }`}
               >
-                {plan.recommended && (
-                  <div className="bg-green-700 text-white text-center py-2 font-bold text-sm">
-                    RECOMMENDED
-                  </div>
-                )}
                 <div className="p-8">
                   <h3
-                    className={`text-2xl font-bold mb-2 italic ${
-                      plan.recommended ? "text-black" : "text-foreground"
-                    }`}
+                    className={`text-2xl font-bold mb-2 italic
+                      "text-foreground"
+                    `}
                   >
                     {plan.name}
                   </h3>
                   <div className="mb-8">
                     <span
-                      className={`text-5xl font-black ${
-                        plan.recommended ? "text-black" : "text-[#71E529]"
-                      }`}
+                      className={`text-5xl font-black  "text-[#71E529]"
+                      `}
                     >
                       ${plan.price}
                     </span>
-                    <span
-                      className={
-                        plan.recommended
-                          ? "text-black"
-                          : "text-muted-foreground"
-                      }
-                    >
-                      /person
-                    </span>
+                    <span className={"text-muted-foreground"}>/person</span>
                   </div>
 
                   <ul className="space-y-4 mb-8">
                     {plan.items.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <div
-                          className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                            plan.recommended ? "bg-green-400" : "bg-green-100"
-                          }`}
+                          className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5  "bg-green-100"
+                          `}
                         >
                           <span
-                            className={`text-xs font-bold ${
-                              plan.recommended
-                                ? "text-green-700"
-                                : "text-green-600"
-                            }`}
+                            className={`text-xs font-bold  "text-green-600"
+                            `}
                           >
                             ✓
                           </span>
                         </div>
-                        <span
-                          className={
-                            plan.recommended ? "text-black" : "text-foreground"
-                          }
-                        >
-                          {feature}
-                        </span>
+                        <span className={"text-foreground"}>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Link href="/register">
-                    <Button
-                      className={`w-full py-3 rounded-lg font-bold transition ${
-                        plan.recommended
-                          ? "bg-white text-green-600 hover:bg-green-50"
-                          : "bg-[#71E529] text-white hover:bg-green-700"
-                      }`}
-                    >
-                      Register & Pay
-                    </Button>
-                  </Link>
+                  {/* <Link href="/register"> */}
+                  <Button
+                    className={`w-full py-3 rounded-lg font-bold transition ${"bg-[#71E529] text-white hover:bg-green-700"}`}
+                    onClick={() => setShowModal(true)}
+                  >
+                    Register & Pay
+                  </Button>
+                  {/* </Link> */}
                 </div>
               </div>
             ))}

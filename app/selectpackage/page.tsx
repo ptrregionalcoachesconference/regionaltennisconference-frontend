@@ -85,7 +85,7 @@ const Page = () => {
             {packages.map((pkg) => (
               <div
                 key={pkg.id}
-                className="p-8 bg-white text-black shadow-2xl scale-105 md:scale-110 rounded-2xl"
+                className="p-8 bg-white text-black shadow-2xl scale-105 md:scale-110 rounded-2xl  min-h-[500px]"
               >
                 <p className="text-sm md:text-base lg:text-md">{pkg.title}</p>
                 {/* <hr className="border-black" /> */}
