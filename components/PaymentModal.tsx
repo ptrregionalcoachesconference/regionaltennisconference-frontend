@@ -1,13 +1,15 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { IoMdClose } from "react-icons/io";
 import { Button } from "@/components/ui/button";
-import {Label} from '@/components/ui/label'
+import { Label } from "@/components/ui/label";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { baseURL } from "@/config";
 import { FaStripe } from "react-icons/fa6";
 import { AiOutlineLoading } from "react-icons/ai";
+import PaymentDollar from "./PaymentDollar";
+import CheckOut from "@/components/CheckOut";
 
 interface PaymentModalProps {
   pkg: {
@@ -20,8 +22,9 @@ interface PaymentModalProps {
 }
 
 const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
-  const [stripeLoading, setStripeLoading] = React.useState<boolean>(false);
+  // const [stripeLoading, setStripeLoading] = React.useState<boolean>(false);
   const [paystackLoading, setPaystackLoading] = React.useState<boolean>(false);
+  const [checkoutOpened, setCheckoutOpened] = useState(false);
 
   const closeModal = () => {
     onClose();
@@ -45,7 +48,7 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
       return;
     }
 
-    if (gateway === "stripe") setStripeLoading(true);
+    // if (gateway === "stripe") setStripeLoading(true);
     if (gateway === "paystack") setPaystackLoading(true);
     try {
       const res = await axios.post(
@@ -66,7 +69,7 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
         window.location.href = redirectUrl;
       } else {
         toast.error("Failed to initiate payment. Please try again.");
-        setStripeLoading(false);
+        // setStripeLoading(false);
         setPaystackLoading(false);
       }
     } catch (error) {
@@ -78,7 +81,7 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
       } else {
         toast.error("An unexpected error occurred. Please try again.");
       }
-      setStripeLoading(false);
+      // setStripeLoading(false);
       setPaystackLoading(false);
     }
   };
@@ -99,31 +102,30 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
               Price: {pkg.price}
             </p>
             {/* payment options */}
-            <div className="flex flex-col gap-4">
-              <Label className="text-sm text-red-500 font-semibold">*Users outside Nigeria:</Label>
+            <div className="space-y-3">
+              <Label className="text-sm text-red-500 font-semibold">
+                *Users outside Nigeria:
+              </Label>
+              <PaymentDollar />
               <Button
-                disabled={stripeLoading || stripeLoading}
-                onClick={() => handlePayment("stripe")}
-                className="cursor-pointer"
+                // disabled={stripeLoading || stripeLoading}
+              onClick={() => {
+                 
+                  setCheckoutOpened(true);
+                }}
+                className="w-full bg-[#635BFF] hover:bg-[#635BFF]/90 text-white  active:scale-95 transition-transform cursor-pointer"
               >
-                {stripeLoading ? (
-                  <>
-                    <p>Please wait</p>
-                    <AiOutlineLoading className="animate-spin" />
-                  </>
-                ) : (
-                  <>
-                    <p>Pay with Stripe</p>{" "}
-                    
-                    <FaStripe />
-                  </>
-                )}
+                <>
+                  <p>I&apos;ve made Payment</p> <FaStripe />
+                </>
               </Button>
-              <Label className="text-sm text-red-500 font-semibold">*Users in Nigeria:</Label>
+              <Label className="text-sm text-red-500 font-semibold">
+                *Users in Nigeria:
+              </Label>
               <Button
-                disabled={stripeLoading || paystackLoading}
+                disabled={paystackLoading}
                 onClick={() => handlePayment("paystack")}
-                className="cursor-pointer"
+               className="w-full bg-[#40A700] hover:bg-[#40A700]/90 text-white cursor-pointer"
               >
                 {paystackLoading ? (
                   <>
@@ -139,6 +141,10 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
             </div>
           </div>
         </div>
+        <CheckOut
+          isOpen={checkoutOpened}
+          onClose={() => setCheckoutOpened(false)}
+        />
       </div>
     </div>
   );

@@ -10,13 +10,13 @@ const PaymentPlan = () => {
     {
       name: "Plan A",
       payments: "Two Payments",
-      amounts: ["$200", "$200"],
+      amounts: ["$200 / ₦300,000", "$200 / ₦300,000"],
       dates: ["1st payment: by Jan 31", "2nd payment: by March 31"],
     },
     {
       name: "Plan B",
       payments: "Three Payments",
-      amounts: ["$150", "$150", "$100"],
+      amounts: ["$150 / ₦225,000", "$150 / ₦225,000", "$100 / ₦150,000"],
       dates: [
         "1st payment: by Jan 31",
         "2nd payment: by Feb 18",
@@ -26,7 +26,7 @@ const PaymentPlan = () => {
     {
       name: "Plan C",
       payments: "Four Payments",
-      amounts: ["$100", "$100", "$100", "$100"],
+      amounts: ["$100 / ₦150,000", "$100 / ₦150,000", "$100 / ₦150,000", "$100 / ₦150,000"],
       dates: [
         "1st payment: by Dec 31",
         "2nd payment: by Jan 31",

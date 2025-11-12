@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
 import { useForm, SubmitHandler } from "react-hook-form";
 import { workshopRegisterSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,10 +14,12 @@ import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { Input } from "../ui/input";
 import { Label } from "@/components/ui/label";
 import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
+import PaymentDollar from "@/components/PaymentDollar";
+import CheckOut from "@/components/CheckOut";
 
 interface Workshop {
-  id: number;
-  _id?: string;
+  id: string;
+  // _id: string;
   name: string;
   price: number;
   tag: string;
@@ -71,10 +72,11 @@ const Pricing = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string>("");
   const [isRegisterDialogOpen, setIsRegisterDialogOpen] = useState(false);
-  const [stripeLoading, setStripeLoading] = React.useState<boolean>(false);
+  // const [stripeLoading, setStripeLoading] = React.useState<boolean>(false);
   const [paystackLoading, setPaystackLoading] = React.useState<boolean>(false);
   const [paymentDialogOpen, setPaymentDialogOpen] = useState(false);
   const [userInfo, setUserInfo] = useState<WorkshopFormData | null>(null);
+  const [checkoutOpened, setCheckoutOpened] = useState(false);
   // const [registrationId, setRegistrationId] = useState<string | null>(null);
 
   const {
@@ -98,8 +100,9 @@ const Pricing = () => {
       try {
         const res = await axios.get(`${baseURL}/api/workshop/get-workshops`);
 
-        console.log("WORKSHOPS:", res.data);
+        // console.log("WORKSHOPS:", res.data);
         setPackages(res.data);
+        // console.log(packages);
       } catch (err: unknown) {
         console.log(err);
         setError("failed to load");
@@ -109,7 +112,7 @@ const Pricing = () => {
       }
     };
     fetchPackages();
-  }, []);
+  }, [packages]);
   //open register Dialog
   const onOpenRegister = (pkg: Workshop) => {
     setSelectedPackage(pkg);
@@ -117,7 +120,7 @@ const Pricing = () => {
     reset();
   };
 
-  // form submit handler
+  // form submit handler - save data frm registration
   const onSubmit: SubmitHandler<WorkshopFormData> = async (
     data: WorkshopFormData
   ) => {
@@ -128,9 +131,10 @@ const Pricing = () => {
     try {
       const payload = {
         ...data,
-        packageId: selectedPackage.id || selectedPackage._id,
-        packageName: selectedPackage.name,
-        amount: selectedPackage.price,
+        workshopId: selectedPackage?.id,
+        // package: packages?.id,
+        // packageName: selectedPackage.name,
+        // amount: selectedPackage.price,
       };
 
       console.log("Registering user:", payload);
@@ -138,11 +142,17 @@ const Pricing = () => {
         `${baseURL}/api/workshop/account/register-workshop`,
         payload
       );
+
       console.log("Reg Res", res.data);
+      console.log(res);
 
       if (!res.data?.success) {
         toast.error("Registration failed. Try again.");
         return;
+      }
+
+      if (res.data.token) {
+        localStorage.setItem("authToken", res.data.token);
       }
 
       setUserInfo(data);
@@ -157,7 +167,8 @@ const Pricing = () => {
     }
   };
 
-  const handlePayment = async (gateway: "stripe" | "paystack") => {
+  // handle payment via paystack or stripe
+  const handlePayment = async (gateway: "paystack") => {
     if (!userInfo || !selectedPackage) {
       toast.error("Missing reg Information");
       return;
@@ -168,20 +179,21 @@ const Pricing = () => {
       toast.error("You must be logged in to make payment");
       return;
     }
-    if (gateway === "stripe") setStripeLoading(true);
+    // if (gateway === "stripe") setStripeLoading(true);
     if (gateway === "paystack") setPaystackLoading(true);
 
     try {
       const payload = {
         // registrationId,
-        email: userInfo.email,
-        amount: selectedPackage.price,
-        packageName: selectedPackage.name,
-        packageId: selectedPackage.id,
+        // _id: selectedPackage?._id,
+        // email: userInfo.email,
+        // amount: selectedPackage.price,
+        // packageName: selectedPackage.name,
+        workshopId: selectedPackage.id,
       };
       console.log(`Initializing ${gateway} payment:`, payload);
       const res = await axios.post(
-        `${baseURL}/api/payments/register-${gateway}`,
+        `${baseURL}/api/payments/workshop-${gateway}`,
         payload,
         {
           headers: {
@@ -196,11 +208,14 @@ const Pricing = () => {
         window.location.href = redirectUrl;
       } else {
         toast.error("Failed to initiate payment. Please try again.");
-        setStripeLoading(false);
+        // setStripeLoading(false);
         setPaystackLoading(false);
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      // setStripeLoading(false);
+      setPaystackLoading(false);
     }
   };
 
@@ -331,40 +346,42 @@ const Pricing = () => {
               <div className="bg-gray-50 p-4 rounded-lg space-y-2">
                 <p>Registration Summary</p>
                 <p>Package: {selectedPackage?.name}</p>
-                <p>Amount: {selectedPackage?.price.toLocaleString()}</p>
+                <p>Amount: $ {selectedPackage?.price.toLocaleString()}</p>
               </div>
             </div>
-            <div className="space-y-3 relative z-50">
-              <Label className="text-red-500 text-sm">*Users outside Nigeria:</Label>
+            <div className="space-y-3 ">
+              <Label className="text-red-500 text-sm">
+                *Users outside Nigeria:
+              </Label>
+              <PaymentDollar />
               <Button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  handlePayment("stripe");
+                // onClick={() => {
+                //   handlePayment("stripe");
+                // }}
+                onClick={() => {
+                  setPaymentDialogOpen(false);
+                  setCheckoutOpened(true);
                 }}
-                disabled={stripeLoading || paystackLoading}
-                className="w-full bg-[#635BFF] hover:bg-[#635BFF]/90 text-white touch-manipulation active:scale-95 transition-transform"
+                disabled={paystackLoading}
+                className="w-full bg-[#635BFF] hover:bg-[#635BFF]/90 text-white  active:scale-95 transition-transform"
               >
-                {stripeLoading ? (
+                {/* {stripeLoading ? (
                   <>
                     <BiLoaderCircle className="animate-spin mr-2" />
                     Processing...
                   </>
-                ) : (
-                  <>
-                    <p>Pay with Stripe</p>
-                    
-                  </>
-                )}
+                ) : ( */}
+                <>
+                  <p>I&apos;ve Made Payment</p>
+                </>
+                {/* } */}
               </Button>
-                <Label className="text-red-500 text-sm">*Users in Nigeria:</Label>
+              <Label className="text-red-500 text-sm">*Users in Nigeria:</Label>
               <Button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
+                onClick={() => {
                   handlePayment("paystack");
                 }}
-                disabled={stripeLoading || paystackLoading}
+                disabled={paystackLoading}
                 className="w-full bg-[#40A700] hover:bg-[#40A700]/90 text-white"
                 type="button"
               >
@@ -380,6 +397,10 @@ const Pricing = () => {
             </div>
           </DialogContent>
         </Dialog>
+        <CheckOut
+          isOpen={checkoutOpened}
+          onClose={() => setCheckoutOpened(false)}
+        />
 
         {/* notice */}
         <div className="border-gray-200 border bg-gray-200 mt-12 p-8 rounded-xl text-center">
