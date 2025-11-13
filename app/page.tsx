@@ -23,7 +23,7 @@ export default function Page() {
   const details = [
     {
       icon: <FaCalendarDays />,
-      detail: "APRIL",
+      detail: "APRIL 16TH-18TH",
       detail2: "2026",
     },
     {

@@ -261,10 +261,16 @@ const Pricing = () => {
                 </p>
                 <div className="space-y-2 mb-4">
                   <div className="flex gap-2 items-center">
+                    <div className="flex flex-col">
+
                     <span className="text-5xl font-bold text-[#40A700]">
                       ${pkg.price}
                     </span>
-                    <span className="text-sm">/person</span>
+                    <span className="text-sm  font-bold ">
+                        ₦{(Number(pkg.price) * 1500).toLocaleString()}
+                      </span>
+                    </div>
+                    <span className="text-sm text-center">/person</span>
                   </div>
                   <p className="text-sm font-semibold">{pkg.tag}</p>
                 </div>

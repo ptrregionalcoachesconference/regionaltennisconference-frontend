@@ -10,7 +10,7 @@ const Packages = () => {
       price: "350",
       items: [
         "Full Conference Access",
-        "Lunch $ refreshments",
+        "Lunch & refreshments",
         "Conference materials",
         "Networking Opportunities",
         "certificate of Attendance",
@@ -21,7 +21,6 @@ const Packages = () => {
       price: "495",
       items: [
         "Shared accommodation",
-        "Lunch $ refreshments",
         "Conference venue hotel",
         "Swimming Pool",
         "Free Parking Space",
@@ -44,15 +43,14 @@ const Packages = () => {
       ],
     },
     {
-      name: "Cijel Residence (3-Star) — Single Room",
-      price: "445",
+      name: "Cijel Residence — Single Room",
+      price: "475",
       items: [
         "Private accommodation",
         "Air Conditioned Rooms",
         "Breakfast included",
         "Free Wifi",
         "Free Parking Space",
-        "Lunch $ Refreshments",
       ],
     },
   ];
@@ -88,14 +86,19 @@ const Packages = () => {
                   >
                     {plan.name}
                   </h3>
-                  <div className="mb-8">
-                    <span
-                      className={`text-5xl font-black  "text-[#71E529]"
-                      `}
-                    >
-                      ${plan.price}
-                    </span>
-                    <span className={"text-muted-foreground"}>/person</span>
+                  <div className="mb-8 flex gap-2 items-center">
+                    <div className="flex flex-col">
+                      <span
+                        className={`text-5xl font-black  "text-[#71E529]"
+                        `}
+                      >
+                        ${plan.price}
+                      </span>
+                      <span className="text-sm  font-bold text-[#40A700]">
+                        ₦{(Number(plan.price) * 1500).toLocaleString()}
+                      </span>
+                    </div>
+                    <span className={"text-muted-foreground text-center "}>/person</span>
                   </div>
 
                   <ul className="space-y-4 mb-8">

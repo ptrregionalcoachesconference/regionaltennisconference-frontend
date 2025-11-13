@@ -81,52 +81,57 @@ const Page = () => {
           />
         ) : (
           <div className="py-20 px-4 md:px-8 lg:px-16">
-          <div className="grid lg:grid-cols-3 gap-10 mx-auto max-w-5xl  ">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.id}
-                className="p-8 bg-white text-black shadow-2xl scale-105 md:scale-110 rounded-2xl  min-h-[500px]"
-              >
-                <p className="text-sm md:text-base lg:text-md">{pkg.title}</p>
-                {/* <hr className="border-black" /> */}
-                <div className="mt-4 h-1 w-0 bg-green-800-to-r from-green-400 to-[#71E529] group-hover:w-full transition-all duration-500" />
-                <div className="mb-8 mt-5">
-                  <span
-                    className={`text-4xl font-black
-                         "text-[#71E529]"
-                      `}
-                  >
-                    ${pkg.price}
-                  </span>
-                  <span className={"text-muted-foreground"}>/person</span>
-                </div>
-
-                <ul className="space-y-4 mb-8">
-                  {Array.isArray(pkg.description) ? (
-                    pkg.description.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
-                          <span className="text-xs font-bold text-green-600 ">
-                            ✓
-                          </span>
-                        </div>
-                        <span>{item}</span>
-                      </li>
-                    ))
-                  ) : (
-                    <li>{pkg.description}</li>
-                  )}
-                </ul>
-
-                <Button
-                  className="w-full bg-[#71E529] hover:bg-green-600 text-white font-bold py-3 rounded-lg"
-                  onClick={() => handleSelect(pkg)}
+            <div className="grid lg:grid-cols-3 gap-10 mx-auto max-w-5xl  ">
+              {packages.map((pkg) => (
+                <div
+                  key={pkg.id}
+                  className="p-8 bg-white text-black shadow-2xl scale-105 md:scale-110 rounded-2xl  min-h-[500px]"
                 >
-                  Purchase Ticket
-                </Button>
-              </div>
-            ))}
-          </div>
+                  <p className="text-sm md:text-base lg:text-xl font-bold">{pkg.title}</p>
+                  {/* <hr className="border-black" /> */}
+                  <div className="mt-4 h-1 w-0 bg-green-800-to-r from-green-400 to-[#71E529] group-hover:w-full transition-all duration-500" />
+                  <div className="mb-8 mt-5 flex gap-2 items-center">
+                    <div className="flex flex-col">
+                      <span
+                        className={`text-4xl font-black
+                        "text-[#71E529]"
+                        `}
+                      >
+                        ${pkg.price}
+                      </span>
+                      <span className="text-sm  font-bold text-[#40A700]">
+                        ₦{(Number(pkg.price) * 1500).toLocaleString()}
+                      </span>
+                    </div>
+                    <span className={"text-muted-foreground text-center"}>/person</span>
+                  </div>
+
+                  <ul className="space-y-4 mb-8">
+                    {Array.isArray(pkg.description) ? (
+                      pkg.description.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                            <span className="text-xs font-bold text-green-600 ">
+                              ✓
+                            </span>
+                          </div>
+                          <span>{item}</span>
+                        </li>
+                      ))
+                    ) : (
+                      <li>{pkg.description}</li>
+                    )}
+                  </ul>
+
+                  <Button
+                    className="w-full bg-[#71E529] hover:bg-green-600 text-white font-bold py-3 rounded-lg"
+                    onClick={() => handleSelect(pkg)}
+                  >
+                    Purchase Ticket
+                  </Button>
+                </div>
+              ))}
+            </div>
           </div>
         )}
         {showModal && selectedPackage && (

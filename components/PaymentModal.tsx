@@ -86,16 +86,16 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
     }
   };
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="relative justify-center items-center backdrop-blur-6xl">
-        <div className="relative bg-white p-8 w-[90%] max-w-md shadow-2xl rounded-lg  box-content">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+      <div className="relative justify-center items-center backdrop-blur-6xl w-full max-w-md">
+        <div className="relative bg-white p-6 md:p-8 w-full shadow-2xl rounded-lg  box-content">
           <IoMdClose
             className="absolute top-5 right-4 cursor-pointer text-gray-500 hover:text-black"
             size={24}
             onClick={closeModal}
           />
           <div className="px-3 py-5">
-            <p className="text-sm md:text-base lg:text-lg w-full max-w-64 font-bold ">
+            <p className="text-sm md:text-base lg:text-lg w-full pr-8 font-bold ">
               Proceed with {pkg.title} Package
             </p>
             <p className="text-[#71E529] font-bold mt-3 mb-5 text-lg">
@@ -103,7 +103,7 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
             </p>
             {/* payment options */}
             <div className="space-y-3">
-              <Label className="text-sm text-red-500 font-semibold">
+              <Label className="text-xs md:text-sm text-red-500 font-semibold">
                 *Users outside Nigeria:
               </Label>
               <PaymentDollar />
@@ -119,7 +119,7 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
                   <p>I&apos;ve made Payment</p> <FaStripe />
                 </>
               </Button>
-              <Label className="text-sm text-red-500 font-semibold">
+              <Label className="text-xs md:text-sm text-red-500 font-semibold">
                 *Users in Nigeria:
               </Label>
               <Button
