@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+// import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { IoMdCheckmark } from "react-icons/io";
 import { Button } from "@/components/ui/button";
 import { IoMdMail } from "react-icons/io";
@@ -17,6 +18,7 @@ interface CheckoutProps {
 }
 
 const CheckOut = ({ isOpen, onClose }: CheckoutProps) => {
+  const router = useRouter();
   //   const [status, setStatus] = useState<"payment" | "confirmation">("payment");
 
   //   const handleConfirm = () => {
@@ -49,6 +51,12 @@ Thank you!`
     window.open(gmailUrl, "_blank");
   };
 
+  const handleProceedToPackages = () => {
+    localStorage.setItem("hasPaidRegFee", "true");
+    // onClose();
+    router.push("/selectpackage");
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
@@ -65,7 +73,8 @@ Thank you!`
           </h3>
           <p className="text-gray-600 mb-6">
             Thank you for your payment. To confirm your booking, please share
-            your payment receipt with us via mail.
+            your payment receipt with us via email, then proceed to view
+            packages.
           </p>
           <div className="space-y-3">
             <Button
@@ -82,12 +91,13 @@ Thank you!`
               ptrregionalcoachesconference@gmail.com
             </p>
           </div>
-          <Link
-            href="/selectpackage"
-            className="text-sm text-green-600 underline underline-offset-1 items-end "
+          <Button
+            onClick={handleProceedToPackages}
+            variant="outline"
+            className="w-full size='lg"
           >
-            Proceed to View Pacakges &gt;
-          </Link>
+           I&apos;ve sent receipt. Proceed to View Pacakges &gt;
+          </Button>
         </div>
         {/* )} */}
       </DialogContent>

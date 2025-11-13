@@ -30,7 +30,7 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
     onClose();
   };
 
-  const handlePayment = async (gateway: "stripe" | "paystack") => {
+  const handlePayment = async (gateway:"paystack") => {
     if (typeof window === "undefined") {
       toast.error("Payment can only be initiated in the browser.");
       return;

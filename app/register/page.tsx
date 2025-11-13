@@ -109,9 +109,10 @@ const Page = () => {
         router.push("/selectpackage");
       }
     } catch (error: unknown) {
+      console.log("Full error:", error);
       if (
         axios.isAxiosError(error) &&
-        error.response?.data?.message?.includes("User already exists")
+        error.response?.data?.message?.includes("Email already Registered")
       ) {
         const token = error.response?.data.token;
         const userId = error.response?.data.userId;
@@ -126,7 +127,18 @@ const Page = () => {
           autoClose: 2000,
         });
 
-        router.push("/selectpackage");
+        router.push("/selectpackage")
+
+       
+        // const manualSubmitted = localStorage.getItem("manualPaymentSubmitted");
+        // if (hasPaid === "true" || manualSubmitted === "true") {
+        //   router.push("/selectpackage");
+        // } else {
+        //   // If they haven't paid, show the RegFee modal
+        //   setShowRegFeeModal(true);
+        // }
+
+        // router.push("/selectpackage");
       } else {
         console.error(error);
         toast.update(toastId, {
