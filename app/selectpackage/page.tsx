@@ -75,10 +75,15 @@ const Page = () => {
           </div>
         </div>
         {loading ? (
-          <BiLoaderCircle
-            className="animate-spin text-gray-400 text-center justify-center"
-            size={32}
-          />
+          <section className="py-20 min-h-screen flex items-center justify-center">
+            <div className="text-center">
+              <BiLoaderCircle
+                className="animate-spin text-[#71E529] mx-auto "
+                size={32}
+              />
+              <p className="mt-4 text-lg text-gray-600">Loading packages...</p>
+            </div>
+          </section>
         ) : (
           <div className="py-20 px-4 md:px-8 lg:px-16">
             <div className="grid lg:grid-cols-3 gap-10 mx-auto max-w-5xl  ">
@@ -87,7 +92,9 @@ const Page = () => {
                   key={pkg.id}
                   className="p-8 bg-white text-black shadow-2xl scale-105 md:scale-110 rounded-2xl  min-h-[500px]"
                 >
-                  <p className="text-sm md:text-base lg:text-xl font-bold">{pkg.title}</p>
+                  <p className="text-sm md:text-base lg:text-xl font-bold">
+                    {pkg.title}
+                  </p>
                   {/* <hr className="border-black" /> */}
                   <div className="mt-4 h-1 w-0 bg-green-800-to-r from-green-400 to-[#71E529] group-hover:w-full transition-all duration-500" />
                   <div className="mb-8 mt-5 flex gap-2 items-center">
@@ -103,7 +110,9 @@ const Page = () => {
                         ₦{(Number(pkg.price) * 1500).toLocaleString()}
                       </span>
                     </div>
-                    <span className={"text-muted-foreground text-center"}>/person</span>
+                    <span className={"text-muted-foreground text-center"}>
+                      /person
+                    </span>
                   </div>
 
                   <ul className="space-y-4 mb-8">
