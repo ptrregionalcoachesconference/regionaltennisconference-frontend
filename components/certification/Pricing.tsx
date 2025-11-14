@@ -219,19 +219,19 @@ const Pricing = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <section className="py-20 min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <BiLoaderCircle
-            className="animate-spin text-[#71E529] mx-auto"
-            size={64}
-          />
-          <p className="mt-4 text-lg text-gray-600">Loading workshops...</p>
-        </div>
-      </section>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <section className="py-20 min-h-screen flex items-center justify-center">
+  //       <div className="text-center">
+  //         <BiLoaderCircle
+  //           className="animate-spin text-[#71E529] mx-auto"
+  //           size={64}
+  //         />
+  //         <p className="mt-4 text-lg text-gray-600">Loading workshops...</p>
+  //       </div>
+  //     </section>
+  //   );
+  // }
 
   if (error) {
     return <div className="text-red-500">{error}</div>;
@@ -248,6 +248,18 @@ const Pricing = () => {
           </p>
         </div>
 
+        {loading && (
+          <section className="py-20 min-h-screen flex items-center justify-center">
+            <div className="text-center">
+              <BiLoaderCircle
+                className="animate-spin text-[#71E529] mx-auto"
+                size={64}
+              />
+              <p className="mt-4 text-lg text-gray-600">Loading workshops...</p>
+            </div>
+          </section>
+        )}
+
         {/* prices */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {packages.map((pkg) => (
@@ -262,11 +274,10 @@ const Pricing = () => {
                 <div className="space-y-2 mb-4">
                   <div className="flex gap-2 items-center">
                     <div className="flex flex-col">
-
-                    <span className="text-5xl font-bold text-[#40A700]">
-                      ${pkg.price}
-                    </span>
-                    <span className="text-sm  font-bold ">
+                      <span className="text-5xl font-bold text-[#40A700]">
+                        ${pkg.price}
+                      </span>
+                      <span className="text-sm  font-bold ">
                         ₦{(Number(pkg.price) * 1500).toLocaleString()}
                       </span>
                     </div>
