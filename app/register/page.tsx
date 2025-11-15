@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 
 import {
@@ -39,6 +40,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import Hero from "@/components/register/Hero";
 import RegFee from "@/components/register/RegFee";
 import VerifyModal from "@/components/register/VerifyModal";
+import Modal from "@/components/home/Modal";
 interface RegisterFormData {
   first_name: string;
   last_name: string;
@@ -56,6 +58,10 @@ const Page = () => {
   const [showRegFeeModal, setShowRegFeeModal] = useState(false);
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [showVerifyModal, setShowVerifyModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const {
     register,
@@ -102,9 +108,9 @@ const Page = () => {
       console.log("Token:", res.data.token);
       console.log("hasPaidRegFee:", res.data.hasPaidRegFee);
       console.log("============================");
-          if (res.data?.token) {
-      localStorage.setItem("authToken", res.data.token);
-    }
+      if (res.data?.token) {
+        localStorage.setItem("authToken", res.data.token);
+      }
       if (userId)
         localStorage.setItem(
           "registerId",
@@ -119,7 +125,7 @@ const Page = () => {
       });
       reset();
 
-      setShowRegFeeModal(true)
+      setShowRegFeeModal(true);
       // console.log("About to route - hasPaidRegFee:", hasPaidRegFee);
 
       // const hasPaid = localStorage.getItem("hasPaidRegFee");
@@ -233,6 +239,7 @@ const Page = () => {
       placeholder: "Enter your contact address",
     },
   ];
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-br from-[#71E529]/10 to-[#40A700]/5 -z-10 " />
@@ -387,6 +394,7 @@ const Page = () => {
           </div>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onOpen={openModal} onClose={closeModal} />
     </div>
     // </div>
   );

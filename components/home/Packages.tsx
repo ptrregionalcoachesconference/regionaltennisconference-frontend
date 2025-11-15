@@ -68,7 +68,11 @@ const Packages = () => {
           </p>
 
           {showModal && (
-            <Modal isOpen={showModal} onClose={() => setShowModal(false)} />
+            <Modal
+              isOpen={showModal}
+              onOpen={() => setShowModal(true)}
+              onClose={() => setShowModal(false)}
+            />
           )}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  gap-8">
             {pricing.map((plan, index) => (
@@ -98,7 +102,9 @@ const Packages = () => {
                         ₦{(Number(plan.price) * 1500).toLocaleString()}
                       </span> */}
                     </div>
-                    <span className={"text-muted-foreground text-center "}>/person</span>
+                    <span className={"text-muted-foreground text-center "}>
+                      /person
+                    </span>
                   </div>
 
                   <ul className="space-y-4 mb-8">
