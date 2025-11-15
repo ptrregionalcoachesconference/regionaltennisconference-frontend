@@ -76,10 +76,10 @@ const RegFee = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="relative bg-white p-8 w-[90%] max-w-md shadow-2xl rounded-lg">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-6 py-8">
+      <div className="relative bg-white p-8 w-full max-w-md shadow-2xl max-h-[85vh] rounded-lg overflow-y-auto">
         <IoMdClose
-          className="absolute top-5 right-4 cursor-pointer text-gray-500 hover:text-black"
+          className="absolute top-5 right-4 cursor-pointer text-gray-500 hover:text-black z-10"
           size={24}
           onClick={onClose}
         />

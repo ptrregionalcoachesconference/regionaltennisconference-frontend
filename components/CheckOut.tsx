@@ -59,19 +59,19 @@ Thank you!`
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent>
+      <DialogContent className="sm:max-w-md max-w-[90%]">
         {/* {status === "confirmation" && ( */}
         <DialogHeader>
-          <DialogTitle>Payment Confirmation</DialogTitle>
+          <DialogTitle className="text-base md:text-lg">Payment Confirmation</DialogTitle>
         </DialogHeader>
-        <div className="text-center py-4">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex  items-center mx-auto justify-center mb-6">
-            <IoMdCheckmark className="h-10 w-10 text-green-600" />
+        <div className="text-center py-2">
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 rounded-full flex  items-center mx-auto justify-center mb-3">
+            <IoMdCheckmark className="h-8 w-8 md:h-10 md:w-10 text-green-600" />
           </div>
           <h3 className="text-2xl font-bold text-gray-900 mb-2">
             Payment Received
           </h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 mb-4 md:mb-6 text-sm md:text-base px-2">
             Thank you for your payment. To confirm your booking, please share
             your payment receipt with us via email, then proceed to view
             packages.
@@ -86,7 +86,7 @@ Thank you!`
               Share Receipt via Email
             </Button>
 
-            <p className="text-xs text-gray-500">
+            <p className="text-[10px] md:text-xs  text-gray-500 px-2">
               This will open your email app with a pre-filled message to
               ptrregionalcoachesconference@gmail.com
             </p>
@@ -94,9 +94,9 @@ Thank you!`
           <Button
             onClick={handleProceedToPackages}
             variant="outline"
-            className="w-full size='lg"
+            className="w-full" size="lg"
           >
-           I&apos;ve sent receipt. Proceed to View Pacakges &gt;
+           Proceed to View Pacakges &gt;
           </Button>
         </div>
         {/* )} */}

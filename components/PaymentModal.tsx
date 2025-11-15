@@ -1,5 +1,5 @@
 "use client";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -30,7 +30,7 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
     onClose();
   };
 
-  const handlePayment = async (gateway:"paystack") => {
+  const handlePayment = async (gateway: "paystack") => {
     if (typeof window === "undefined") {
       toast.error("Payment can only be initiated in the browser.");
       return;
@@ -86,15 +86,15 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
     }
   };
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="relative justify-center items-center backdrop-blur-6xl w-full max-w-md">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-6 py-8">
+      <div className="relative justify-center items-center backdrop-blur-6xl w-full max-w-md max-h-[85vh]">
         <div className="relative bg-white p-6 md:p-8 w-full shadow-2xl rounded-lg  box-content">
           <IoMdClose
             className="absolute top-5 right-4 cursor-pointer text-gray-500 hover:text-black"
             size={24}
             onClick={closeModal}
           />
-          <div className="px-3 py-5">
+          <div className="px-3 py-5 pt-12">
             <p className="text-sm md:text-base lg:text-lg w-full pr-8 font-bold ">
               Proceed with {pkg.title} Package
             </p>
@@ -102,15 +102,15 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
               Price: {pkg.price}
             </p>
             {/* payment options */}
-            <div className="space-y-3">
+            <div className="space-y-3 overflow-y-auto px-1  [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               <Label className="text-xs md:text-sm text-red-500 font-semibold">
                 *Users outside Nigeria:
               </Label>
               <PaymentDollar />
               <Button
+                size="sm"
                 // disabled={stripeLoading || stripeLoading}
-              onClick={() => {
-                 
+                onClick={() => {
                   setCheckoutOpened(true);
                 }}
                 className="w-full bg-[#635BFF] hover:bg-[#635BFF]/90 text-white  active:scale-95 transition-transform cursor-pointer"
@@ -123,9 +123,10 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
                 *Users in Nigeria:
               </Label>
               <Button
+                size="sm"
                 disabled={paystackLoading}
                 onClick={() => handlePayment("paystack")}
-               className="w-full bg-[#40A700] hover:bg-[#40A700]/90 text-white cursor-pointer"
+                className="w-full bg-[#40A700] hover:bg-[#40A700]/90 text-white cursor-pointer"
               >
                 {paystackLoading ? (
                   <>
@@ -141,11 +142,11 @@ const PaymentModal = ({ pkg, onClose }: PaymentModalProps) => {
             </div>
           </div>
         </div>
-        <CheckOut
-          isOpen={checkoutOpened}
-          onClose={() => setCheckoutOpened(false)}
-        />
       </div>
+      <CheckOut
+        isOpen={checkoutOpened}
+        onClose={() => setCheckoutOpened(false)}
+      />
     </div>
   );
 };

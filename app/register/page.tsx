@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+
 import {
   useForm,
   Controller,
@@ -37,6 +38,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 
 import Hero from "@/components/register/Hero";
 import RegFee from "@/components/register/RegFee";
+import VerifyModal from "@/components/register/VerifyModal";
 interface RegisterFormData {
   first_name: string;
   last_name: string;
@@ -53,6 +55,8 @@ const Page = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [showRegFeeModal, setShowRegFeeModal] = useState(false);
   const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [showVerifyModal, setShowVerifyModal] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -85,9 +89,22 @@ const Page = () => {
     try {
       const res = await axios.post(`${baseURL}/api/auth/register`, data);
       console.log(res.data);
-      const token = res.data.token;
+      // const { token, hasPaidRegFee } = res.data;
       const userId = res.data.user?._id || res.data.userId;
-      if (token) localStorage.setItem("authToken", res.data.token);
+      if (!res.data) {
+        console.error("❌ Empty response from backend");
+        throw new Error("Empty response from server");
+      }
+
+      console.log("=== REGISTRATION RESPONSE ===");
+      console.log("Full response:", res);
+      console.log("Response data:", res.data);
+      console.log("Token:", res.data.token);
+      console.log("hasPaidRegFee:", res.data.hasPaidRegFee);
+      console.log("============================");
+          if (res.data?.token) {
+      localStorage.setItem("authToken", res.data.token);
+    }
       if (userId)
         localStorage.setItem(
           "registerId",
@@ -102,12 +119,15 @@ const Page = () => {
       });
       reset();
 
-      const hasPaid = localStorage.getItem("hasPaidRegFee");
-      if (!hasPaid) {
-        setShowRegFeeModal(true);
-      } else {
-        router.push("/selectpackage");
-      }
+      setShowRegFeeModal(true)
+      // console.log("About to route - hasPaidRegFee:", hasPaidRegFee);
+
+      // const hasPaid = localStorage.getItem("hasPaidRegFee");
+      // if (hasPaidRegFee) {
+      //   router.push("/selectpackage");
+      // } else {
+      //   setShowRegFeeModal(true);
+      // }
     } catch (error: unknown) {
       console.log("Full error:", error);
       if (
@@ -127,9 +147,8 @@ const Page = () => {
           autoClose: 2000,
         });
 
-        router.push("/selectpackage")
+        router.push("/selectpackage");
 
-       
         // const manualSubmitted = localStorage.getItem("manualPaymentSubmitted");
         // if (hasPaid === "true" || manualSubmitted === "true") {
         //   router.push("/selectpackage");
@@ -230,10 +249,17 @@ const Page = () => {
             registrationFee={30}
           />
         )}
+
+        {showVerifyModal && (
+          <VerifyModal
+            isOpen={showVerifyModal}
+            onClose={() => setShowVerifyModal(false)}
+          />
+        )}
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start px-4 md:px-8 lg:px-12 py-6 sm:py-8 lg:py-12 ">
           {/* image side */}
 
-          <div className="relative w-full h-[250px] md:h-[350px] lg:h-[800px] rounded-2xl overflow-hidden">
+          <div className="relative w-full h-[250px] md:h-[350px] lg:h-[965px] rounded-2xl overflow-hidden">
             <Image
               src="/reg1.jpg"
               alt="register"
@@ -255,6 +281,19 @@ const Page = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
+                <div className="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                  <p className="text-sm text-gray-600 mb-2 text-center">
+                    Already registered?
+                  </p>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setShowVerifyModal(true)}
+                    className="w-full border-[#71E529] text-[#71E529] hover:bg-[#71E529] hover:text-white"
+                  >
+                    Continue with Email
+                  </Button>
+                </div>
                 <form
                   onSubmit={handleSubmit(onSubmit, onError)}
                   className="space-y-4"

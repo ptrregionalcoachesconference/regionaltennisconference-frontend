@@ -106,9 +106,9 @@ const Page = () => {
                       >
                         ${pkg.price}
                       </span>
-                      <span className="text-sm  font-bold text-[#40A700]">
+                      {/* <span className="text-sm  font-bold text-[#40A700]">
                         ₦{(Number(pkg.price) * 1500).toLocaleString()}
-                      </span>
+                      </span> */}
                     </div>
                     <span className={"text-muted-foreground text-center"}>
                       /person

@@ -94,9 +94,9 @@ const Packages = () => {
                       >
                         ${plan.price}
                       </span>
-                      <span className="text-sm  font-bold text-[#40A700]">
+                      {/* <span className="text-sm  font-bold text-[#40A700]">
                         ₦{(Number(plan.price) * 1500).toLocaleString()}
-                      </span>
+                      </span> */}
                     </div>
                     <span className={"text-muted-foreground text-center "}>/person</span>
                   </div>

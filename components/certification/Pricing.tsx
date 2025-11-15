@@ -292,7 +292,7 @@ const Pricing = () => {
                 {pkg.items?.map((item, i) => (
                   <div key={i} className="flex gap-2 items-center mb-6">
                     <IoMdCheckmarkCircleOutline className="w-5 h-5 flex-shrink-0 text-[#40A700]" />
-                    <span className="text-sm">{item}</span>
+                    <span className="text-sm capitalize">{item}</span>
                   </div>
                 ))}
 
