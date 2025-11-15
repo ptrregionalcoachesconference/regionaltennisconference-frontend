@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+// import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,7 @@ interface ModalProps {
 }
 
 const Modal = ({ isOpen, onClose, onOpen }: ModalProps) => {
+  // const pathname = usePathname()
   const payPlans = [
     {
       name: "Early Bird:",
@@ -23,6 +25,7 @@ const Modal = ({ isOpen, onClose, onOpen }: ModalProps) => {
       date: "Feb 16th 2026 - Mar 30th 2026",
     },
   ];
+  
   const hasRun = useRef(false);
 
   if (!hasRun.current) {

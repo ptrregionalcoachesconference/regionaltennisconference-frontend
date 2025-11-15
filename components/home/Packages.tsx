@@ -70,7 +70,7 @@ const Packages = () => {
           {showModal && (
             <Modal
               isOpen={showModal}
-              onOpen={() => setShowModal(true)}
+              onOpen={() => setShowModal(false)}
               onClose={() => setShowModal(false)}
             />
           )}
