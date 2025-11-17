@@ -9,17 +9,17 @@ const PaymentDollar = () => {
     {
       id: 1,
       name: "Bank Name",
-      detail: "Moniepoint",
+      detail: "GTB",
     },
     {
       id: 2,
       name: "Account Number",
-      detail: "5540501410",
+      detail: "0258350446",
     },
     {
       id: 3,
       name: "Account Name",
-      detail: "Sarah Ubiebi",
+      detail: "Abel Ubiebi",
     },
   ];
 
