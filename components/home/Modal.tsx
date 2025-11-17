@@ -17,7 +17,7 @@ const Modal = ({ isOpen, onClose, onOpen }: ModalProps) => {
     {
       name: "Early Bird:",
       price: "30",
-      date: "Nov 20th 2025 - Jan 31st 2025",
+      date: "Nov 20th 2025 - Jan 31st 2026",
     },
     {
       name: "Late Reg:",
