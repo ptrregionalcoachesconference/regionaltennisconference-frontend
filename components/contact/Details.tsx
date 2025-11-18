@@ -52,8 +52,12 @@ const Details = () => {
       icon: <FiUsers size={30} />,
       title: "Follow us",
       text: "Stay connected on social media",
-      content: "@ptr_artcc",
-      link: "https://www.instagram.com/ptr_artcc?igsh=cnRwdzd6bHBvZGNr ",
+      content: ["IG:ptr_artcc", "FB:ptr_artcc", "Tiktok:ptr_artcc"],
+      link: [
+        "https://www.instagram.com/ptr_artcc?igsh=cnRwdzd6bHBvZGNr",
+        "https://www.facebook.com/share/1CrbRy5v2e/?mibextid=wwXIfr",
+        "https://www.tiktok.com/@ptr_artcc?_r=1&_t=ZS-91EeDhrloIi",
+      ],
       color: "from-pink-500/10 to-pink-500/5",
     },
   ];
@@ -62,7 +66,9 @@ const Details = () => {
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center space-y-6 mb-16">
-          <h4 className="text-4xl md:text-5xl font-bold italic">Get in Touch</h4>
+          <h4 className="text-4xl md:text-5xl font-bold italic">
+            Get in Touch
+          </h4>
           <p className="text-gray-700 font-semibold text-lg">
             Reach out to us through any of these channels. We&apos;re here to
             help.
@@ -72,7 +78,6 @@ const Details = () => {
         {/* details */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {methods.map((method, index) => {
-           
             return (
               <div
                 key={index}
