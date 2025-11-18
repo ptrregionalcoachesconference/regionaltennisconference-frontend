@@ -5,7 +5,7 @@ import Image from "next/image";
 const hosts = () => {
   const hosts = [
     {
-      name: "Coach Abel Ubiebi: Convener",
+      name: "Abel Ubiebi: Convener",
       title: "Professional Tennis Coach & Consultant",
       bio: "Founder of Aces Tennis Academy with over 26 years in the tennis teaching profession. Recognized all over the world for his innovative teching method. Has produced multiple champions dispersed across globes",
       img: "/Aces.jpg",
@@ -18,7 +18,7 @@ const hosts = () => {
       ],
     },
     {
-      name: "Coach C.Spencer: Host",
+      name: "C.Spencer: Host",
       title: "Certified PTR & ITF Tennis Coach",
       bio: "Founder & Head Pro of C.Spencer Tennis Pro Concepts with over 5 years of teaching experience. Passionate about inspiring the next generation to build confidence, purpose, and excellence through tennis.",
       img: "/spenc.jpg",
