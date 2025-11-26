@@ -5,6 +5,17 @@ import Modal from "@/components/home/Modal";
 
 const Packages = () => {
   const pricing = [
+     {
+      name: "Conference Only-Existing PTR Members only",
+      price: "350",
+      items: [
+        "Full Conference Access",
+        "Lunch & refreshments",
+        "Conference materials",
+        "Networking Opportunities",
+        "certificate of Attendance",
+      ],
+    },
     {
       name: "Conference Only",
       price: "350",
