@@ -7,13 +7,13 @@ const Packages = () => {
   const pricing = [
      {
       name: "Conference Only-Existing PTR Members only",
-      price: "350",
+      price: "320",
       items: [
         "Full Conference Access",
         "Lunch & refreshments",
         "Conference materials",
         "Networking Opportunities",
-        "certificate of Attendance",
+        "Certificate of Attendance",
       ],
     },
     {
@@ -24,7 +24,7 @@ const Packages = () => {
         "Lunch & refreshments",
         "Conference materials",
         "Networking Opportunities",
-        "certificate of Attendance",
+        "Certificate of Attendance",
       ],
     },
     {
