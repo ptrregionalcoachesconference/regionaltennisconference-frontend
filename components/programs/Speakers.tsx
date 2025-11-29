@@ -35,9 +35,25 @@ const Speakers = () => {
       expertise: ["Youth Development", "Player Mentorship", "Tennis Coaching"],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
     },
-
     {
       id: 3,
+      name: "Novak Dario",
+      title: "Associate Professor and Sports Performance Coach",
+      image: "/novak.jpeg",
+      bio: "Fitness coach to top ATP, WTA, and ITF players.",
+      details:
+        "Novak Dario is an Associate Professor and Sports Performance Coach who has worked with elite tennis athletes including Stan Wawrinka (ATP), Elena Rybakina (WTA), Borna Ćorić (ATP), and others. He specializes in strength and conditioning, sports performance, and athlete recovery, applying a holistic, science-based approach to help professional players perform at the highest level.",
+      expertise: [
+        "Strength & Conditioning",
+        "Sports Performance",
+        "Athlete Recovery",
+      ],
+      sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+      undisclosed: true,
+    },
+
+    {
+      id: 4,
       name: "Benson Ishicheli",
       title: "Non-Playing Captain, Nigeria Davis Cup Team",
       image: "/Benson.jpg",
@@ -53,7 +69,7 @@ const Speakers = () => {
       undisclosed: true,
     },
     {
-      id: 4,
+      id: 5,
       name: "Coach Rotimi Akinloye",
       title: "Former Nigerian Tennis Director",
       image: "/Rotimi.jpg",
@@ -69,7 +85,7 @@ const Speakers = () => {
       undisclosed: true,
     },
     {
-      id: 5,
+      id: 6,
       name: "Shina Atilola",
       title: "Director, Premium Trust Bank",
       image: "/Shina.jpg",
@@ -81,7 +97,7 @@ const Speakers = () => {
       undisclosed: true,
     },
     {
-      id: 6,
+      id: 7,
       name: "Dr James Mitchell",
       title: "Co Director & Player Development Expert",
       image: "/Abel.jpg",

@@ -52,15 +52,22 @@ export default function Page() {
       title: "Founder & President, CATE",
       image: "/pfungwa.jpg",
     },
-    {
-      
+      {
       id: 3,
-      name: "Mr Shina Atilola",
-      title: "Director, Premium Trust Bank",
-      specialty: "Advanced Technique",
-      image: "/Shina.jpg",
-      undisclosed: true
+      name: "Novak Dario",
+      title: "Sports Performance Coach",
+      specialty: "Athlete Performance",
+      image: "/novak.jpeg",
     },
+    // {
+      
+    //   id: 4,
+    //   name: "Mr Shina Atilola",
+    //   title: "Director, Premium Trust Bank",
+    //   specialty: "Advanced Technique",
+    //   image: "/Shina.jpg",
+    //   undisclosed: true
+    // },
    
     {
       id: 4,
