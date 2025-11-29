@@ -49,7 +49,7 @@ const Speakers = () => {
         "Athlete Recovery",
       ],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-      undisclosed: true,
+      // undisclosed: true,
     },
 
     {
