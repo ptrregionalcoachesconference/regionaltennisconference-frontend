@@ -37,6 +37,7 @@ const Hero = () => {
       {/* hero content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center mt-5">
         <div className="mx-auto md:max-w-6xl max-w-4xl text-white">
+          <p className="text-lg font-bold">Theme: Shaping Tennis Teaching Methodology</p>
           <h1 className="lg:text-7xl md:text-5xl sm:text-4xl text-[1.75rem] leading-[1] sm:leading-tight md:leading-tight mb-4 sm:mb-5 md:mb-6 font-bold italic">
             AFRICAN REGIONAL TENNIS COACHES CONFERENCE{" "}
             <span className="text-[#53D900] ">2026</span>
@@ -46,7 +47,7 @@ const Hero = () => {
             by building strong foundations and creating pathways for the next
             generation of players to thrive and excel in the sport.
           </p>
-          <div className="space-x-3 mt-4">
+          <div className="space-x-3 mt-4 mb-2">
             {btnTexts.map((item, index) => (
               <Button
                 key={index}

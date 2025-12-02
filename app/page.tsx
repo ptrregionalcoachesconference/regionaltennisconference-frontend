@@ -75,7 +75,7 @@ export default function Page() {
       title: "Past Nigeria Tennis Director",
       specialty: "Advanced Technique",
       image: "/Rotimi.jpg",
-      undisclosed: true
+      undisclose: false
     },
   
   ];
@@ -174,15 +174,15 @@ export default function Page() {
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl">
                   <div className="relative overflow-hidden h-64 md:h-80">
                     <Image
-                      src={`${item.undisclosed ? "/Sil.jpg" : item.image}`}
+                      src={`${item.undisclose ? "/Sil.jpg" : item.image}`}
                       alt={item.name}
                       fill
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="p-6">
-                    <h3  className={`${item.undisclosed ? "text-red-500" : ""}`}>{`${item.undisclosed ? "Undisclosed" : item.name}`}</h3>
-                    <p className={`${item.undisclosed ? "text-red-500" : ""}`}>{`${item.undisclosed ? "Undisclosed" : item.title}`}</p>
+                    <h3  className={`${item.undisclose ? "text-red-500" : ""}`}>{`${item.undisclose ? "Undisclosed" : item.name}`}</h3>
+                    <p className={`${item.undisclose ? "text-red-500" : ""}`}>{`${item.undisclose ? "Undisclosed" : item.title}`}</p>
                   </div>
                 </div>
               </div>
