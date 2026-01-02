@@ -66,7 +66,7 @@ const Speakers = () => {
         "High Performance Coaching",
       ],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-      undisclosed: true,
+      // undisclosed: true,
     },
     {
       id: 5,
