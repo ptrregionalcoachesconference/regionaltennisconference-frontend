@@ -66,7 +66,7 @@ const Speakers = () => {
         "High Performance Coaching",
       ],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-      // undisclosed: true,
+      undisclosed: false,
     },
     {
       id: 5,
@@ -94,10 +94,57 @@ const Speakers = () => {
         "Shina Atilola is a seasoned business development and strategy expert with over 24 years of experience in top financial institutions. His background spans marketing, branding, and auditing, and he has been invited to speak at multiple industry events, sharing insights on growth, leadership, and corporate strategy.",
       expertise: ["Business Strategy", "Marketing", "Leadership"],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-      undisclosed: true,
+      undisclosed: false,
+    },
+     {
+      id: 7,
+      name: "Brian de Villiers",
+      title: "Co-Director, Van Der Meer Tennis Academy",
+      image: "/brian.jpeg",
+      bio: "Renowned high-performance tennis coach and Academy Co-Director at the Van Der Meer Tennis Academy with over 30 years of coaching experience.",
+      details:
+        "Brian de Villiers is a highly respected high-performance tennis coach and serves as Academy Co-Director at the Van Der Meer Tennis Academy in South Carolina. With more than three decades of coaching experience, he is widely recognized for his expertise in junior player development and technical instruction. He is best known for coaching American player Melanie Oudin from the age of 9 through her breakthrough run to the 2009 US Open quarterfinals and her 2011 US Open Mixed Doubles title. Throughout his career, he has developed and coached five WTA top 40 players and has worked with notable professionals including Luke and Murphy Jensen.",
+      expertise: ["High Performance Coaching",
+    "Junior Player Development",
+    "Technical Instruction"],
+      sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+      undisclosed: false,
     },
     {
-      id: 7,
+  id: 8,
+  name: "Abdul Idi",
+  title: "USPTA Elite Professional Tennis Coach",
+  image: "/abdul.jpeg",
+  bio: "Former Nigerian junior tennis champion and US-based tennis coach dedicated to player development and mentorship.",
+  details:
+    "Abdul Idi is a former Nigerian junior tennis champion who rose to prominence in the late 1980s, including winning the 1985 National Sports Festival. He later earned a tennis scholarship to Livingstone College in the United States, where he transitioned into coaching and mentoring young athletes. Now based in the US, he is a USPTA Elite Professional tennis coach known for developing structured programs that guide players from the developmental stage toward professional pathways. He also serves as a trusted mentor to Nigerian players seeking tennis scholarships in the United States, offering guidance on both academic excellence and athletic discipline.",
+  expertise: [
+    "Player Development Pathways",
+    "Scholarship Mentorship",
+    "High Performance Training",
+  ],
+  sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+},
+{
+  id: 9,
+  name: "Frank Termena",
+  title: "Head Coach, Nigeria Wheelchair Tennis Team",
+  image: "/frank.jpeg",
+  bio: "ITF-certified tennis coach and Head Coach of the Nigeria Wheelchair Tennis Team with extensive international experience.",
+  details:
+    "Frank Termena is the Head Coach of the Nigeria Wheelchair Tennis Team and an International Tennis Federation (ITF) certified coach. He has successfully led Team Nigeria through multiple international competitions, including appearances at the Paralympics. In addition to his national team responsibilities, he serves as an ITF Regional Development Instructor for West and Central Africa, playing a vital role in advancing wheelchair tennis development and coaching education across the region.",
+  expertise: [
+    "Wheelchair Tennis Coaching",
+    "High Performance Team Leadership",
+    "Coach Education & Development",
+  ],
+  sessions: [
+    "Wheelchair Tennis Development & Inclusion",
+    "High Performance Coaching in Adaptive Tennis",
+  ],
+},
+    {
+      id: 10,
       name: "Dr James Mitchell",
       title: "Co Director & Player Development Expert",
       image: "/Abel.jpg",
@@ -148,9 +195,9 @@ const Speakers = () => {
                   <Image
                     src={`${speaker.undisclosed ? "/Sil.jpg" : speaker.image}`}
                     alt={speaker.name}
-                    width={400}
-                    height={400}
-                    className={`w-full h-full object-cover transition-transform duration-500 ease-out ${
+                    width={500}
+                    height={500}
+                    className={`w-full h-full  object-cover object-top transition-transform duration-500 ease-out ${
                       isCardHovered(speaker.id, hoveredSpeaker)
                         ? "scale-110"
                         : "scale-100"
