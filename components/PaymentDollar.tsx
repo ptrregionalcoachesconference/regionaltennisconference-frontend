@@ -14,12 +14,12 @@ const PaymentDollar = () => {
     {
       id: 2,
       name: "Account Number",
-      detail: "0258350446",
+      detail: "3003070813",
     },
     {
       id: 3,
       name: "Account Name",
-      detail: "Abel Ubiebi",
+      detail: "PTR African Tennis Coaches Conference Hub",
     },
   ];
 
