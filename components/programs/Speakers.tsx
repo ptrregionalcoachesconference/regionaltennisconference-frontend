@@ -143,23 +143,23 @@ const Speakers = () => {
     "High Performance Coaching in Adaptive Tennis",
   ],
 },
-    {
-      id: 10,
-      name: "Dr James Mitchell",
-      title: "Co Director & Player Development Expert",
-      image: "/Abel.jpg",
-      bio: "With over 25 years of experience in professional tennis coaching, Dr. Mitchell has trained multiple Grand Slam champions.",
-      details:
-        "Dr Mitchell specializes in tactical analysis and player development. He has worked with national teams across Europe and Asia, implementing innovative training protocols that have resulted in a 40% improvement in player performance metrics. His research on biomechanics has been published in leading sports science journals.",
-      expertise: [
-        "Tactical Analysis",
-        "Player Development",
-        "Biomechanics",
-        "Sports Psychology",
-      ],
-      sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-      undisclosed: true,
-    },
+    // {
+    //   id: 10,
+    //   name: "Dr James Mitchell",
+    //   title: "Co Director & Player Development Expert",
+    //   image: "/Abel.jpg",
+    //   bio: "With over 25 years of experience in professional tennis coaching, Dr. Mitchell has trained multiple Grand Slam champions.",
+    //   details:
+    //     "Dr Mitchell specializes in tactical analysis and player development. He has worked with national teams across Europe and Asia, implementing innovative training protocols that have resulted in a 40% improvement in player performance metrics. His research on biomechanics has been published in leading sports science journals.",
+    //   expertise: [
+    //     "Tactical Analysis",
+    //     "Player Development",
+    //     "Biomechanics",
+    //     "Sports Psychology",
+    //   ],
+    //   sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+    //   undisclosed: true,
+    // },
   ];
   return (
     <div className="py-20" id="speakers">
