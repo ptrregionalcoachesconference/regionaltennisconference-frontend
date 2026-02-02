@@ -48,11 +48,11 @@ export default function Page() {
     // },
     {
       id: 1,
-      name: "Coach Pfungwa Mahefu",
+      name: "Pfungwa Mahefu",
       title: "Founder & President, CATE",
       specialty: "Advanced Technique",
       image: "/pfungwa.jpg",
-      undisclose: true,
+      undisclose: false,
     },
     //   {
     //   id: 3,
@@ -68,7 +68,7 @@ export default function Page() {
       title: "Director, Premium Trust Bank",
       specialty: "Advanced Technique",
       image: "/Shina.jpg",
-      undisclosed: true
+      undisclose: false
     },
    
     {
@@ -77,15 +77,15 @@ export default function Page() {
       title: "Past Nigeria Tennis Director",
       specialty: "Advanced Technique",
       image: "/Rotimi.jpg",
-      undisclose: true,
+      undisclose: false,
     },
     {
   id: 4,
   name: "Abdul Idi",
-  title: "USPTA Elite Professional Tennis Coach",
+  title: "USPTA Elite Tennis Coach",
   specialty: "Advanced Technique",
   image: "/abdul.jpeg",
-  undisclose: true,
+  undisclose: false,
     }
     // {
       
