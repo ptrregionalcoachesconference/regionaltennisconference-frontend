@@ -39,44 +39,61 @@ export default function Page() {
   ];
 
   const speakers = [
-     {
-      id: 1,
-      name: "Coach Carl Maes",
-      title: "PTR International Coaching Director",
-      specialty: "Advanced Technique",
-      image: "/Carl.jpg",
-    },
+    //  {
+    //   id: 1,
+    //   name: "Coach Carl Maes",
+    //   title: "PTR International Coaching Director",
+    //   specialty: "Advanced Technique",
+    //   image: "/Carl.jpg",
+    // },
     {
-      id: 2,
+      id: 1,
       name: "Coach Pfungwa Mahefu",
       title: "Founder & President, CATE",
+      specialty: "Advanced Technique",
       image: "/pfungwa.jpg",
+      undisclose: true,
     },
-      {
-      id: 3,
-      name: "Novak Dario",
-      title: "Sports Performance Coach",
-      specialty: "Athlete Performance",
-      image: "/novak.jpeg",
-    },
-    // {
-      
-    //   id: 4,
-    //   name: "Mr Shina Atilola",
-    //   title: "Director, Premium Trust Bank",
-    //   specialty: "Advanced Technique",
-    //   image: "/Shina.jpg",
-    //   undisclosed: true
+    //   {
+    //   id: 3,
+    //   name: "Novak Dario",
+    //   title: "Sports Performance Coach",
+    //   specialty: "Athlete Performance",
+    //   image: "/novak.jpeg",
     // },
+    // {
+      {
+      id: 2,
+      name: "Mr Shina Atilola",
+      title: "Director, Premium Trust Bank",
+      specialty: "Advanced Technique",
+      image: "/Shina.jpg",
+      undisclosed: true
+    },
    
     {
-      id: 4,
+      id: 3,
       name: "Rotimi Akinloye",
       title: "Past Nigeria Tennis Director",
       specialty: "Advanced Technique",
       image: "/Rotimi.jpg",
-      undisclose: false
+      undisclose: true,
     },
+    {
+  id: 4,
+  name: "Abdul Idi",
+  title: "USPTA Elite Professional Tennis Coach",
+  specialty: "Advanced Technique",
+  image: "/abdul.jpeg",
+  undisclose: true,
+    }
+    // {
+      
+    //   id: 3,
+    //   name: "Shina Atilola",
+    //   title: "Director, Premium Trust Bank",
+    //   image: "/Shina.jpg",
+    // }
   
   ];
   return (
