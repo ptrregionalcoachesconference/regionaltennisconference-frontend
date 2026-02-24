@@ -96,70 +96,71 @@ const Speakers = () => {
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
       undisclosed: false,
     },
-     {
+    {
       id: 5,
       name: "Brian de Villiers",
       title: "Co-Director, Van Der Meer Tennis Academy",
       image: "/brian.jpeg",
       bio: "Renowned high-performance tennis coach and Academy Co-Director at the Van Der Meer Tennis Academy with over 30 years of coaching experience.",
       details:
-        "Brian de Villiers is a highly respected high-performance tennis coach and serves as Academy Co-Director at the Van Der Meer Tennis Academy in South Carolina. With more than three decades of coaching experience, he is widely recognized for his expertise in junior player development and technical instruction. He is best known for coaching American player Melanie Oudin from the age of 9 through her breakthrough run to the 2009 US Open quarterfinals and her 2011 US Open Mixed Doubles title. Throughout his career, he has developed and coached five WTA top 40 players and has worked with notable professionals including Luke and Murphy Jensen.",
-      expertise: ["High Performance Coaching",
-    "Junior Player Development",
-    "Technical Instruction"],
+        "Brian de Villiers is a highly respected high-performance tennis coach and Co-Director at the Van Der Meer Tennis Academy in South Carolina. With over three decades of experience, he has developed five WTA top 40 players and is best known for coaching Melanie Oudin from age 9 through her breakthrough 2009 US Open quarterfinal run and her 2011 US Open Mixed Doubles title.",
+      expertise: [
+        "High Performance Coaching",
+        "Junior Player Development",
+        "Technical Instruction",
+      ],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
       undisclosed: false,
     },
     {
-  id: 6,
-  name: "Abdul Idi",
-  title: "USPTA Elite Professional Tennis Coach",
-  image: "/abdul.jpeg",
-  bio: "Former Nigerian junior tennis champion and US-based tennis coach dedicated to player development and mentorship.",
-  details:
-    "Abdul Idi is a former Nigerian junior tennis champion who rose to prominence in the late 1980s, including winning the 1985 National Sports Festival. He later earned a tennis scholarship to Livingstone College in the United States, where he transitioned into coaching and mentoring young athletes. Now based in the US, he is a USPTA Elite Professional tennis coach known for developing structured programs that guide players from the developmental stage toward professional pathways. He also serves as a trusted mentor to Nigerian players seeking tennis scholarships in the United States, offering guidance on both academic excellence and athletic discipline.",
-  expertise: [
-    "Player Development Pathways",
-    "Scholarship Mentorship",
-    "High Performance Training",
-  ],
-  sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-},
-{
-  id: 7,
-  name: "Frank Termena",
-  title: "Head Coach, Nigeria Wheelchair Tennis Team",
-  image: "/frank.jpeg",
-  bio: "ITF-certified tennis coach and Head Coach of the Nigeria Wheelchair Tennis Team with extensive international experience.",
-  details:
-    "Frank Termena is the Head Coach of the Nigeria Wheelchair Tennis Team and an International Tennis Federation (ITF) certified coach. He has successfully led Team Nigeria through multiple international competitions, including appearances at the Paralympics. In addition to his national team responsibilities, he serves as an ITF Regional Development Instructor for West and Central Africa, playing a vital role in advancing wheelchair tennis development and coaching education across the region.",
-  expertise: [
-    "Wheelchair Tennis Coaching",
-    "High Performance Team Leadership",
-    "Coach Education & Development",
-  ],
-  sessions: [
-    "Wheelchair Tennis Development & Inclusion",
-    "High Performance Coaching in Adaptive Tennis",
-  ],
-},
-    // {
-    //   id: 10,
-    //   name: "Dr James Mitchell",
-    //   title: "Co Director & Player Development Expert",
-    //   image: "/Abel.jpg",
-    //   bio: "With over 25 years of experience in professional tennis coaching, Dr. Mitchell has trained multiple Grand Slam champions.",
-    //   details:
-    //     "Dr Mitchell specializes in tactical analysis and player development. He has worked with national teams across Europe and Asia, implementing innovative training protocols that have resulted in a 40% improvement in player performance metrics. His research on biomechanics has been published in leading sports science journals.",
-    //   expertise: [
-    //     "Tactical Analysis",
-    //     "Player Development",
-    //     "Biomechanics",
-    //     "Sports Psychology",
-    //   ],
-    //   sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-    //   undisclosed: true,
-    // },
+      id: 6,
+      name: "Abdul Idi",
+      title: "USPTA Elite Professional Tennis Coach",
+      image: "/abdul.jpeg",
+      bio: "Former Nigerian junior tennis champion and US-based tennis coach dedicated to player development and mentorship.",
+      details:
+        "Abdul Idi is a former Nigerian junior tennis champion and 1985 National Sports Festival winner who earned a tennis scholarship to Livingstone College in the US. Now a USPTA Elite Professional coach, he develops player pathways and mentors Nigerian athletes seeking tennis scholarships in America.",
+      expertise: [
+        "Player Development Pathways",
+        "Scholarship Mentorship",
+        "High Performance Training",
+      ],
+      sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+    },
+    {
+      id: 7,
+      name: "Frank Termena",
+      title: "Head Coach, Nigeria Wheelchair Tennis Team",
+      image: "/frank.jpeg",
+      bio: "ITF-certified tennis coach and Head Coach of the Nigeria Wheelchair Tennis Team with extensive international experience.",
+      details:
+        "Frank Termena is the Head Coach of the Nigeria Wheelchair Tennis Team and an ITF certified coach. He has led Team Nigeria through multiple international competitions including Paralympic appearances, and serves as an ITF Regional Development Instructor for West and Central Africa, advancing wheelchair tennis and coaching education across the region.",
+      expertise: [
+        "Wheelchair Tennis Coaching",
+        "High Performance Team Leadership",
+        "Coach Education & Development",
+      ],
+      sessions: [
+        "Wheelchair Tennis Development & Inclusion",
+        "High Performance Coaching in Adaptive Tennis",
+      ],
+    },
+    {
+      id: 8,
+      name: "Mark Tennant",
+      title: "Director and Owner, Coach Central",
+      image: "/mark.jpeg",
+      bio: "UK-based LTA Level 5 coach, educator, and mentor with extensive experience in global tennis coach development.",
+      details:
+         "Mark Tennant is the Director and Owner of Coach Central and a certified LTA Level 5 coach, Coach Education Tutor and Assessor. He has worked with the LTA and ITF, playing a key role in launching the ITF Tennis Play and Stay global campaign, and has spoken at ITF Worldwide Coaches Workshops and Regional Conferences.",
+      expertise: [
+        "Coach Education & Tutoring",
+        "Transformational Coaching",
+        "ITF Play and Stay Methodology",
+      ],
+      sessions: [],
+      undisclosed: false,
+    },
   ];
   return (
     <div className="py-20" id="speakers">
@@ -185,7 +186,7 @@ const Speakers = () => {
                 }`}
                 onClick={() =>
                   setExpandedSpeaker(
-                    expandedSpeaker === speaker.id ? null : speaker.id
+                    expandedSpeaker === speaker.id ? null : speaker.id,
                   )
                 }
                 onMouseEnter={() => setHoveredSpeaker(speaker.id)}
@@ -255,7 +256,7 @@ const Speakers = () => {
                       className="bg-transparent border-gray-300 inline-flex items-center gap-2 text-black font-semibold text-sm hover:text-[#40A700] hover:bg-transparent transition-colors duration-300 cursor-pointer"
                       onClick={() =>
                         setExpandedSpeaker(
-                          expandedSpeaker === speaker.id ? null : speaker.id
+                          expandedSpeaker === speaker.id ? null : speaker.id,
                         )
                       }
                     >
