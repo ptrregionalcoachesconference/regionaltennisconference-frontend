@@ -39,13 +39,6 @@ export default function Page() {
   ];
 
   const speakers = [
-    //  {
-    //   id: 1,
-    //   name: "Coach Carl Maes",
-    //   title: "PTR International Coaching Director",
-    //   specialty: "Advanced Technique",
-    //   image: "/Carl.jpg",
-    // },
     {
       id: 1,
       name: "Pfungwa Mahefu",
@@ -54,29 +47,22 @@ export default function Page() {
       image: "/pfungwa.jpg",
       undisclose: false,
     },
-    //   {
-    //   id: 3,
-    //   name: "Novak Dario",
-    //   title: "Sports Performance Coach",
-    //   specialty: "Athlete Performance",
-    //   image: "/novak.jpeg",
-    // },
-    // {
+    
       {
       id: 2,
-      name: "Mr Shina Atilola",
-      title: "Director, Premium Trust Bank",
+      name: "Brian de Villiers",
+      title: "Co-Director, Tennis Academy",
       specialty: "Advanced Technique",
-      image: "/Shina.jpg",
+      image: "/brian.jpeg",
       undisclose: false
     },
    
     {
       id: 3,
-      name: "Rotimi Akinloye",
-      title: "Past Nigeria Tennis Director",
+      name: "Mark Tennant",
+      title: "Director, Coach Central",
       specialty: "Advanced Technique",
-      image: "/Rotimi.jpg",
+      image: "/mark.jpeg",
       undisclose: false,
     },
     {

@@ -8,22 +8,7 @@ const Speakers = () => {
   const isCardHovered = (speakerId: number, hoveredId: number | null) =>
     hoveredId === speakerId;
   const speakers = [
-    // {
-    //   id: 1,
-    //   name: "Carl Maes",
-    //   title: "PTR International Coaching Director",
-    //   image: "/Carl.jpg",
-    //   bio: "Carl Maes is a globally respected Belgian tennis coach and performance director, known for coaching multiple top-100 players including former World No.1 Kim Clijsters.",
-    //   details:
-    //     "Carl Maes is a globally recognized coach and performance director. He coached former World No.1 Kim Clijsters for over ten years and has worked with top players including Johanna Konta, Bianca Andreescu, Elise Mertens, Laura Robson, and Casper Ruud. With a master's in Sports Science, he is known as 'Mr. Stats' for his analytical, data-driven coaching approach.",
-
-    //   expertise: [
-    //     "High-Performance Coaching",
-    //     "Player Development",
-    //     "Sports Science & Kinesiology",
-    //   ],
-    //   sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-    // },
+    
     {
       id: 1,
       name: "Pfungwa Mahefu",
@@ -35,25 +20,56 @@ const Speakers = () => {
       expertise: ["Youth Development", "Player Mentorship", "Tennis Coaching"],
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
     },
-    // {
-    //   id: 3,
-    //   name: "Novak Dario",
-    //   title: "Associate Professor and Sports Performance Coach",
-    //   image: "/novak.jpeg",
-    //   bio: "Fitness coach to top ATP, WTA, and ITF players.",
-    //   details:
-    //     "Novak Dario is an Associate Professor and Sports Performance Coach who has worked with elite tennis athletes including Stan Wawrinka (ATP), Elena Rybakina (WTA), Borna Ćorić (ATP), and others. He specializes in strength and conditioning, sports performance, and athlete recovery, applying a holistic, science-based approach to help professional players perform at the highest level.",
-    //   expertise: [
-    //     "Strength & Conditioning",
-    //     "Sports Performance",
-    //     "Athlete Recovery",
-    //   ],
-    //   sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-    //   // undisclosed: true,
-    // },
-
-    {
+     {
       id: 2,
+      name: "Brian de Villiers",
+      title: "Co-Director, Van Der Meer Tennis Academy",
+      image: "/brian.jpeg",
+      bio: "Renowned high-performance tennis coach and Academy Co-Director at the Van Der Meer Tennis Academy with over 30 years of coaching experience.",
+      details:
+        "Brian de Villiers is a highly respected high-performance tennis coach and Co-Director at the Van Der Meer Tennis Academy in South Carolina. With over three decades of experience, he has developed five WTA top 40 players and is best known for coaching Melanie Oudin from age 9 through her breakthrough 2009 US Open quarterfinal run and her 2011 US Open Mixed Doubles title.",
+      expertise: [
+        "High Performance Coaching",
+        "Junior Player Development",
+        "Technical Instruction",
+      ],
+      sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+      undisclosed: false,
+    },
+  {
+      id: 3,
+      name: "Mark Tennant",
+      title: "Director and Owner, Coach Central",
+      image: "/mark.jpeg",
+      bio: "UK-based LTA Level 5 coach, educator, and mentor with extensive experience in global tennis coach development.",
+      details:
+         "Mark Tennant is the Director and Owner of Coach Central and a certified LTA Level 5 coach, Coach Education Tutor and Assessor. He has worked with the LTA and ITF, playing a key role in launching the ITF Tennis Play and Stay global campaign, and has spoken at ITF Worldwide Coaches Workshops and Regional Conferences.",
+      expertise: [
+        "Coach Education & Tutoring",
+        "Transformational Coaching",
+        "ITF Play and Stay Methodology",
+      ],
+      sessions: [],
+      undisclosed: false,
+    },
+    
+    {
+      id: 4,
+      name: "Abdul Idi",
+      title: "USPTA Elite Professional Tennis Coach",
+      image: "/abdul.jpeg",
+      bio: "Former Nigerian junior tennis champion and US-based tennis coach dedicated to player development and mentorship.",
+      details:
+        "Abdul Idi is a former Nigerian junior tennis champion and 1985 National Sports Festival winner who earned a tennis scholarship to Livingstone College in the US. Now a USPTA Elite Professional coach, he develops player pathways and mentors Nigerian athletes seeking tennis scholarships in America.",
+      expertise: [
+        "Player Development Pathways",
+        "Scholarship Mentorship",
+        "High Performance Training",
+      ],
+      sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
+    },
+    {
+      id: 5,
       name: "Benson Ishicheli",
       title: "Non-Playing Captain, Nigeria Davis Cup Team",
       image: "/Benson.jpg",
@@ -69,7 +85,7 @@ const Speakers = () => {
       undisclosed: false,
     },
     {
-      id: 3,
+      id: 6,
       name: "Coach Rotimi Akinloye",
       title: "Former Nigerian Tennis Director",
       image: "/Rotimi.jpg",
@@ -85,7 +101,7 @@ const Speakers = () => {
       // undisclosed: true,
     },
     {
-      id: 4,
+      id: 7,
       name: "Shina Atilola",
       title: "Director, Premium Trust Bank",
       image: "/Shina.jpg",
@@ -96,39 +112,9 @@ const Speakers = () => {
       sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
       undisclosed: false,
     },
+   
     {
-      id: 5,
-      name: "Brian de Villiers",
-      title: "Co-Director, Van Der Meer Tennis Academy",
-      image: "/brian.jpeg",
-      bio: "Renowned high-performance tennis coach and Academy Co-Director at the Van Der Meer Tennis Academy with over 30 years of coaching experience.",
-      details:
-        "Brian de Villiers is a highly respected high-performance tennis coach and Co-Director at the Van Der Meer Tennis Academy in South Carolina. With over three decades of experience, he has developed five WTA top 40 players and is best known for coaching Melanie Oudin from age 9 through her breakthrough 2009 US Open quarterfinal run and her 2011 US Open Mixed Doubles title.",
-      expertise: [
-        "High Performance Coaching",
-        "Junior Player Development",
-        "Technical Instruction",
-      ],
-      sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-      undisclosed: false,
-    },
-    {
-      id: 6,
-      name: "Abdul Idi",
-      title: "USPTA Elite Professional Tennis Coach",
-      image: "/abdul.jpeg",
-      bio: "Former Nigerian junior tennis champion and US-based tennis coach dedicated to player development and mentorship.",
-      details:
-        "Abdul Idi is a former Nigerian junior tennis champion and 1985 National Sports Festival winner who earned a tennis scholarship to Livingstone College in the US. Now a USPTA Elite Professional coach, he develops player pathways and mentors Nigerian athletes seeking tennis scholarships in America.",
-      expertise: [
-        "Player Development Pathways",
-        "Scholarship Mentorship",
-        "High Performance Training",
-      ],
-      sessions: ["Opening Keynote", "Advanced Coaching Techniques Workshop"],
-    },
-    {
-      id: 7,
+      id: 8,
       name: "Frank Termena",
       title: "Head Coach, Nigeria Wheelchair Tennis Team",
       image: "/frank.jpeg",
@@ -145,22 +131,7 @@ const Speakers = () => {
         "High Performance Coaching in Adaptive Tennis",
       ],
     },
-    {
-      id: 8,
-      name: "Mark Tennant",
-      title: "Director and Owner, Coach Central",
-      image: "/mark.jpeg",
-      bio: "UK-based LTA Level 5 coach, educator, and mentor with extensive experience in global tennis coach development.",
-      details:
-         "Mark Tennant is the Director and Owner of Coach Central and a certified LTA Level 5 coach, Coach Education Tutor and Assessor. He has worked with the LTA and ITF, playing a key role in launching the ITF Tennis Play and Stay global campaign, and has spoken at ITF Worldwide Coaches Workshops and Regional Conferences.",
-      expertise: [
-        "Coach Education & Tutoring",
-        "Transformational Coaching",
-        "ITF Play and Stay Methodology",
-      ],
-      sessions: [],
-      undisclosed: false,
-    },
+  
   ];
   return (
     <div className="py-20" id="speakers">
