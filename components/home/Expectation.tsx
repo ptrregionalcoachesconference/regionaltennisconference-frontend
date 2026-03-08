@@ -6,6 +6,7 @@ import { PiCertificate } from "react-icons/pi";
 import { BiNetworkChart } from "react-icons/bi";
 import { PiSuitcaseSimpleLight, PiRadioBold } from "react-icons/pi";
 import { FaAward } from "react-icons/fa";
+import { GoDotFill } from "react-icons/go";
 
 const Expectation = () => {
   const expectation = [
@@ -57,6 +58,16 @@ const Expectation = () => {
         "Celebrate excellence in tennis coaching with special awards.",
     },
   ];
+  const sponsors = [
+    "Valerie Carberry",
+    "Dominic Osedumme",
+    "Twasko Foundation",
+    "Nurudeen Isa",
+    "Spenzdy Foundation",
+    "Ubale Mohammed",
+    "Julius Adeleke",
+    "Francisca Odeh",
+  ];
   return (
     <div>
       <section className="w-full py-20 relative overflow-hidden">
@@ -65,31 +76,38 @@ const Expectation = () => {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Stats Row */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16">
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">
+          <h1 className="text-center text-2xl md:text-3xl mb-8">SPONSORS</h1>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16 md:mb-20">
+            {sponsors.map((sponsor, index) => (
+              <div
+                key={index}
+                className="flex space-x-2 md:space-x-3 items-center justify-center text-center"
+              >
+                <span>
+                  <GoDotFill className="w-4 h-4 text-[#71E529]" />
+                </span>
+                <p className="font-bold text-lg">{sponsor}</p>
+              </div>
+            ))}
+
+            {/* <div className="text-center"> */}
+            {/* <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">
                 60+
               </div>
-              <div className="text-gray-600">Coaches</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">
+              <div className="text-gray-600">Coaches</div> */}
+            {/* </div> */}
+            {/* <div className="text-center"> */}
+            {/* <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">
                 12+
               </div>
-              <div className="text-gray-600">Sessions</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">
+              <div className="text-gray-600">Sessions</div> */}
+            {/* </div> */}
+            {/* <div className="text-center"> */}
+            {/* <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">
                 3
               </div>
-              <div className="text-gray-600">Days</div>
-            </div>
-            {/* <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-[#40A700] mb-2">
-                10+
-              </div>
-              <div className="text-gray-600">Countries</div>
-            </div> */}
+              <div className="text-gray-600">Days</div> */}
+            {/* </div> */}
           </div>
 
           {/* Title */}

@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link"
+import Link from "next/link";
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
 import Expectation from "@/components/home/Expectation";
@@ -47,16 +47,16 @@ export default function Page() {
       image: "/pfungwa.jpg",
       undisclose: false,
     },
-    
-      {
+
+    {
       id: 2,
       name: "Brian de Villiers",
       title: "Co-Director, Tennis Academy",
       specialty: "Advanced Technique",
       image: "/brian.jpeg",
-      undisclose: false
+      undisclose: false,
     },
-   
+
     {
       id: 3,
       name: "Mark Tennant",
@@ -66,21 +66,20 @@ export default function Page() {
       undisclose: false,
     },
     {
-  id: 4,
-  name: "Abdul Idi",
-  title: "USPTA Elite Tennis Coach",
-  specialty: "Advanced Technique",
-  image: "/abdul.jpeg",
-  undisclose: false,
-    }
+      id: 4,
+      name: "Abdul Idi",
+      title: "USPTA Elite Tennis Coach",
+      specialty: "Advanced Technique",
+      image: "/abdul.jpeg",
+      undisclose: false,
+    },
     // {
-      
+
     //   id: 3,
     //   name: "Shina Atilola",
     //   title: "Director, Premium Trust Bank",
     //   image: "/Shina.jpg",
     // }
-  
   ];
   return (
     <div className="min-h-screen ">
@@ -184,8 +183,12 @@ export default function Page() {
                     />
                   </div>
                   <div className="p-6">
-                    <h3  className={`${item.undisclose ? "text-red-500" : ""}`}>{`${item.undisclose ? "Undisclosed" : item.name}`}</h3>
-                    <p className={`${item.undisclose ? "text-red-500" : ""}`}>{`${item.undisclose ? "Undisclosed" : item.title}`}</p>
+                    <h3
+                      className={`${item.undisclose ? "text-red-500" : ""}`}
+                    >{`${item.undisclose ? "Undisclosed" : item.name}`}</h3>
+                    <p
+                      className={`${item.undisclose ? "text-red-500" : ""}`}
+                    >{`${item.undisclose ? "Undisclosed" : item.title}`}</p>
                   </div>
                 </div>
               </div>
@@ -193,9 +196,9 @@ export default function Page() {
           </div>
           <div className="text-center">
             <Link href="/program#speakers">
-            <Button className="bg-[#40A700] hover:bg-[#357A00] text-white px-8 py-3 font-bold">
-              VIEW MORE SPEAKERS
-            </Button>
+              <Button className="bg-[#40A700] hover:bg-[#357A00] text-white px-8 py-3 font-bold">
+                VIEW MORE SPEAKERS
+              </Button>
             </Link>
           </div>
           {/* </div> */}
