@@ -77,7 +77,7 @@ const Expectation = () => {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Stats Row */}
-          <h1 className="text-center text-2xl md:text-3xl mb-8">DONORS</h1>
+          <h1 className="text-center text-2xl md:text-3xl mb-8 italic">DONORS</h1>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16 md:mb-20">
             {sponsors.map((sponsor, index) => (
               <div
