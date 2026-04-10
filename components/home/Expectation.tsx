@@ -67,7 +67,10 @@ const Expectation = () => {
     "Ubale Mohammed",
     "Julius Adeleke",
     "Anonymous",
-    "Candy Idoko"
+    "Candy Idoko",
+    "Giovanni Mello Grand",
+    "Ibrahim Balogun"
+    
   ];
   return (
     <div>
