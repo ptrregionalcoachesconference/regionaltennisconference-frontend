@@ -38,7 +38,7 @@ const Details = () => {
       icon: <HiOutlineLocationMarker size={30} />,
       title: "Venue Location",
       text: "Where the magic happens",
-      content: "Nicon Luxury Hotel, Abuja, Nigeria",
+      content: " Police Officers Mess / Denis Hotel (Tennis Court), Garki, Abuja, Nigeria.",
       color: "from-amber-500/10 to-amber-500/5",
     },
     {
