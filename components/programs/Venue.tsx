@@ -22,11 +22,11 @@ const Venue = () => {
           <div>
             <div className="space-y-6">
               <div className="border border-gray-500 bg-gray-300 p-6 rounded-xl">
-                <h3 className="mb-3">Nicon Luxury Hotel, Abuja, Nigeria</h3>
+                <h3 className="mb-3">Location: To be Communicated.</h3>
                 <p className="font-bold mb-2">
                   Phone:{" "}
                   <span className="font-light text-sm">
-                    +234 806 343 0037 / +1 (312) 493 7113
+                    +234 802 320 0196 / +234 802 054 4201 /+1 (312) 493 7113
                   </span>
                 </p>
                 <p className="font-bold">
@@ -37,7 +37,7 @@ const Venue = () => {
                 </p>
               </div>
               {/* facilities */}
-              <div className="space-y-4">
+              {/* <div className="space-y-4">
                 <h3>Venue Facilities</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
@@ -52,7 +52,7 @@ const Venue = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* <div>

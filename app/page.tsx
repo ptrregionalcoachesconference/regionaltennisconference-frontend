@@ -9,7 +9,7 @@ import { Space_Grotesk } from "next/font/google";
 import Image from "next/image";
 import { FaCalendarDays } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
-import { MdGroups2 } from "react-icons/md";
+// import { MdGroups2 } from "react-icons/md";
 
 import { Button } from "@/components/ui/button";
 
@@ -23,19 +23,19 @@ export default function Page() {
   const details = [
     {
       icon: <FaCalendarDays />,
-      detail: "APRIL 16TH-18TH",
-      detail2: "2026",
+      detail: "APRIL",
+      detail2: "2027",
     },
     {
       icon: <FaLocationDot />,
-      detail: "ABUJA",
+      detail: "LAGOS",
       detail2: "NIGERIA",
     },
-    {
-      icon: <MdGroups2 />,
-      detail: "6+",
-      detail2: "SPEAKERS",
-    },
+    // {
+    //   icon: <MdGroups2 />,
+    //   detail: "6+",
+    //   detail2: "SPEAKERS",
+    // },
   ];
 
   const speakers = [
@@ -123,7 +123,7 @@ export default function Page() {
       <section className=" relative py-12 bottom-0 md:bottom-8 lg:bottom-10  w-full ">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl shadow-2xl py-6 md:py-12  md:px-12 -mt-20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-center justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 text-center justify-center">
               {details.map((item, index) => (
                 <div
                   key={index}
@@ -161,7 +161,7 @@ export default function Page() {
       <section className="bg-gray-100 w-full px-4 md:px-8 py-16 md:py-20">
         <div className="max-w-6xl mx-auto ">
           <h1 className="text-3xl md:text-5xl font-black mb-4 text-balance italic text-center md:text-left">
-            MEET OUR SPEAKERS
+            MEET OUR SPEAKERS 2026
           </h1>
           <p className="text-base md:text-lg mb-12 max-w-2xl text-center md:text-left">
             {" "}

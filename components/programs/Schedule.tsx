@@ -259,7 +259,7 @@ const Schedule = () => {
       <div className="mx-auto max-w-7xl">
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-3xl md:text-5xl text-black italic">
-            3-Day Conference Schedule
+            3-Day Conference Schedule 2026
           </h1>
           <p className="text-base sm:text-sm md:text-lg">
             Select a day to view the detailed timetable

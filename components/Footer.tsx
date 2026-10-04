@@ -28,7 +28,7 @@ const Footer = () => {
       path: "https://wa.me/8063430037",
     },
     {
-      name: "Location: Abuja, Nigeria",
+      name: "Location: Lagos, Nigeria",
     },
   ];
   const socialMedia = [

@@ -138,7 +138,7 @@ const Speakers = () => {
       <div className="px-6 mx-auto max-w-7xl">
         <div className="text-center space-y-6">
           <h1 className="text-3xl md:text-5xl text-black italic">
-            Featured Speakers
+            Featured Speakers 2026
           </h1>
           <p className="text-base sm:text-sm md:text-lg">
             Discover our world-class speakers and their expertise
