@@ -10,6 +10,7 @@ import Image from "next/image";
 import { FaCalendarDays } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 // import { MdGroups2 } from "react-icons/md";
+import AnticipateModal from "@/components/home/AnticipateModal"
 
 import { Button } from "@/components/ui/button";
 
@@ -119,6 +120,7 @@ export default function Page() {
       </div>
 
       {/* <Background></Background> */}
+      <AnticipateModal />
 
       <section className=" relative py-12 bottom-0 md:bottom-8 lg:bottom-10  w-full ">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -156,6 +158,9 @@ export default function Page() {
 
       {/* what to expect */}
       <Expectation />
+
+      {/* packages */}
+      <Packages />
 
       {/* speakers */}
       <section className="bg-gray-100 w-full px-4 md:px-8 py-16 md:py-20">
@@ -206,7 +211,7 @@ export default function Page() {
       </section>
 
       {/* payment plans */}
-      <Packages />
+      {/* <Packages /> */}
 
       {/* sponsors */}
       <div></div>

@@ -1,3 +1,47 @@
+import Link from "next/link";
+import Hero from "@/components/register/Hero";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const Page = () => {
+  return (
+    <div className="min-h-screen w-full overflow-x-hidden relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#71E529]/10 to-[#40A700]/5 -z-10" />
+      <Hero />
+
+      <div className="w-full flex items-center justify-center px-4 md:px-8 py-16 md:py-24">
+        <Card className="w-full max-w-xl text-center">
+          <CardContent className="py-12 px-6 sm:px-10 space-y-5">
+            <h2 className="text-2xl sm:text-3xl font-semibold">
+              Registration is coming soon
+            </h2>
+            <p className="text-gray-600 text-base">
+              We&apos;re getting things ready. Registration will open shortly,
+              so check back in a little while.
+            </p>
+            <Button
+              asChild
+              className="bg-[#40A700] hover:bg-[#71E529] hover:text-black"
+            >
+              <Link href="/">Back to home</Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default Page;
+
+/* ============================================================================
+   ORIGINAL REGISTRATION PAGE (commented out until launch)
+
+   To restore: delete the "Coming Soon" component above, then uncomment
+   everything below (including the "use client" line, which must be the very
+   first line of the file).
+   ============================================================================
+
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -246,7 +290,6 @@ const Page = () => {
       <Hero />
 
       <ToastContainer position="top-right" autoClose={5000} />
-      {/* two column */}
       <div className="w-full ">
         {showRegFeeModal && userEmail && (
           <RegFee
@@ -264,7 +307,6 @@ const Page = () => {
           />
         )}
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start px-4 md:px-8 lg:px-12 py-6 sm:py-8 lg:py-12 ">
-          {/* image side */}
 
           <div className="relative w-full h-[250px] md:h-[350px] lg:h-[965px] rounded-2xl overflow-hidden">
             <Image
@@ -276,7 +318,7 @@ const Page = () => {
               className=" object-cover"
             />
           </div>
-          {/* input */}
+
           <div className="order-2 ">
             <Card>
               <CardHeader>
@@ -396,47 +438,8 @@ const Page = () => {
       </div>
       <Modal isOpen={isModalOpen} onOpen={openModal} onClose={closeModal} />
     </div>
-    // </div>
   );
 };
 export default Page;
 
-//  if (res.data.token) {
-//         console.log("Received Token:", res.data.token);
-//         localStorage.setItem("token", res.data.token);
-//         toast.update(toastId, {
-//           render: "Registration Successful",
-//           type: "success",
-//           isLoading: false,
-//           autoClose: 2000,
-//         });
-//         setTimeout(() => {
-//           router.push("/selectpackage");
-//         }, 2000);
-//       } else {
-//         console.log("No token received in response.");
-//         toast.update(toastId, {
-//           render: "Registration failed",
-//           type: "error",
-//           isLoading: false,
-//           autoClose: 5000,
-//         });
-//         setLoading(false);
-//       }
-
-//       if (res.status === 200 && typeof res.data === "string") {
-//         console.log("Server Message:", res.data);
-//         toast.success("Registration successful!");
-//         router.push("/selectpackage");
-//         reset();
-//         return;
-//       }
-
-//       if (res.status === 201 && res.data.user?.id) {
-//         localStorage.setItem("registerId", res.data.user.id);
-//         console.log("Registration successful:", res.data);
-//         toast.success("Registration successful!");
-//         router.push("/selectpackage");
-//         reset();
-//       } else {
-//         toast.error("Registration failed. Please try again.");
+============================================================================ */

@@ -1,83 +1,97 @@
 "use client";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import Modal from "@/components/home/Modal";
+// import { useState } from "react";
+// import { Button } from "@/components/ui/button";
+// import Modal from "@/components/home/Modal";
 
 const Packages = () => {
-  const pricing = [
-     {
-      name: "Conference Only-Existing PTR Members only",
-      price: "320",
-      items: [
-        "Full Conference Access",
-        "Lunch & refreshments",
-        "Conference materials",
-        "Networking Opportunities",
-        "Certificate of Attendance",
-      ],
-    },
-    {
-      name: "Conference Only",
-      price: "350",
-      items: [
-        "Full Conference Access",
-        "Lunch & refreshments",
-        "Conference materials",
-        "Networking Opportunities",
-        "Certificate of Attendance",
-      ],
-    },
-    {
-      name: "Nicon Luxury Hotel (5-Star) — Shared Room",
-      price: "495",
-      items: [
-        "Shared accommodation",
-        "Conference venue hotel",
-        "Swimming Pool",
-        "Free Parking Space",
-        "Free Wifi",
-        "Free Breakfast",
-        "Gym access",
-      ],
-    },
-    {
-      name: "Nicon Luxury Hotel (5-Star) — Single Room",
-      price: "560",
-      items: [
-        "Private accommodation",
-        "Conference venue hotel",
-        "Breakfast included",
-        "Swimming Pool",
-        "Free Parking Space",
-        "Free Wifi",
-        "Gym access",
-      ],
-    },
-    {
-      name: "Cijel Residence — Single Room",
-      price: "475",
-      items: [
-        "Private accommodation",
-        "Air Conditioned Rooms",
-        "Breakfast included",
-        "Free Wifi",
-        "Free Parking Space",
-      ],
-    },
-  ];
+  // const pricing = [
+  //    {
+  //     name: "Conference Only-Existing PTR Members only",
+  //     price: "320",
+  //     items: [
+  //       "Full Conference Access",
+  //       "Lunch & refreshments",
+  //       "Conference materials",
+  //       "Networking Opportunities",
+  //       "Certificate of Attendance",
+  //     ],
+  //   },
+  //   {
+  //     name: "Conference Only",
+  //     price: "350",
+  //     items: [
+  //       "Full Conference Access",
+  //       "Lunch & refreshments",
+  //       "Conference materials",
+  //       "Networking Opportunities",
+  //       "Certificate of Attendance",
+  //     ],
+  //   },
+  //   {
+  //     name: "Nicon Luxury Hotel (5-Star) — Shared Room",
+  //     price: "495",
+  //     items: [
+  //       "Shared accommodation",
+  //       "Conference venue hotel",
+  //       "Swimming Pool",
+  //       "Free Parking Space",
+  //       "Free Wifi",
+  //       "Free Breakfast",
+  //       "Gym access",
+  //     ],
+  //   },
+  //   {
+  //     name: "Nicon Luxury Hotel (5-Star) — Single Room",
+  //     price: "560",
+  //     items: [
+  //       "Private accommodation",
+  //       "Conference venue hotel",
+  //       "Breakfast included",
+  //       "Swimming Pool",
+  //       "Free Parking Space",
+  //       "Free Wifi",
+  //       "Gym access",
+  //     ],
+  //   },
+  //   {
+  //     name: "Cijel Residence — Single Room",
+  //     price: "475",
+  //     items: [
+  //       "Private accommodation",
+  //       "Air Conditioned Rooms",
+  //       "Breakfast included",
+  //       "Free Wifi",
+  //       "Free Parking Space",
+  //     ],
+  //   },
+  // ];
 
-  const [showModal, setShowModal] = useState<boolean>(false);
+  // const [showModal, setShowModal] = useState<boolean>(false);
+
   return (
     <div>
-      <div className="py-16 md:py-20 px-4 md:px-8 ">
-        <div className="max-w-6xl mx-auto ">
+      <div className="py-16 md:py-20 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl md:text-5xl italic font-bold">
             PAYMENT PLANS
           </h1>
-          <p className="text-gray-600 text-base md:text-lg mb-12 ax-w-2xl">
-            Choose the perfect package for your conference experience.
-          </p>
 
+          {/* ===== COMING SOON MESSAGE ===== */}
+          <div className="mt-10 rounded-2xl border border-[#71E529]/40 bg-[#71E529]/10 p-10 md:p-16 text-center">
+            <span className="inline-block mb-4 px-4 py-1 rounded-full bg-[#71E529]/30 text-sm font-semibold uppercase tracking-wide">
+              Coming Soon
+            </span>
+            <h2 className="text-2xl md:text-4xl italic font-bold mb-4">
+              2027 Packages &amp; Pricing
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
+              We&apos;re putting the finishing touches on the 2027 conference
+              packages. Pricing and registration details will be announced
+              shortly. Stay tuned!
+            </p>
+          </div>
+
+          {/* ===== ORIGINAL PRICING SECTION (restore when 2027 pricing is ready) =====
           {showModal && (
             <Modal
               isOpen={showModal}
@@ -85,7 +99,7 @@ const Packages = () => {
               onClose={() => setShowModal(false)}
             />
           )}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {pricing.map((plan, index) => (
               <div
                 key={index}
@@ -109,9 +123,6 @@ const Packages = () => {
                       >
                         ${plan.price}
                       </span>
-                      {/* <span className="text-sm  font-bold text-[#40A700]">
-                        ₦{(Number(plan.price) * 1500).toLocaleString()}
-                      </span> */}
                     </div>
                     <span className={"text-muted-foreground text-center "}>
                       /person
@@ -136,18 +147,17 @@ const Packages = () => {
                       </li>
                     ))}
                   </ul>
-                  {/* <Link href="/register"> */}
                   <Button
                     className={`w-full py-3 rounded-lg font-bold transition ${"bg-[#71E529] text-white hover:bg-green-700"}`}
                     onClick={() => setShowModal(true)}
                   >
                     Register & Pay
                   </Button>
-                  {/* </Link> */}
                 </div>
               </div>
             ))}
           </div>
+          ===== END ORIGINAL PRICING SECTION ===== */}
         </div>
       </div>
     </div>

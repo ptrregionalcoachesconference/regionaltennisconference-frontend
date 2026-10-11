@@ -1,7 +1,7 @@
 "use client";
 import { Space_Grotesk } from "next/font/google";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+// import Link from "next/link";
+// import { Button } from "@/components/ui/button";
 // import Sponsors from "@/components/Sponsors"
 
 const spaceGrotesk = Space_Grotesk({
@@ -11,16 +11,16 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const Hero = () => {
-  const btnTexts = [
-    {
-      name: "REGISTER",
-      link: "/register",
-    },
-    {
-      name: "LEARN MORE",
-      link: "/about",
-    },
-  ];
+  // const btnTexts = [
+  //   {
+  //     name: "REGISTER",
+  //     link: "/register",
+  //   },
+  //   {
+  //     name: "LEARN MORE",
+  //     link: "/about",
+  //   },
+  // ];
 
   return (
     <section className=" relative  min-h-[500px] md:min-h-[600px]  bg-cover bg-center tranition-all duration-500 ease-in-out overflow-hidden">
@@ -37,7 +37,7 @@ const Hero = () => {
       {/* hero content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center mt-5">
         <div className="mx-auto md:max-w-6xl max-w-4xl text-white">
-          <p className="text-lg font-bold">Anticipate: Coming Soon</p>
+          {/* <p className="text-lg font-bold">Anticipate: Coming Soon</p> */}
           <h1 className="lg:text-7xl md:text-5xl sm:text-4xl text-[1.75rem] leading-[1] sm:leading-tight md:leading-tight mb-4 sm:mb-5 md:mb-6 font-bold italic">
             AFRICAN REGIONAL TENNIS COACHES CONFERENCE{" "}
             <span className="text-[#53D900] ">2027</span>
@@ -47,7 +47,7 @@ const Hero = () => {
             by building strong foundations and creating pathways for the next
             generation of players to thrive and excel in the sport.
           </p>
-          <div className="space-x-3 mt-4 mb-2">
+          {/* <div className="space-x-3 mt-4 mb-2">
             {btnTexts.map((item, index) => (
               <Button
                 key={index}
@@ -60,7 +60,7 @@ const Hero = () => {
                 <Link href={item.link}>{item.name}</Link>
               </Button>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

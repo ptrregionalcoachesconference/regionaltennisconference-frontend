@@ -24,8 +24,8 @@ const Footer = () => {
       path: "mailto:ptrregionaltenniscoachesconference@gmail.com",
     },
     {
-      name: "Phone:+234 806 343 0037, +1(312) 493-7113 ",
-      path: "https://wa.me/8063430037",
+      name: "Phone:+234 802 320 0196, +1(312) 493-7113 ",
+      path: "https://wa.me/8023200196",
     },
     {
       name: "Location: Lagos, Nigeria",

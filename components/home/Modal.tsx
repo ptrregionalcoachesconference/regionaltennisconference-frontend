@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 // import { usePathname } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 import { Button } from "@/components/ui/button";
 
@@ -13,19 +13,20 @@ interface ModalProps {
 
 const Modal = ({ isOpen, onClose, onOpen }: ModalProps) => {
   // const pathname = usePathname()
-  const payPlans = [
-    {
-      name: "Early Bird:",
-      price: "30",
-      date: "Nov 20th 2025 - Jan 31st 2026",
-    },
-    {
-      name: "Late Reg:",
-      price: "50",
-      date: "Feb 16th 2026 - Mar 30th 2026",
-    },
-  ];
-  
+
+  // const payPlans = [
+  //   {
+  //     name: "Early Bird:",
+  //     price: "30",
+  //     date: "Nov 20th 2025 - Jan 31st 2026",
+  //   },
+  //   {
+  //     name: "Late Reg:",
+  //     price: "50",
+  //     date: "Feb 16th 2026 - Mar 30th 2026",
+  //   },
+  // ];
+
   const hasRun = useRef(false);
 
   if (!hasRun.current) {
@@ -39,11 +40,30 @@ const Modal = ({ isOpen, onClose, onOpen }: ModalProps) => {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="relative bg-white p-8 w-[90%] max-w-md shadow-2xl shadow-[#40A700]/50 hover:shadow-[#71E529]/50 rounded-lg">
         <IoMdClose
-          className="absolute tp-5 right-4 cursor-pointer text-gray-500 hover:text-black"
+          className="absolute top-5 right-4 cursor-pointer text-gray-500 hover:text-black"
           size={24}
           onClick={onClose}
         />
-        <div className="px-3 py-5 flex flex-col justify-center items-center ">
+        <div className="px-3 py-5 flex flex-col justify-center items-center text-center">
+          {/* ===== COMING SOON MESSAGE ===== */}
+          <span className="mb-3 px-4 py-1 rounded-full bg-[#71E529]/30 text-sm font-semibold uppercase tracking-wide">
+            Coming Soon
+          </span>
+          <h3 className="text-lg font-bold">2027 REGISTRATION FEE</h3>
+          <p className="mt-3 mb-5 text-lg text-gray-600">
+            Registration fees and payment details for the 2027 conference will
+            be announced shortly. Stay tuned!
+          </p>
+          <div>
+            <Button
+              className="bg-[#40A700] hover:bg-[#40A700]/80 transition-all cursor-pointer"
+              onClick={onClose}
+            >
+              Close
+            </Button>
+          </div>
+
+          {/* ===== ORIGINAL CONTENT (restore when 2027 registration opens) =====
           <p className="text-red-500 text-2xl font-bold ">Notice!!!</p>
           <h3 className="text-lg">REGISTRATION FEE</h3>
           <p className="mt-3 mb-5 text-lg justify-center items-center flex flex-col">
@@ -70,6 +90,7 @@ const Modal = ({ isOpen, onClose, onOpen }: ModalProps) => {
               </Button>
             </Link>
           </div>
+          ===== END ORIGINAL CONTENT ===== */}
         </div>
       </div>
     </div>

@@ -17,18 +17,18 @@ const hosts = () => {
         "Cardio Tennis"
       ],
     },
-    {
-      name: "C.Spencer: Host",
-      title: "Certified PTR & ITF Tennis Coach",
-      bio: "Founder & Head Pro of C.Spencer Tennis Pro Concepts with over 5 years of teaching experience. Passionate about inspiring the next generation to build confidence, purpose, and excellence through tennis.",
-      img: "/spenc.jpg",
-      specialties: [
-        "Youth Player Development",
-        "Confidence-Building Coaching",
-        "Tennis Fundamentals",
-        "Competitive player development"
-      ],
-    },
+    // {
+    //   name: "C.Spencer: Host",
+    //   title: "Certified PTR & ITF Tennis Coach",
+    //   bio: "Founder & Head Pro of C.Spencer Tennis Pro Concepts with over 5 years of teaching experience. Passionate about inspiring the next generation to build confidence, purpose, and excellence through tennis.",
+    //   img: "/spenc.jpg",
+    //   specialties: [
+    //     "Youth Player Development",
+    //     "Confidence-Building Coaching",
+    //     "Tennis Fundamentals",
+    //     "Competitive player development"
+    //   ],
+    // },
   ];
   return (
     <section className="py-20 px-6">
@@ -39,9 +39,10 @@ const hosts = () => {
             Leading experts shaping the future of tennis coaching
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="flex flex-wrap justify-center gap-12">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-12"> */}
           {hosts.map((host, index) => (
-            <div key={index} className="group">
+            <div key={index} className="group w-full md:w-[calc(50%-1.5rem)] max-w-md">
               <div className="relative overflow-hidden rounded-xl mb-6 h-96">
                 <Image
                   src={host.img}
