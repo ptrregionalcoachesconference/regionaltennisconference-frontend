@@ -37,6 +37,10 @@ const Navbar = () => {
       ],
     },
     {
+      name: "Archive",
+      path: "/archive",
+    },
+    {
       name: "Contact",
       path: "/contact",
     },
@@ -95,7 +99,7 @@ const Navbar = () => {
         {/* desktop navigation */}
         <ul className="hidden md:flex space-x-8 items-center">
           {links.map((link, index) => {
-            const isActive: boolean = pathname === link.path;
+            const isActive: boolean = link.path === "/" ? pathname === "/": pathname.startsWith(link.path);
             const textColor =
               isScrolled || !isHome ? "text-black" : "text-white";
 

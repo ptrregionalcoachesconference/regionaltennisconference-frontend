@@ -1,35 +1,14 @@
-"use client";
 import React from "react";
-import Image from "next/image";
+import { upcomingEdition } from "@/data/editions";
+import OrganizerGrid from "@/components/archive/OrganizerGrid";
 
-const hosts = () => {
-  const hosts = [
-    {
-      name: "Abel Ubiebi: Convener",
-      title: "Professional Tennis Coach & Consultant",
-      bio: "Founder of Aces Tennis Academy with over 26 years in the tennis teaching profession. Recognized all over the world for his innovative teching method. Has produced multiple champions dispersed across globes",
-      img: "/Aces.jpg",
-      specialties: [
-        "Player Development",
-        "Tactical Analysis",
-        "Sports Psychology",
-        "Fitness & Conditioning",
-        "Cardio Tennis"
-      ],
-    },
-    // {
-    //   name: "C.Spencer: Host",
-    //   title: "Certified PTR & ITF Tennis Coach",
-    //   bio: "Founder & Head Pro of C.Spencer Tennis Pro Concepts with over 5 years of teaching experience. Passionate about inspiring the next generation to build confidence, purpose, and excellence through tennis.",
-    //   img: "/spenc.jpg",
-    //   specialties: [
-    //     "Youth Player Development",
-    //     "Confidence-Building Coaching",
-    //     "Tennis Fundamentals",
-    //     "Competitive player development"
-    //   ],
-    // },
-  ];
+// "Meet the Organizers" on the About page.
+// The people now come from data/editions.ts (the upcoming edition),
+// so you never edit this file to change organizers.
+const Host = () => {
+  const organizers = upcomingEdition?.organizers ?? [];
+  if (organizers.length === 0) return null;
+
   return (
     <section className="py-20 px-6">
       <div className="mx-auto max-w-6xl">
@@ -39,40 +18,10 @@ const hosts = () => {
             Leading experts shaping the future of tennis coaching
           </p>
         </div>
-        <div className="flex flex-wrap justify-center gap-12">
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-12"> */}
-          {hosts.map((host, index) => (
-            <div key={index} className="group w-full md:w-[calc(50%-1.5rem)] max-w-md">
-              <div className="relative overflow-hidden rounded-xl mb-6 h-96">
-                <Image
-                  src={host.img}
-                  alt={host.name}
-                  fill
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
-              </div>
-              <div className="space-y-3">
-                <h3 className="italic">{host.name}</h3>
-                <p>{host.title}</p>
-                <p>{host.bio}</p>
-                <div>
-                  {host.specialties.map((specialty, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-[#71E529]/20 rounded-full text-sm font-medium"
-                    >
-                      {specialty}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <OrganizerGrid organizers={organizers} />
       </div>
     </section>
   );
 };
 
-export default hosts;
+export default Host;

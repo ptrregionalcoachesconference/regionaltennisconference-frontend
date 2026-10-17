@@ -5,7 +5,7 @@ import About from "@/components/home/About";
 import Expectation from "@/components/home/Expectation";
 import Packages from "@/components/home/Packages";
 import { Space_Grotesk } from "next/font/google";
-
+import { getEdition } from "@/data/editions";
 import Image from "next/image";
 import { FaCalendarDays } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
@@ -38,50 +38,50 @@ export default function Page() {
     //   detail2: "SPEAKERS",
     // },
   ];
+const speakers = (getEdition(2026)?.speakers ?? []).slice(0, 4);
+  // const speakers = [
+  //   {
+  //     id: 1,
+  //     name: "Pfungwa Mahefu",
+  //     title: "Founder & President, CATE",
+  //     specialty: "Advanced Technique",
+  //     image: "/pfungwa.jpg",
+  //     undisclose: false,
+  //   },
 
-  const speakers = [
-    {
-      id: 1,
-      name: "Pfungwa Mahefu",
-      title: "Founder & President, CATE",
-      specialty: "Advanced Technique",
-      image: "/pfungwa.jpg",
-      undisclose: false,
-    },
+  //   {
+  //     id: 2,
+  //     name: "Brian de Villiers",
+  //     title: "Co-Director, Tennis Academy",
+  //     specialty: "Advanced Technique",
+  //     image: "/brian.jpeg",
+  //     undisclose: false,
+  //   },
 
-    {
-      id: 2,
-      name: "Brian de Villiers",
-      title: "Co-Director, Tennis Academy",
-      specialty: "Advanced Technique",
-      image: "/brian.jpeg",
-      undisclose: false,
-    },
+  //   {
+  //     id: 3,
+  //     name: "Mark Tennant",
+  //     title: "Director, Coach Central",
+  //     specialty: "Advanced Technique",
+  //     image: "/mark.jpeg",
+  //     undisclose: false,
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Abdul Idi",
+  //     title: "USPTA Elite Tennis Coach",
+  //     specialty: "Advanced Technique",
+  //     image: "/abdul.jpeg",
+  //     undisclose: false,
+  //   },
+  //   // {
 
-    {
-      id: 3,
-      name: "Mark Tennant",
-      title: "Director, Coach Central",
-      specialty: "Advanced Technique",
-      image: "/mark.jpeg",
-      undisclose: false,
-    },
-    {
-      id: 4,
-      name: "Abdul Idi",
-      title: "USPTA Elite Tennis Coach",
-      specialty: "Advanced Technique",
-      image: "/abdul.jpeg",
-      undisclose: false,
-    },
-    // {
-
-    //   id: 3,
-    //   name: "Shina Atilola",
-    //   title: "Director, Premium Trust Bank",
-    //   image: "/Shina.jpg",
-    // }
-  ];
+  //   //   id: 3,
+  //   //   name: "Shina Atilola",
+  //   //   title: "Director, Premium Trust Bank",
+  //   //   image: "/Shina.jpg",
+  //   // }
+  // ];
   return (
     <div className="min-h-screen ">
       <Hero />
@@ -177,11 +177,11 @@ export default function Page() {
           {/* <div className="relative"> */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {speakers.map((item) => (
-              <div key={item.id}>
+              <div key={item.name}>
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl">
                   <div className="relative overflow-hidden h-64 md:h-80">
                     <Image
-                      src={`${item.undisclose ? "/Sil.jpg" : item.image}`}
+                      src={item.image}
                       alt={item.name}
                       fill
                       className="w-full h-full object-cover"
@@ -189,11 +189,11 @@ export default function Page() {
                   </div>
                   <div className="p-6">
                     <h3
-                      className={`${item.undisclose ? "text-red-500" : ""}`}
-                    >{`${item.undisclose ? "Undisclosed" : item.name}`}</h3>
+                      // className={`${item.undisclose ? "text-red-500" : ""}`}
+                    >{item.name}</h3>
                     <p
-                      className={`${item.undisclose ? "text-red-500" : ""}`}
-                    >{`${item.undisclose ? "Undisclosed" : item.title}`}</p>
+                      // className={`${item.undisclose ? "text-red-500" : ""}`}
+                    >{item.role}</p>
                   </div>
                 </div>
               </div>
